@@ -1,0 +1,1462 @@
+[
+  {
+    "id": "source.directory.src",
+    "kind": "directory",
+    "pattern": "src",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "source.directory.lib",
+    "kind": "directory",
+    "pattern": "lib",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "source.directory.app",
+    "kind": "directory",
+    "pattern": "app",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "source.directory.pkg",
+    "kind": "directory",
+    "pattern": "pkg",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "source.directory.internal",
+    "kind": "directory",
+    "pattern": "internal",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "source.directory.cmd",
+    "kind": "directory",
+    "pattern": "cmd",
+    "role": "source",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.test",
+    "kind": "directory",
+    "pattern": "test",
+    "role": "test",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.tests",
+    "kind": "directory",
+    "pattern": "tests",
+    "role": "test",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.spec",
+    "kind": "directory",
+    "pattern": "spec",
+    "role": "test",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.__tests__",
+    "kind": "directory",
+    "pattern": "__tests__",
+    "role": "test",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.t",
+    "kind": "directory",
+    "pattern": "t",
+    "role": "test",
+    "source": "brief"
+  },
+  {
+    "id": "legal.directory-fold.license",
+    "kind": "directory-fold",
+    "pattern": "license",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.directory-fold.licenses",
+    "kind": "directory-fold",
+    "pattern": "licenses",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.directory-fold.licence",
+    "kind": "directory-fold",
+    "pattern": "licence",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.directory-fold.licences",
+    "kind": "directory-fold",
+    "pattern": "licences",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.licenses",
+    "kind": "prefix-fold",
+    "pattern": "licenses",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.license",
+    "kind": "prefix-fold",
+    "pattern": "license",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.licences",
+    "kind": "prefix-fold",
+    "pattern": "licences",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.licence",
+    "kind": "prefix-fold",
+    "pattern": "licence",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.copying",
+    "kind": "prefix-fold",
+    "pattern": "copying",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.mit-license",
+    "kind": "prefix-fold",
+    "pattern": "mit-license",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.copyright",
+    "kind": "prefix-fold",
+    "pattern": "copyright",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.unlicense",
+    "kind": "prefix-fold",
+    "pattern": "unlicense",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "license"
+  },
+  {
+    "id": "legal.prefix-fold.notices",
+    "kind": "prefix-fold",
+    "pattern": "notices",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "notice"
+  },
+  {
+    "id": "legal.prefix-fold.notice",
+    "kind": "prefix-fold",
+    "pattern": "notice",
+    "role": "legal",
+    "source": "licenses",
+    "subtype": "notice"
+  },
+  {
+    "id": "fixture.directory.fixtures",
+    "kind": "directory",
+    "pattern": "fixtures",
+    "role": "fixture",
+    "source": "brief"
+  },
+  {
+    "id": "fixture.directory.stubs",
+    "kind": "directory",
+    "pattern": "stubs",
+    "role": "fixture",
+    "source": "brief"
+  },
+  {
+    "id": "fixture.directory.mocks",
+    "kind": "directory",
+    "pattern": "mocks",
+    "role": "fixture",
+    "source": "brief"
+  },
+  {
+    "id": "test.directory.testdata",
+    "kind": "directory",
+    "pattern": "testdata",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "go"
+  },
+  {
+    "id": "fixture.directory.testdata",
+    "kind": "directory",
+    "pattern": "testdata",
+    "role": "fixture",
+    "source": "roles",
+    "ecosystem": "go"
+  },
+  {
+    "id": "example.directory.examples",
+    "kind": "directory",
+    "pattern": "examples",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "example.directory.example",
+    "kind": "directory",
+    "pattern": "example",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "example.directory.samples",
+    "kind": "directory",
+    "pattern": "samples",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "example.directory.sample",
+    "kind": "directory",
+    "pattern": "sample",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "example.directory.demo",
+    "kind": "directory",
+    "pattern": "demo",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "example.directory.demos",
+    "kind": "directory",
+    "pattern": "demos",
+    "role": "example",
+    "source": "brief"
+  },
+  {
+    "id": "documentation.directory.docs",
+    "kind": "directory",
+    "pattern": "docs",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.directory.doc",
+    "kind": "directory",
+    "pattern": "doc",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.directory.documentation",
+    "kind": "directory",
+    "pattern": "documentation",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.directory.Documentation",
+    "kind": "directory",
+    "pattern": "Documentation",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "benchmark.directory.bench",
+    "kind": "directory",
+    "pattern": "bench",
+    "role": "benchmark",
+    "source": "roles"
+  },
+  {
+    "id": "benchmark.directory.benches",
+    "kind": "directory",
+    "pattern": "benches",
+    "role": "benchmark",
+    "source": "roles"
+  },
+  {
+    "id": "benchmark.directory.benchmark",
+    "kind": "directory",
+    "pattern": "benchmark",
+    "role": "benchmark",
+    "source": "roles"
+  },
+  {
+    "id": "benchmark.directory.benchmarks",
+    "kind": "directory",
+    "pattern": "benchmarks",
+    "role": "benchmark",
+    "source": "roles"
+  },
+  {
+    "id": "fuzz.directory.fuzz",
+    "kind": "directory",
+    "pattern": "fuzz",
+    "role": "fuzz",
+    "source": "roles"
+  },
+  {
+    "id": "fuzz.directory.fuzzing",
+    "kind": "directory",
+    "pattern": "fuzzing",
+    "role": "fuzz",
+    "source": "roles"
+  },
+  {
+    "id": "vendor.directory.vendor",
+    "kind": "directory",
+    "pattern": "vendor",
+    "role": "vendor",
+    "source": "roles"
+  },
+  {
+    "id": "vendor.directory.node_modules",
+    "kind": "directory",
+    "pattern": "node_modules",
+    "role": "vendor",
+    "source": "roles"
+  },
+  {
+    "id": "vendor.directory.third_party",
+    "kind": "directory",
+    "pattern": "third_party",
+    "role": "vendor",
+    "source": "roles"
+  },
+  {
+    "id": "vendor.directory.thirdparty",
+    "kind": "directory",
+    "pattern": "thirdparty",
+    "role": "vendor",
+    "source": "roles"
+  },
+  {
+    "id": "generated.directory.generated",
+    "kind": "directory",
+    "pattern": "generated",
+    "role": "generated",
+    "source": "roles"
+  },
+  {
+    "id": "generated.directory.__generated__",
+    "kind": "directory",
+    "pattern": "__generated__",
+    "role": "generated",
+    "source": "roles"
+  },
+  {
+    "id": "tooling.directory.scripts",
+    "kind": "directory",
+    "pattern": "scripts",
+    "role": "tooling",
+    "source": "brief"
+  },
+  {
+    "id": "tooling.directory.script",
+    "kind": "directory",
+    "pattern": "script",
+    "role": "tooling",
+    "source": "brief"
+  },
+  {
+    "id": "tooling.directory.tools",
+    "kind": "directory",
+    "pattern": "tools",
+    "role": "tooling",
+    "source": "brief"
+  },
+  {
+    "id": "tooling.directory.tool",
+    "kind": "directory",
+    "pattern": "tool",
+    "role": "tooling",
+    "source": "brief"
+  },
+  {
+    "id": "configuration.directory.config",
+    "kind": "directory",
+    "pattern": "config",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "configuration.directory.configs",
+    "kind": "directory",
+    "pattern": "configs",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "configuration.directory.conf",
+    "kind": "directory",
+    "pattern": "conf",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "packaging.directory.debian",
+    "kind": "directory",
+    "pattern": "debian",
+    "role": "packaging",
+    "source": "roles"
+  },
+  {
+    "id": "ci.directory-path..github/workflows",
+    "kind": "directory-path",
+    "pattern": ".github/workflows",
+    "role": "ci",
+    "source": "roles"
+  },
+  {
+    "id": "ci.directory-path..circleci",
+    "kind": "directory-path",
+    "pattern": ".circleci",
+    "role": "ci",
+    "source": "roles"
+  },
+  {
+    "id": "test.suffix._test.go",
+    "kind": "suffix",
+    "pattern": "_test.go",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "go"
+  },
+  {
+    "id": "test.suffix..test.js",
+    "kind": "suffix",
+    "pattern": ".test.js",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "javascript"
+  },
+  {
+    "id": "test.suffix..test.ts",
+    "kind": "suffix",
+    "pattern": ".test.ts",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "javascript"
+  },
+  {
+    "id": "test.suffix..spec.js",
+    "kind": "suffix",
+    "pattern": ".spec.js",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "javascript"
+  },
+  {
+    "id": "test.suffix..spec.ts",
+    "kind": "suffix",
+    "pattern": ".spec.ts",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "javascript"
+  },
+  {
+    "id": "build.filename.Makefile",
+    "kind": "filename",
+    "pattern": "Makefile",
+    "role": "build",
+    "source": "roles",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.GNUmakefile",
+    "kind": "filename",
+    "pattern": "GNUmakefile",
+    "role": "build",
+    "source": "roles",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.CMakeLists.txt",
+    "kind": "filename",
+    "pattern": "CMakeLists.txt",
+    "role": "build",
+    "source": "roles",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.build.ninja",
+    "kind": "filename",
+    "pattern": "build.ninja",
+    "role": "build",
+    "source": "roles",
+    "subtype": "instructions"
+  },
+  {
+    "id": "packaging.filename.pyproject.toml",
+    "kind": "filename",
+    "pattern": "pyproject.toml",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "packaging.filename.Cargo.toml",
+    "kind": "filename",
+    "pattern": "Cargo.toml",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "cargo"
+  },
+  {
+    "id": "packaging.filename.package.json",
+    "kind": "filename",
+    "pattern": "package.json",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "configuration.filename.pyproject.toml",
+    "kind": "filename",
+    "pattern": "pyproject.toml",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "configuration.filename.Cargo.toml",
+    "kind": "filename",
+    "pattern": "Cargo.toml",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "cargo"
+  },
+  {
+    "id": "configuration.filename.package.json",
+    "kind": "filename",
+    "pattern": "package.json",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.Cargo.lock",
+    "kind": "filename",
+    "pattern": "Cargo.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "cargo"
+  },
+  {
+    "id": "generated.filename.package-lock.json",
+    "kind": "filename",
+    "pattern": "package-lock.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.yarn.lock",
+    "kind": "filename",
+    "pattern": "yarn.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.pnpm-lock.yaml",
+    "kind": "filename",
+    "pattern": "pnpm-lock.yaml",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.composer.lock",
+    "kind": "filename",
+    "pattern": "composer.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "composer"
+  },
+  {
+    "id": "documentation.prefix-fold.README",
+    "kind": "prefix-fold",
+    "pattern": "README",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.prefix-fold.CONTRIBUTING",
+    "kind": "prefix-fold",
+    "pattern": "CONTRIBUTING",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.prefix-fold.CHANGELOG",
+    "kind": "prefix-fold",
+    "pattern": "CHANGELOG",
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.prefix-fold.SECURITY",
+    "kind": "prefix-fold",
+    "pattern": "SECURITY",
+    "role": "documentation",
+    "subtype": "security-policy",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.prefix-fold.CODE_OF_CONDUCT",
+    "kind": "prefix-fold",
+    "pattern": "CODE_OF_CONDUCT",
+    "role": "documentation",
+    "subtype": "code-of-conduct",
+    "source": "roles"
+  },
+  {
+    "id": "ci.filename..gitlab-ci.yml",
+    "kind": "filename",
+    "pattern": ".gitlab-ci.yml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename.buildkite.yml",
+    "kind": "filename",
+    "pattern": "buildkite.yml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename.Jenkinsfile",
+    "kind": "filename",
+    "pattern": "Jenkinsfile",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename.azure-pipelines.yml",
+    "kind": "filename",
+    "pattern": "azure-pipelines.yml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename.azure-pipelines.yaml",
+    "kind": "filename",
+    "pattern": "azure-pipelines.yaml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename..drone.yml",
+    "kind": "filename",
+    "pattern": ".drone.yml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename..drone.yaml",
+    "kind": "filename",
+    "pattern": ".drone.yaml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "ci.filename..travis.yml",
+    "kind": "filename",
+    "pattern": ".travis.yml",
+    "role": "ci",
+    "source": "brief"
+  },
+  {
+    "id": "build.filename.makefile",
+    "kind": "filename",
+    "pattern": "makefile",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.meson.build",
+    "kind": "filename",
+    "pattern": "meson.build",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.configure.ac",
+    "kind": "filename",
+    "pattern": "configure.ac",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.configure.in",
+    "kind": "filename",
+    "pattern": "configure.in",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.Makefile.am",
+    "kind": "filename",
+    "pattern": "Makefile.am",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.Makefile.in",
+    "kind": "filename",
+    "pattern": "Makefile.in",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.build.gradle",
+    "kind": "filename",
+    "pattern": "build.gradle",
+    "role": "build",
+    "source": "manifests",
+    "subtype": "instructions",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "build.filename.build.gradle.kts",
+    "kind": "filename",
+    "pattern": "build.gradle.kts",
+    "role": "build",
+    "source": "manifests",
+    "subtype": "instructions",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "build.filename.settings.gradle",
+    "kind": "filename",
+    "pattern": "settings.gradle",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.settings.gradle.kts",
+    "kind": "filename",
+    "pattern": "settings.gradle.kts",
+    "role": "build",
+    "source": "brief",
+    "subtype": "instructions"
+  },
+  {
+    "id": "build.filename.pom.xml",
+    "kind": "filename",
+    "pattern": "pom.xml",
+    "role": "build",
+    "source": "manifests",
+    "subtype": "instructions",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "configuration.filename.meson_options.txt",
+    "kind": "filename",
+    "pattern": "meson_options.txt",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "configuration.filename.gradle.properties",
+    "kind": "filename",
+    "pattern": "gradle.properties",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "configuration.filename.CMakePresets.json",
+    "kind": "filename",
+    "pattern": "CMakePresets.json",
+    "role": "configuration",
+    "source": "brief"
+  },
+  {
+    "id": "packaging.filename.setup.py",
+    "kind": "filename",
+    "pattern": "setup.py",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "packaging.filename.setup.cfg",
+    "kind": "filename",
+    "pattern": "setup.cfg",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "configuration.filename.setup.py",
+    "kind": "filename",
+    "pattern": "setup.py",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "configuration.filename.setup.cfg",
+    "kind": "filename",
+    "pattern": "setup.cfg",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "packaging.filename.composer.json",
+    "kind": "filename",
+    "pattern": "composer.json",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "composer"
+  },
+  {
+    "id": "configuration.filename.composer.json",
+    "kind": "filename",
+    "pattern": "composer.json",
+    "role": "configuration",
+    "source": "manifests",
+    "ecosystem": "composer"
+  },
+  {
+    "id": "packaging.suffix..gemspec",
+    "kind": "suffix",
+    "pattern": ".gemspec",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "gem"
+  },
+  {
+    "id": "generated.filename.Brewfile.lock.json",
+    "kind": "filename",
+    "pattern": "Brewfile.lock.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "brew"
+  },
+  {
+    "id": "generated.filename.Cartfile.resolved",
+    "kind": "filename",
+    "pattern": "Cartfile.resolved",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "carthage"
+  },
+  {
+    "id": "generated.filename.Podfile.lock",
+    "kind": "filename",
+    "pattern": "Podfile.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "cocoapods"
+  },
+  {
+    "id": "generated.filename.conan.lock",
+    "kind": "filename",
+    "pattern": "conan.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "conan"
+  },
+  {
+    "id": "generated.filename.conda-lock.yml",
+    "kind": "filename",
+    "pattern": "conda-lock.yml",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "conda"
+  },
+  {
+    "id": "generated.filename.cpanfile.snapshot",
+    "kind": "filename",
+    "pattern": "cpanfile.snapshot",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "cpan"
+  },
+  {
+    "id": "generated.filename.renv.lock",
+    "kind": "filename",
+    "pattern": "renv.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "cran"
+  },
+  {
+    "id": "generated.filename.shard.lock",
+    "kind": "filename",
+    "pattern": "shard.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "crystal"
+  },
+  {
+    "id": "generated.suffix.Gemfile.lock",
+    "kind": "suffix",
+    "pattern": "Gemfile.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "gem"
+  },
+  {
+    "id": "generated.suffix.gems.locked",
+    "kind": "suffix",
+    "pattern": "gems.locked",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "gem"
+  },
+  {
+    "id": "generated.filename.go.graph",
+    "kind": "filename",
+    "pattern": "go.graph",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.Godeps.json",
+    "kind": "filename",
+    "pattern": "Godeps.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.glide.lock",
+    "kind": "filename",
+    "pattern": "glide.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.Gopkg.lock",
+    "kind": "filename",
+    "pattern": "Gopkg.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.vendor.json",
+    "kind": "filename",
+    "pattern": "vendor.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.go-resolved-dependencies.json",
+    "kind": "filename",
+    "pattern": "go-resolved-dependencies.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "golang"
+  },
+  {
+    "id": "generated.filename.stack.yaml.lock",
+    "kind": "filename",
+    "pattern": "stack.yaml.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "hackage"
+  },
+  {
+    "id": "generated.filename.cabal.project.freeze",
+    "kind": "filename",
+    "pattern": "cabal.project.freeze",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "hackage"
+  },
+  {
+    "id": "generated.filename.Chart.lock",
+    "kind": "filename",
+    "pattern": "Chart.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "helm"
+  },
+  {
+    "id": "generated.filename.requirements.lock",
+    "kind": "filename",
+    "pattern": "requirements.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "helm"
+  },
+  {
+    "id": "generated.filename.mix.lock",
+    "kind": "filename",
+    "pattern": "mix.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "hex"
+  },
+  {
+    "id": "generated.filename.Manifest.toml",
+    "kind": "filename",
+    "pattern": "Manifest.toml",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "julia"
+  },
+  {
+    "id": "generated.filename.lake-manifest.json",
+    "kind": "filename",
+    "pattern": "lake-manifest.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "lean"
+  },
+  {
+    "id": "generated.filename.gradle.lockfile",
+    "kind": "filename",
+    "pattern": "gradle.lockfile",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.gradle-dependencies-q.txt",
+    "kind": "filename",
+    "pattern": "gradle-dependencies-q.txt",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.dependencies.lock",
+    "kind": "filename",
+    "pattern": "dependencies.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.gradle-html-dependency-report.js",
+    "kind": "filename",
+    "pattern": "gradle-html-dependency-report.js",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.maven-resolved-dependencies.txt",
+    "kind": "filename",
+    "pattern": "maven-resolved-dependencies.txt",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.maven.graph.json",
+    "kind": "filename",
+    "pattern": "maven.graph.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "maven"
+  },
+  {
+    "id": "generated.filename.flake.lock",
+    "kind": "filename",
+    "pattern": "flake.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "nix"
+  },
+  {
+    "id": "generated.filename.bun.lock",
+    "kind": "filename",
+    "pattern": "bun.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.deno.lock",
+    "kind": "filename",
+    "pattern": "deno.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "deno"
+  },
+  {
+    "id": "generated.filename.npm-shrinkwrap.json",
+    "kind": "filename",
+    "pattern": "npm-shrinkwrap.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.npm-ls.json",
+    "kind": "filename",
+    "pattern": "npm-ls.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.packages.lock.json",
+    "kind": "filename",
+    "pattern": "packages.lock.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.filename.paket.lock",
+    "kind": "filename",
+    "pattern": "paket.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.filename.project.assets.json",
+    "kind": "filename",
+    "pattern": "project.assets.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-resolution",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.suffix..deps.json",
+    "kind": "suffix",
+    "pattern": ".deps.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-resolution",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.filename.project.lock.json",
+    "kind": "filename",
+    "pattern": "project.lock.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.filename.Project.lock.json",
+    "kind": "filename",
+    "pattern": "Project.lock.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "nuget"
+  },
+  {
+    "id": "generated.filename.pubspec.lock",
+    "kind": "filename",
+    "pattern": "pubspec.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pub"
+  },
+  {
+    "id": "generated.filename.Pipfile.lock",
+    "kind": "filename",
+    "pattern": "Pipfile.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.poetry.lock",
+    "kind": "filename",
+    "pattern": "poetry.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pdm.lock",
+    "kind": "filename",
+    "pattern": "pdm.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.uv.lock",
+    "kind": "filename",
+    "pattern": "uv.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pip-dependency-graph.json",
+    "kind": "filename",
+    "pattern": "pip-dependency-graph.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pipdeptree.json",
+    "kind": "filename",
+    "pattern": "pipdeptree.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pipenv.graph.json",
+    "kind": "filename",
+    "pattern": "pipenv.graph.json",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pip-resolved-dependencies.txt",
+    "kind": "filename",
+    "pattern": "pip-resolved-dependencies.txt",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "dependency-report",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.pylock.toml",
+    "kind": "filename",
+    "pattern": "pylock.toml",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.filename.rebar.lock",
+    "kind": "filename",
+    "pattern": "rebar.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "hex"
+  },
+  {
+    "id": "generated.filename.Package.resolved",
+    "kind": "filename",
+    "pattern": "Package.resolved",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "swift"
+  },
+  {
+    "id": "documentation.stem-fold.SUPPORT",
+    "kind": "stem-fold",
+    "pattern": "SUPPORT",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.stem-fold.GOVERNANCE",
+    "kind": "stem-fold",
+    "pattern": "GOVERNANCE",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.stem-fold.MAINTAINERS",
+    "kind": "stem-fold",
+    "pattern": "MAINTAINERS",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.stem-fold.AUTHORS",
+    "kind": "stem-fold",
+    "pattern": "AUTHORS",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.stem-fold.ROADMAP",
+    "kind": "stem-fold",
+    "pattern": "ROADMAP",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "documentation.stem-fold.CODE-OF-CONDUCT",
+    "kind": "stem-fold",
+    "pattern": "CODE-OF-CONDUCT",
+    "extensions": [
+      "",
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ],
+    "role": "documentation",
+    "source": "roles"
+  },
+  {
+    "id": "build.stem-fold.Rakefile",
+    "kind": "stem-fold",
+    "pattern": "Rakefile",
+    "extensions": [
+      "",
+      ".rb"
+    ],
+    "role": "build",
+    "subtype": "instructions",
+    "ecosystem": "ruby",
+    "source": "roles"
+  },
+  {
+    "id": "ci.directory-path..buildkite",
+    "kind": "directory-path",
+    "pattern": ".buildkite",
+    "role": "ci",
+    "source": "roles"
+  }
+]

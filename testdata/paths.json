@@ -1,0 +1,2603 @@
+[
+  {
+    "path": "LICENSE",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "LiCeNcE.md",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "COPYING.LESSER",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "NOTICE.txt",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "notice"
+    ]
+  },
+  {
+    "path": "LICENSES/NOTICE",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license",
+      "notice"
+    ]
+  },
+  {
+    "path": "licensed.go",
+    "roles": []
+  },
+  {
+    "path": "NOTICEable",
+    "roles": []
+  },
+  {
+    "path": "x/LICENSE-MIT",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "license",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "licenses/",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "vendor/sqlite/LICENSE",
+    "roles": [
+      "vendor",
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "vendor/src/parser_test.go",
+    "roles": [
+      "source",
+      "test",
+      "vendor"
+    ]
+  },
+  {
+    "path": "internal/parser_test.go",
+    "roles": [
+      "source",
+      "test"
+    ]
+  },
+  {
+    "path": "test/fixtures/input.json",
+    "roles": [
+      "test",
+      "fixture"
+    ]
+  },
+  {
+    "path": "testdata/input.json",
+    "roles": [
+      "test",
+      "fixture"
+    ]
+  },
+  {
+    "path": "packages/a/testdata/Cargo.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "src/test/java/App.java",
+    "roles": [
+      "source",
+      "test"
+    ]
+  },
+  {
+    "path": "contest/fixtureless.go",
+    "roles": []
+  },
+  {
+    "path": "vendorized/main.go",
+    "roles": []
+  },
+  {
+    "path": "main.go",
+    "roles": []
+  },
+  {
+    "path": "Vendor/main.go",
+    "roles": []
+  },
+  {
+    "path": "vendor",
+    "roles": []
+  },
+  {
+    "path": "vendor/",
+    "roles": [
+      "vendor"
+    ]
+  },
+  {
+    "path": "packages/a/docs/api.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "examples/client/main.go",
+    "roles": [
+      "example"
+    ]
+  },
+  {
+    "path": ".github/workflows/test.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "packages/a/.github/workflows/ci.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".github/SECURITY.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "security-policy"
+    ]
+  },
+  {
+    "path": "README.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "readme-notes",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "READMEish",
+    "roles": []
+  },
+  {
+    "path": "pkg/package.json",
+    "roles": [
+      "source",
+      "packaging",
+      "configuration"
+    ]
+  },
+  {
+    "path": "build/Makefile",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "instructions"
+    ]
+  },
+  {
+    "path": "dist/app.js",
+    "roles": []
+  },
+  {
+    "path": "deps/app.js",
+    "roles": []
+  },
+  {
+    "path": "src/bin/name\\test.go",
+    "roles": [
+      "source"
+    ]
+  },
+  {
+    "path": "test/line\nbreak.txt",
+    "roles": [
+      "test"
+    ]
+  },
+  {
+    "path": "cache/result",
+    "roles": []
+  },
+  {
+    "path": "SECURITY",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "security-policy"
+    ]
+  },
+  {
+    "path": "packages/a/SECURITY.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "security-policy"
+    ]
+  },
+  {
+    "path": "CODE_OF_CONDUCT.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "code-of-conduct"
+    ]
+  },
+  {
+    "path": "security.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "security-policy"
+    ]
+  },
+  {
+    "path": "securitycheck.go",
+    "roles": [],
+    "subtypes": []
+  },
+  {
+    "path": "CODE_OF_CONDUCTING",
+    "roles": [],
+    "subtypes": []
+  },
+  {
+    "path": "LICENSE\u00e9",
+    "roles": [],
+    "subtypes": []
+  },
+  {
+    "path": "LICENSE\uff2d\uff29\uff34",
+    "roles": [],
+    "subtypes": []
+  },
+  {
+    "path": ".gitlab-ci.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "buildkite.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "Jenkinsfile",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "azure-pipelines.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "azure-pipelines.yaml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".drone.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".drone.yaml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".travis.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "makefile",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "meson.build",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "configure.ac",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "configure.in",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "Makefile.am",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "Makefile.in",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "Rakefile",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "rakefile",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "Rakefile.rb",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "rakefile.rb",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "build.gradle",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "build.gradle.kts",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "settings.gradle",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "settings.gradle.kts",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "pom.xml",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "meson_options.txt",
+    "roles": [
+      "configuration"
+    ]
+  },
+  {
+    "path": "gradle.properties",
+    "roles": [
+      "configuration"
+    ]
+  },
+  {
+    "path": "CMakePresets.json",
+    "roles": [
+      "configuration"
+    ]
+  },
+  {
+    "path": "roles.gemspec",
+    "roles": [
+      "packaging"
+    ]
+  },
+  {
+    "path": "SUPPORT.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "support.adoc",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "GOVERNANCE",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "governance.rst",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "MAINTAINERS.txt",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "maintainers",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "AUTHORS",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "authors.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "ROADMAP.txt",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "roadmap.adoc",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "CODE-OF-CONDUCT.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "code-of-conduct",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "setup.py",
+    "roles": [
+      "packaging",
+      "configuration"
+    ]
+  },
+  {
+    "path": "setup.cfg",
+    "roles": [
+      "packaging",
+      "configuration"
+    ]
+  },
+  {
+    "path": "composer.json",
+    "roles": [
+      "packaging",
+      "configuration"
+    ]
+  },
+  {
+    "path": "packages/service/.gitlab-ci.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "vendor/upstream/Jenkinsfile",
+    "roles": [
+      "vendor",
+      "ci"
+    ]
+  },
+  {
+    "path": "test/fixtures/setup.py",
+    "roles": [
+      "test",
+      "fixture",
+      "packaging",
+      "configuration"
+    ]
+  },
+  {
+    "path": "examples/plugin/plugin.gemspec",
+    "roles": [
+      "example",
+      "packaging"
+    ]
+  },
+  {
+    "path": "vendor/component/Makefile.in",
+    "roles": [
+      "vendor",
+      "build"
+    ]
+  },
+  {
+    "path": ".github/SUPPORT.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "packages/core/governance.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "support.py",
+    "roles": []
+  },
+  {
+    "path": "supporter.md",
+    "roles": []
+  },
+  {
+    "path": "AUTHORS.js",
+    "roles": []
+  },
+  {
+    "path": "authorservice",
+    "roles": []
+  },
+  {
+    "path": "roadmap.json",
+    "roles": []
+  },
+  {
+    "path": "governance.yaml",
+    "roles": []
+  },
+  {
+    "path": "maintainers.csv",
+    "roles": []
+  },
+  {
+    "path": "CODE-OF-CONDUCT.md.bak",
+    "roles": []
+  },
+  {
+    "path": "Jenkinsfile.bak",
+    "roles": []
+  },
+  {
+    "path": "jenkinsfile",
+    "roles": []
+  },
+  {
+    "path": ".gitlab-ci.yml.example",
+    "roles": []
+  },
+  {
+    "path": "azure-pipelines.yml.old",
+    "roles": []
+  },
+  {
+    "path": "configure.ac.in",
+    "roles": []
+  },
+  {
+    "path": "makefiles",
+    "roles": []
+  },
+  {
+    "path": "pom.xml.bak",
+    "roles": []
+  },
+  {
+    "path": "thing.gemspec.lock",
+    "roles": []
+  },
+  {
+    "path": "thing.GEMSPEC",
+    "roles": []
+  },
+  {
+    "path": "setup.pyc",
+    "roles": []
+  },
+  {
+    "path": "setup.cfg.bak",
+    "roles": []
+  },
+  {
+    "path": "composer.json.template",
+    "roles": []
+  },
+  {
+    "path": "CMakePresets.json.bak",
+    "roles": []
+  },
+  {
+    "path": "meson_options.txt.old",
+    "roles": []
+  },
+  {
+    "path": "build.gradle.kts.bak",
+    "roles": []
+  },
+  {
+    "path": "packages/support/module.py",
+    "roles": []
+  },
+  {
+    "path": "SUPPORT.md/child.txt",
+    "roles": []
+  },
+  {
+    "path": "Brewfile.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Brewfile.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Brewfile.lock.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Brewfile.lock.json.bak",
+    "roles": []
+  },
+  {
+    "path": "Cartfile.resolved",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Cartfile.resolved",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Cartfile.resolved",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Cartfile.resolved.bak",
+    "roles": []
+  },
+  {
+    "path": "Podfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Podfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Podfile.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Podfile.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "conan.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/conan.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/conan.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "conan.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "conda-lock.yml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/conda-lock.yml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/conda-lock.yml",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "conda-lock.yml.bak",
+    "roles": []
+  },
+  {
+    "path": "cpanfile.snapshot",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/cpanfile.snapshot",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/cpanfile.snapshot",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "cpanfile.snapshot.bak",
+    "roles": []
+  },
+  {
+    "path": "renv.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/renv.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/renv.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "renv.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "shard.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/shard.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/shard.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "shard.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "Gemfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Gemfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Gemfile.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Gemfile.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "gems.locked",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/gems.locked",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/gems.locked",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "gems.locked.bak",
+    "roles": []
+  },
+  {
+    "path": "go.graph",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/go.graph",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/go.graph",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "go.graph.bak",
+    "roles": []
+  },
+  {
+    "path": "Godeps.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Godeps.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Godeps.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Godeps.json.bak",
+    "roles": []
+  },
+  {
+    "path": "glide.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/glide.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/glide.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "glide.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "Gopkg.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Gopkg.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Gopkg.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Gopkg.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "vendor.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/vendor.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/vendor.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "vendor.json.bak",
+    "roles": []
+  },
+  {
+    "path": "go-resolved-dependencies.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/go-resolved-dependencies.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/go-resolved-dependencies.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "go-resolved-dependencies.json.bak",
+    "roles": []
+  },
+  {
+    "path": "stack.yaml.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/stack.yaml.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/stack.yaml.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "stack.yaml.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "cabal.project.freeze",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/cabal.project.freeze",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/cabal.project.freeze",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "cabal.project.freeze.bak",
+    "roles": []
+  },
+  {
+    "path": "Chart.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Chart.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Chart.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Chart.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "requirements.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/requirements.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/requirements.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "requirements.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "mix.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/mix.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/mix.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "mix.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "Manifest.toml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Manifest.toml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Manifest.toml",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Manifest.toml.bak",
+    "roles": []
+  },
+  {
+    "path": "lake-manifest.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/lake-manifest.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/lake-manifest.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "lake-manifest.json.bak",
+    "roles": []
+  },
+  {
+    "path": "gradle.lockfile",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/gradle.lockfile",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/gradle.lockfile",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "gradle.lockfile.bak",
+    "roles": []
+  },
+  {
+    "path": "gradle-dependencies-q.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/gradle-dependencies-q.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/gradle-dependencies-q.txt",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "gradle-dependencies-q.txt.bak",
+    "roles": []
+  },
+  {
+    "path": "dependencies.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/dependencies.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/dependencies.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "dependencies.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "gradle-html-dependency-report.js",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/gradle-html-dependency-report.js",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/gradle-html-dependency-report.js",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "gradle-html-dependency-report.js.bak",
+    "roles": []
+  },
+  {
+    "path": "maven-resolved-dependencies.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/maven-resolved-dependencies.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/maven-resolved-dependencies.txt",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "maven-resolved-dependencies.txt.bak",
+    "roles": []
+  },
+  {
+    "path": "maven.graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/maven.graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/maven.graph.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "maven.graph.json.bak",
+    "roles": []
+  },
+  {
+    "path": "flake.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/flake.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/flake.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "flake.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "bun.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/bun.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/bun.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "bun.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "deno.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/deno.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/deno.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "deno.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "npm-shrinkwrap.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/npm-shrinkwrap.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/npm-shrinkwrap.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "npm-shrinkwrap.json.bak",
+    "roles": []
+  },
+  {
+    "path": "npm-ls.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/npm-ls.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/npm-ls.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "npm-ls.json.bak",
+    "roles": []
+  },
+  {
+    "path": "packages.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/packages.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/packages.lock.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages.lock.json.bak",
+    "roles": []
+  },
+  {
+    "path": "paket.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/paket.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/paket.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "paket.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "project.assets.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "packages/api/project.assets.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "test/fixtures/project.assets.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "project.assets.json.bak",
+    "roles": []
+  },
+  {
+    "path": "application.deps.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "packages/api/application.deps.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "test/fixtures/application.deps.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-resolution"
+    ]
+  },
+  {
+    "path": "application.deps.json.bak",
+    "roles": []
+  },
+  {
+    "path": "project.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/project.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/project.lock.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "project.lock.json.bak",
+    "roles": []
+  },
+  {
+    "path": "Project.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Project.lock.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Project.lock.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Project.lock.json.bak",
+    "roles": []
+  },
+  {
+    "path": "pubspec.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/pubspec.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/pubspec.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "pubspec.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "Pipfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Pipfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Pipfile.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Pipfile.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "poetry.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/poetry.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/poetry.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "poetry.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "pdm.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/pdm.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/pdm.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "pdm.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "uv.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/uv.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/uv.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "uv.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "pip-dependency-graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/pip-dependency-graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/pip-dependency-graph.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "pip-dependency-graph.json.bak",
+    "roles": []
+  },
+  {
+    "path": "pipdeptree.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/pipdeptree.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/pipdeptree.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "pipdeptree.json.bak",
+    "roles": []
+  },
+  {
+    "path": "pipenv.graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/pipenv.graph.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/pipenv.graph.json",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "pipenv.graph.json.bak",
+    "roles": []
+  },
+  {
+    "path": "pip-resolved-dependencies.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "packages/api/pip-resolved-dependencies.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "test/fixtures/pip-resolved-dependencies.txt",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "dependency-report"
+    ]
+  },
+  {
+    "path": "pip-resolved-dependencies.txt.bak",
+    "roles": []
+  },
+  {
+    "path": "pylock.toml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/pylock.toml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/pylock.toml",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "pylock.toml.bak",
+    "roles": []
+  },
+  {
+    "path": "rebar.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/rebar.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/rebar.lock",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "rebar.lock.bak",
+    "roles": []
+  },
+  {
+    "path": "Package.resolved",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "packages/api/Package.resolved",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/Package.resolved",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Package.resolved.bak",
+    "roles": []
+  },
+  {
+    "path": "Gemfile",
+    "roles": []
+  },
+  {
+    "path": "requirements.txt",
+    "roles": []
+  },
+  {
+    "path": "sources.json",
+    "roles": []
+  },
+  {
+    "path": "cabal.config",
+    "roles": []
+  },
+  {
+    "path": "verification-metadata.xml",
+    "roles": []
+  },
+  {
+    "path": "arbitrary.lock",
+    "roles": []
+  },
+  {
+    "path": "actions.lock",
+    "roles": []
+  },
+  {
+    "path": "gemfile.lock",
+    "roles": []
+  },
+  {
+    "path": "UV.LOCK",
+    "roles": []
+  },
+  {
+    "path": "App.deps.json.old",
+    "roles": []
+  },
+  {
+    "path": "rails.Gemfile.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "ruby.gems.locked",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "Support.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "sUpPoRt.MD",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "Governance.markdown",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "Authors.rdoc",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "Maintainers.rst",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "Roadmap",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "Code-Of-Conduct.md",
+    "roles": [
+      "documentation"
+    ]
+  },
+  {
+    "path": "RAKEFILE.RB",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "RakeFile",
+    "roles": [
+      "build"
+    ]
+  },
+  {
+    "path": "Rakefile.py",
+    "roles": []
+  },
+  {
+    "path": "Rakefile.rb.bak",
+    "roles": []
+  },
+  {
+    "path": "Support.md.bak",
+    "roles": []
+  },
+  {
+    "path": "Support-notes.md",
+    "roles": []
+  },
+  {
+    "path": ".buildkite/pipeline.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".buildkite/pipeline.yaml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": ".buildkite/hooks/pre-command",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "packages/api/.buildkite/pipeline.yml",
+    "roles": [
+      "ci"
+    ]
+  },
+  {
+    "path": "vendor/tool/.buildkite/pipeline.yml",
+    "roles": [
+      "vendor",
+      "ci",
+      "tooling"
+    ]
+  },
+  {
+    "path": ".buildkite-old/pipeline.yml",
+    "roles": []
+  },
+  {
+    "path": ".buildkite",
+    "roles": []
+  },
+  {
+    "path": "pipeline.yml",
+    "roles": []
+  }
+]
