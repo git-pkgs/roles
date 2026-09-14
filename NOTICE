@@ -5,6 +5,13 @@ Layout, CI, build and packaging conventions: git-pkgs/brief, revision e635e97536
 Named community documents adapt brief knowledge/_shared/_resources.toml:
 case-insensitive stems, selected extensions, matched at any depth.
 Manifest, lockfile and dependency-output names: git-pkgs/manifests, revision 498e486ae7355a910b15458f049a778a69398a89.
+Generated-file and dependency-directory conventions: github/gitignore,
+revision 356fd7baab4c05e092194a41f64dbd5afc8817e4, licensed CC0-1.0.
+Templates used: Python, Node, Sass, Autotools, CMake, Nextjs, Flutter, Gcov and C++.
+Adaptations select literal directories and filenames or suffixes, apply them
+at any package depth, and assign roles and subtypes. They do not evaluate
+ignore patterns or import template negations. Python bytecode suffixes are
+limited to .pyc and .pyo. Lockfile names continue to come from manifests.
 Rules identified as roles are local conventions or intentional adaptations.
 
 MIT License

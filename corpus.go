@@ -33,7 +33,7 @@ var (
 	foldedDirectories []rule
 	pathDirectories   []rule
 	foldedPrefixes    []rule
-	suffixRules       []rule
+	suffixRules       [256][]rule
 )
 
 func init() {
@@ -71,7 +71,8 @@ func init() {
 		case "prefix-fold":
 			foldedPrefixes = append(foldedPrefixes, r)
 		case "suffix":
-			suffixRules = append(suffixRules, r)
+			last := r.Pattern[len(r.Pattern)-1]
+			suffixRules[last] = append(suffixRules[last], r)
 		default:
 			panic(fmt.Sprintf("unknown rule kind %q", r.Kind))
 		}

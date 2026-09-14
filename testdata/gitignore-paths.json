@@ -1,0 +1,588 @@
+[
+  {
+    "path": "__pycache__/app.cpython-313.pyc",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "bytecode"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "app.pyc",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "bytecode"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "app.pyo",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "bytecode"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".pytest_cache/v/cache/nodeids",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".mypy_cache/3.13/app.meta.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".ruff_cache/0/check",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".sass-cache/compiled",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "autom4te.cache/requests",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".eslintcache",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".stylelintcache",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "CMakeFiles/compiler.dir/depend.make",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "CMakeCache.txt",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "cmake_install.cmake",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "CTestTestfile.cmake",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "compile_commands.json",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "project.tsbuildinfo",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".flutter-plugins",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".flutter-plugins-dependencies",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "next-env.d.ts",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "declarations"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "generated_plugin_registrant.dart",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "registrant"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "parser.gcda",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "coverage"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "parser.gcno",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "coverage"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "parser.c.gcov",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "coverage"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "bower_components/jquery/jquery.js",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "jspm_packages/npm/lib/main.js",
+    "roles": [
+      "source",
+      "vendor"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "vcpkg_installed/x64/include/header.h",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "packages/api/.pytest_cache/v/cache/nodeids",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "packages/ui/next-env.d.ts",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "declarations"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "src/__pycache__/app.pyc",
+    "roles": [
+      "source",
+      "generated"
+    ],
+    "subtypes": [
+      "bytecode"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "test/fixtures/project.tsbuildinfo",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "vendor/project/CMakeCache.txt",
+    "roles": [
+      "vendor",
+      "generated"
+    ],
+    "subtypes": [
+      "build-metadata"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "bower_components/library/test/fixtures/input.json",
+    "roles": [
+      "test",
+      "fixture",
+      "vendor"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".pytest_cache/",
+    "roles": [
+      "generated"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "CMakeFiles/",
+    "roles": [
+      "generated"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": "bower_components/",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "gitignore"
+    ]
+  },
+  {
+    "path": ".pytest_cache",
+    "roles": []
+  },
+  {
+    "path": ".mypy_cache",
+    "roles": []
+  },
+  {
+    "path": ".ruff_cache",
+    "roles": []
+  },
+  {
+    "path": "CMakeFiles",
+    "roles": []
+  },
+  {
+    "path": "bower_components",
+    "roles": []
+  },
+  {
+    "path": "jspm_packages",
+    "roles": []
+  },
+  {
+    "path": "vcpkg_installed",
+    "roles": []
+  },
+  {
+    "path": ".pytest_cache-old/file",
+    "roles": []
+  },
+  {
+    "path": "some__pycache__/app.txt",
+    "roles": []
+  },
+  {
+    "path": "CMakeCache.txt.bak",
+    "roles": []
+  },
+  {
+    "path": "cmake_install.cmake.in",
+    "roles": []
+  },
+  {
+    "path": "CTestTestfile.cmake.in",
+    "roles": []
+  },
+  {
+    "path": "compile_commands.json.example",
+    "roles": []
+  },
+  {
+    "path": "next-env.d.ts.bak",
+    "roles": []
+  },
+  {
+    "path": "generated_plugin_registrant.dart.in",
+    "roles": []
+  },
+  {
+    "path": ".flutter-plugins-dependencies.bak",
+    "roles": []
+  },
+  {
+    "path": "project.tsbuildinfo.json",
+    "roles": []
+  },
+  {
+    "path": "parser.gcno.txt",
+    "roles": []
+  },
+  {
+    "path": "parser.gcov.html",
+    "roles": []
+  },
+  {
+    "path": "app.pyd",
+    "roles": []
+  },
+  {
+    "path": "app.pyz",
+    "roles": []
+  },
+  {
+    "path": "app.PYC",
+    "roles": []
+  },
+  {
+    "path": ".eslintcache.bak",
+    "roles": []
+  },
+  {
+    "path": ".stylelintcache.old",
+    "roles": []
+  },
+  {
+    "path": ".cache/input",
+    "roles": []
+  },
+  {
+    "path": "target/main.rs",
+    "roles": []
+  },
+  {
+    "path": "_build/main.ml",
+    "roles": []
+  },
+  {
+    "path": "build/main.js",
+    "roles": []
+  },
+  {
+    "path": "dist/main.js",
+    "roles": []
+  },
+  {
+    "path": ".gradle/config.properties",
+    "roles": []
+  },
+  {
+    "path": ".venv/module.py",
+    "roles": []
+  },
+  {
+    "path": ".tox/module.py",
+    "roles": []
+  },
+  {
+    "path": ".nox/module.py",
+    "roles": []
+  },
+  {
+    "path": ".yarn/patches/fix.patch",
+    "roles": []
+  },
+  {
+    "path": ".pixi/config.toml",
+    "roles": []
+  },
+  {
+    "path": ".vscode/settings.json",
+    "roles": []
+  },
+  {
+    "path": "Makefile.in.example",
+    "roles": []
+  },
+  {
+    "path": "image.png",
+    "roles": []
+  },
+  {
+    "path": "main.js",
+    "roles": []
+  },
+  {
+    "path": "sample.out",
+    "roles": []
+  },
+  {
+    "path": "project.csproj",
+    "roles": []
+  },
+  {
+    "path": "custom.lock",
+    "roles": []
+  },
+  {
+    "path": "src/main/build/Builder.java",
+    "roles": [
+      "source"
+    ]
+  },
+  {
+    "path": "lib/module.py",
+    "roles": [
+      "source"
+    ]
+  }
+]
