@@ -63,7 +63,7 @@ func (c *Classifier) WalkMatch(tree fs.FS, options WalkOptions, visit func(strin
 
 func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit func(string, matchState) error) error {
 	if tree == nil {
-		return errors.New("filesystem and visitor are required")
+		return errors.New("filesystem is required")
 	}
 	if options.MaxEntries < 0 || options.MaxDepth < 0 {
 		return errors.New("walk limits must be non-negative")
