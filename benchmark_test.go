@@ -72,13 +72,28 @@ func BenchmarkBlob(b *testing.B) {
 }
 
 func BenchmarkWalkDisk(b *testing.B) {
+	benchmarkWalkDisk(b, false)
+}
+
+func BenchmarkWalkMatchDisk(b *testing.B) {
+	benchmarkWalkDisk(b, true)
+}
+
+func benchmarkWalkDisk(b *testing.B, labelsOnly bool) {
+	b.Helper()
 	for _, shape := range []string{"wide", "monorepo", "deep"} {
 		b.Run(shape, func(b *testing.B) {
 			tree := diskBenchmarkTree(b, shape)
 			b.ResetTimer()
 			b.ReportAllocs()
 			for b.Loop() {
-				if err := roles.Walk(tree.FS(), roles.WalkOptions{}, func(string, roles.Result) error { return nil }); err != nil {
+				var err error
+				if labelsOnly {
+					err = roles.WalkMatch(tree.FS(), roles.WalkOptions{}, func(string, roles.Set) error { return nil })
+				} else {
+					err = roles.Walk(tree.FS(), roles.WalkOptions{}, func(string, roles.Result) error { return nil })
+				}
+				if err != nil {
 					b.Fatal(err)
 				}
 			}

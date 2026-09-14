@@ -12,6 +12,7 @@ import (
 )
 
 func TestWalk(t *testing.T) {
+	const symlink = "link"
 	tree := fstest.MapFS{
 		"packages/api/.buildkite/pipeline.yml":       {},
 		"packages/api/Form.DESIGNER.CS":              {},
@@ -23,7 +24,7 @@ func TestWalk(t *testing.T) {
 		"modules/a/testdata/package-lock.json":       {},
 		"modules/b/testdata/package-lock.json":       {},
 		"deps/crates/src/lib.rs":                     {},
-		"link":                                       {Mode: fs.ModeSymlink, Data: []byte("../outside")},
+		symlink:                                      {Mode: fs.ModeSymlink, Data: []byte("../outside")},
 	}
 	c, err := roles.New([]roles.VendorRoot{{Path: "deps/crates", EvidencePath: cargoConfig}})
 	if err != nil {
@@ -31,7 +32,7 @@ func TestWalk(t *testing.T) {
 	}
 	count := 0
 	err = c.Walk(tree, roles.WalkOptions{}, func(name string, got roles.Result) error {
-		if name == "link" {
+		if name == symlink {
 			t.Fatal("visited symlink")
 		}
 		want, err := c.Classify(name)
@@ -49,6 +50,60 @@ func TestWalk(t *testing.T) {
 	})
 	if err != nil || count != 28 {
 		t.Fatalf("count %d, error %v", count, err)
+	}
+	count = 0
+	err = c.WalkMatch(tree, roles.WalkOptions{}, func(name string, got roles.Set) error {
+		want, err := c.Match(name)
+		if err != nil || got != want || name == symlink {
+			t.Fatalf("WalkMatch(%q) = %v, want %v, error %v", name, got, want, err)
+		}
+		count++
+		return nil
+	})
+	if err != nil || count != 28 {
+		t.Fatalf("label-only count %d, error %v", count, err)
+	}
+}
+
+func TestWalkMatchControl(t *testing.T) {
+	tree := fstest.MapFS{"vendor/lib/file.go": {}, "src/entry.go": {}}
+	var names []string
+	err := roles.WalkMatch(tree, roles.WalkOptions{}, func(name string, set roles.Set) error {
+		names = append(names, name)
+		if set.Has(roles.Vendor) {
+			return fs.SkipDir
+		}
+		return nil
+	})
+	if err != nil || !reflect.DeepEqual(names, []string{"src/", "src/entry.go", "vendor/"}) {
+		t.Fatal(names, err)
+	}
+	count := 0
+	err = roles.WalkMatch(tree, roles.WalkOptions{}, func(string, roles.Set) error {
+		count++
+		return fs.SkipAll
+	})
+	if err != nil || count != 1 {
+		t.Fatal(count, err)
+	}
+	visit := func(string, roles.Set) error { return nil }
+	for _, options := range []roles.WalkOptions{{MaxDepth: 1}, {MaxEntries: 1}} {
+		if err := roles.WalkMatch(tree, options, visit); !errors.Is(err, roles.ErrLimit) {
+			t.Fatal(err)
+		}
+	}
+	if err := roles.WalkMatch(tree, roles.WalkOptions{}, nil); err == nil {
+		t.Fatal("accepted nil visitor")
+	}
+	if err := roles.WalkMatch(nil, roles.WalkOptions{}, visit); err == nil {
+		t.Fatal("accepted nil filesystem")
+	}
+	if err := roles.WalkMatch(failingFS{}, roles.WalkOptions{}, visit); !errors.Is(err, fs.ErrPermission) {
+		t.Fatal(err)
+	}
+	failure := errors.New("visitor failed")
+	if err := roles.WalkMatch(tree, roles.WalkOptions{}, func(string, roles.Set) error { return failure }); !errors.Is(err, failure) {
+		t.Fatal(err)
 	}
 }
 
@@ -123,6 +178,16 @@ func FuzzWalk(f *testing.F) {
 		})
 		if err != nil && !errors.Is(err, roles.ErrInvalidPath) {
 			t.Fatal(err)
+		}
+		matchErr := roles.WalkMatch(tree, roles.WalkOptions{}, func(name string, got roles.Set) error {
+			want, err := roles.Match(name)
+			if err == nil && got != want {
+				t.Fatalf("label-only path/tree disagreement: %q", name)
+			}
+			return err
+		})
+		if !errors.Is(matchErr, err) {
+			t.Fatalf("walk errors differ: %v, %v", err, matchErr)
 		}
 	})
 }

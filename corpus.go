@@ -27,13 +27,13 @@ type rule struct {
 }
 
 var (
-	directoryRules    = map[string][]rule{}
-	filenameRules     = map[string][]rule{}
-	foldedStems       = map[int][]rule{}
-	foldedDirectories []rule
-	pathDirectories   = map[string][]rule{}
-	foldedPrefixes    []rule
-	suffixRules       [256][]rule
+	directoryRules    = map[string][]*rule{}
+	filenameRules     = map[string][]*rule{}
+	foldedStems       = map[int][]*rule{}
+	foldedDirectories []*rule
+	pathDirectories   = map[string][]*rule{}
+	foldedPrefixes    []*rule
+	suffixRules       [256][]*rule
 )
 
 func init() {
@@ -42,7 +42,8 @@ func init() {
 		panic(err)
 	}
 	seen := map[string]bool{}
-	for _, r := range rules {
+	for i := range rules {
+		r := &rules[i]
 		r.bit = roleBit(r.Role)
 		r.directorySuffix = "/" + r.Pattern
 		if r.ID == "" || seen[r.ID] || r.bit == 0 || r.Pattern == "" || r.Source == "" {

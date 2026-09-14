@@ -28,6 +28,11 @@ func Walk(tree fs.FS, options WalkOptions, visit func(string, Result) error) err
 	return defaults.Walk(tree, options, visit)
 }
 
+// WalkMatch visits the same entries as Walk without collecting evidence.
+func WalkMatch(tree fs.FS, options WalkOptions, visit func(string, Set) error) error {
+	return defaults.WalkMatch(tree, options, visit)
+}
+
 type ancestor struct {
 	path        string
 	set         Set
@@ -36,8 +41,29 @@ type ancestor struct {
 
 // Walk reuses inherited matches and includes this classifier's vendor roots.
 func (c *Classifier) Walk(tree fs.FS, options WalkOptions, visit func(string, Result) error) error {
-	if tree == nil || visit == nil {
-		return errors.New("filesystem and visitor are required")
+	if visit == nil {
+		return errors.New("visitor is required")
+	}
+	return c.walk(tree, options, true, func(name string, state matchState) error {
+		result := state.result()
+		result.Evidence = append([]Evidence(nil), state.evidence...)
+		return visit(name, result)
+	})
+}
+
+// WalkMatch includes this classifier's vendor roots without collecting evidence.
+func (c *Classifier) WalkMatch(tree fs.FS, options WalkOptions, visit func(string, Set) error) error {
+	if visit == nil {
+		return errors.New("visitor is required")
+	}
+	return c.walk(tree, options, false, func(name string, state matchState) error {
+		return visit(name, state.set)
+	})
+}
+
+func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit func(string, matchState) error) error {
+	if tree == nil {
+		return errors.New("filesystem is required")
 	}
 	if options.MaxEntries < 0 || options.MaxDepth < 0 {
 		return errors.New("walk limits must be non-negative")
@@ -82,15 +108,13 @@ func (c *Classifier) Walk(tree fs.FS, options WalkOptions, visit func(string, Re
 		parentState := parents[len(parents)-1]
 		state := matchState{set: parentState.set, evidence: evidence[:parentState.evidenceEnd]}
 		if entry.IsDir() {
-			c.directory(&state, name[split+1:], name, true)
+			c.directory(&state, name[split+1:], name, explain)
 			parents = append(parents, ancestor{path: name, set: state.set, evidenceEnd: len(state.evidence)})
 			name += "/"
 		} else {
-			matchFile(&state, name[split+1:], name, true)
+			matchFile(&state, name[split+1:], name, explain)
 		}
 		evidence = state.evidence
-		result := state.result()
-		result.Evidence = append([]Evidence(nil), state.evidence...)
-		return visit(name, result)
+		return visit(name, state)
 	})
 }

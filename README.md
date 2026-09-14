@@ -113,6 +113,12 @@ if labels.Has(roles.Fixture) {
 }
 ```
 
+Scanners that already enumerate files, such as brief, can call `Match` on
+each accepted repository-relative path during their existing scan. This adds
+no file reads or evidence allocations and does not require a second traversal.
+`Match` supports concurrent calls; content analysis and directory exclusion
+policies remain with the caller.
+
 Paths use `/` separators. A trailing slash denotes a directory, so `vendor/`
 is a vendor directory while `vendor` alone is a filename. Empty paths,
 absolute paths, NUL bytes, repeated separators and `.` or `..` components
@@ -146,6 +152,20 @@ Callbacks may return `fs.SkipDir` or `fs.SkipAll` to control traversal.
 ```go
 err := roles.Walk(tree, roles.WalkOptions{}, func(path string, result roles.Result) error {
     fmt.Println(path, result.Roles)
+    return nil
+})
+```
+
+Use `WalkMatch` when the visitor only needs labels. It reuses inherited role
+sets without collecting or copying evidence, which reduces allocation for
+deep trees. It has the same traversal order, limits and callback error handling
+as `Walk`, and also has a classifier method for vendor-root context.
+
+```go
+err := roles.WalkMatch(tree, roles.WalkOptions{}, func(path string, set roles.Set) error {
+    if set.Has(roles.CI) {
+        fmt.Println(path)
+    }
     return nil
 })
 ```
@@ -255,7 +275,11 @@ non-UTF-8 paths rather than replacing their bytes in JSON:
 ```sh
 go run ./cmd/roles vendor/sqlite/LICENSE testdata/package-lock.json
 go run ./cmd/roles -root .
+go run ./cmd/roles -labels-only -root .
 ```
+
+`-labels-only` uses `Match` or `WalkMatch` and emits `null` evidence. JSON
+encoding still allocates output records; library callers can use `Set` directly.
 
 ## Testing
 
@@ -281,7 +305,9 @@ go tool pprof /tmp/roles.cpu
 ```
 
 Benchmarks separate label matching, evidence allocation, bounded content
-checks and filesystem traversal. `BenchmarkMillionPaths` measures a million
+checks and filesystem traversal. `BenchmarkWalkDisk` and `BenchmarkWalkMatchDisk`
+compare evidence-producing and label-only walks over the same wide, monorepo
+and deep layouts. `BenchmarkMillionPaths` measures a million
 synthetic monorepo paths; repository inventories provide additional path
 workloads. These measurements exclude blob I/O and are not a throughput
 claim for a complete repository scan.

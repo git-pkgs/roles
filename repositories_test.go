@@ -71,3 +71,21 @@ func BenchmarkRepositories(b *testing.B) {
 		})
 	}
 }
+
+func BenchmarkRepositoriesParallel(b *testing.B) {
+	for _, repo := range loadRepositories(b) {
+		b.Run(repo.Name, func(b *testing.B) {
+			b.ReportAllocs()
+			b.RunParallel(func(pb *testing.PB) {
+				i := 0
+				for pb.Next() {
+					_, _ = roles.Match(repo.Paths[i])
+					i++
+					if i == len(repo.Paths) {
+						i = 0
+					}
+				}
+			})
+		})
+	}
+}
