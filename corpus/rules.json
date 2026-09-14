@@ -1676,5 +1676,429 @@
     "pattern": "vcpkg_installed",
     "role": "vendor",
     "source": "gitignore"
+  },
+  {
+    "id": "vendor.directory.vendors",
+    "kind": "directory",
+    "pattern": "vendors",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.Vendor",
+    "kind": "directory",
+    "pattern": "Vendor",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.3rdparty",
+    "kind": "directory",
+    "pattern": "3rdparty",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.3rd_party",
+    "kind": "directory",
+    "pattern": "3rd_party",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.3rd-party",
+    "kind": "directory",
+    "pattern": "3rd-party",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.third-party",
+    "kind": "directory",
+    "pattern": "third-party",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.ThirdParty",
+    "kind": "directory",
+    "pattern": "ThirdParty",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory-path.Godeps/_workspace",
+    "kind": "directory-path",
+    "pattern": "Godeps/_workspace",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory-path..yarn/unplugged",
+    "kind": "directory-path",
+    "pattern": ".yarn/unplugged",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory-path..yarn/releases",
+    "kind": "directory-path",
+    "pattern": ".yarn/releases",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory-path.Carthage/Checkouts",
+    "kind": "directory-path",
+    "pattern": "Carthage/Checkouts",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "vendor.directory.Pods",
+    "kind": "directory",
+    "pattern": "Pods",
+    "role": "vendor",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.groovydoc",
+    "kind": "directory",
+    "pattern": "groovydoc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.Groovydoc",
+    "kind": "directory",
+    "pattern": "Groovydoc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.javadoc",
+    "kind": "directory",
+    "pattern": "javadoc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.Javadoc",
+    "kind": "directory",
+    "pattern": "Javadoc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.man",
+    "kind": "directory",
+    "pattern": "man",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.Man",
+    "kind": "directory",
+    "pattern": "Man",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.Doc",
+    "kind": "directory",
+    "pattern": "Doc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory.Docs",
+    "kind": "directory",
+    "pattern": "Docs",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.directory-path.inst/doc",
+    "kind": "directory-path",
+    "pattern": "inst/doc",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.stem-fold.CITATION",
+    "kind": "stem-fold",
+    "pattern": "CITATION",
+    "role": "documentation",
+    "source": "linguist",
+    "subtype": "citation",
+    "extensions": [
+      "",
+      ".cff",
+      ".bib",
+      ".md"
+    ]
+  },
+  {
+    "id": "documentation.stem-fold.CITATIONS",
+    "kind": "stem-fold",
+    "pattern": "CITATIONS",
+    "role": "documentation",
+    "source": "linguist",
+    "subtype": "citation",
+    "extensions": [
+      "",
+      ".bib",
+      ".md"
+    ]
+  },
+  {
+    "id": "documentation.stem-fold.CHANGE",
+    "kind": "stem-fold",
+    "pattern": "CHANGE",
+    "role": "documentation",
+    "source": "linguist",
+    "extensions": [
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ]
+  },
+  {
+    "id": "documentation.stem-fold.CHANGES",
+    "kind": "stem-fold",
+    "pattern": "CHANGES",
+    "role": "documentation",
+    "source": "linguist",
+    "extensions": [
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ]
+  },
+  {
+    "id": "documentation.stem-fold.INSTALL",
+    "kind": "stem-fold",
+    "pattern": "INSTALL",
+    "role": "documentation",
+    "source": "linguist",
+    "extensions": [
+      ".md",
+      ".txt",
+      ".rst",
+      ".adoc",
+      ".markdown",
+      ".rdoc"
+    ]
+  },
+  {
+    "id": "documentation.filename.CHANGE",
+    "kind": "filename",
+    "pattern": "CHANGE",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.filename.CHANGES",
+    "kind": "filename",
+    "pattern": "CHANGES",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "documentation.filename.INSTALL",
+    "kind": "filename",
+    "pattern": "INSTALL",
+    "role": "documentation",
+    "source": "linguist"
+  },
+  {
+    "id": "generated.suffix-fold..designer.cs",
+    "kind": "suffix-fold",
+    "pattern": ".designer.cs",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "codegen"
+  },
+  {
+    "id": "generated.suffix-fold..designer.vb",
+    "kind": "suffix-fold",
+    "pattern": ".designer.vb",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "codegen"
+  },
+  {
+    "id": "generated.suffix-fold..feature.cs",
+    "kind": "suffix-fold",
+    "pattern": ".feature.cs",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "codegen"
+  },
+  {
+    "id": "generated.suffix-fold..js.map",
+    "kind": "suffix-fold",
+    "pattern": ".js.map",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "source-map"
+  },
+  {
+    "id": "generated.suffix-fold..css.map",
+    "kind": "suffix-fold",
+    "pattern": ".css.map",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "source-map"
+  },
+  {
+    "id": "generated.suffix-fold._tlb.pas",
+    "kind": "suffix-fold",
+    "pattern": "_tlb.pas",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "type-library"
+  },
+  {
+    "id": "generated.suffix..min.js",
+    "kind": "suffix",
+    "pattern": ".min.js",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "minified"
+  },
+  {
+    "id": "generated.suffix.-min.js",
+    "kind": "suffix",
+    "pattern": "-min.js",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "minified"
+  },
+  {
+    "id": "generated.suffix..min.css",
+    "kind": "suffix",
+    "pattern": ".min.css",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "minified"
+  },
+  {
+    "id": "generated.suffix.-min.css",
+    "kind": "suffix",
+    "pattern": "-min.css",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "minified"
+  },
+  {
+    "id": "generated.directory.htmlcov",
+    "kind": "directory",
+    "pattern": "htmlcov",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "coverage"
+  },
+  {
+    "id": "generated.filename..secrets.baseline",
+    "kind": "filename",
+    "pattern": ".secrets.baseline",
+    "role": "generated",
+    "source": "linguist",
+    "subtype": "security-baseline"
+  },
+  {
+    "id": "build.stem-fold.gradlew",
+    "kind": "stem-fold",
+    "pattern": "gradlew",
+    "role": "build",
+    "source": "linguist",
+    "subtype": "wrapper",
+    "extensions": [
+      "",
+      ".bat"
+    ]
+  },
+  {
+    "id": "build.stem-fold.mvnw",
+    "kind": "stem-fold",
+    "pattern": "mvnw",
+    "role": "build",
+    "source": "linguist",
+    "subtype": "wrapper",
+    "extensions": [
+      "",
+      ".cmd"
+    ]
+  },
+  {
+    "id": "build.filename..gitpod.Dockerfile",
+    "kind": "filename",
+    "pattern": ".gitpod.Dockerfile",
+    "role": "build",
+    "source": "linguist",
+    "subtype": "instructions"
+  },
+  {
+    "id": "configuration.filename..gitignore",
+    "kind": "filename",
+    "pattern": ".gitignore",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "configuration.filename..gitattributes",
+    "kind": "filename",
+    "pattern": ".gitattributes",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "configuration.filename.proguard.pro",
+    "kind": "filename",
+    "pattern": "proguard.pro",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "configuration.filename.proguard-rules.pro",
+    "kind": "filename",
+    "pattern": "proguard-rules.pro",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "configuration.filename.Vagrantfile",
+    "kind": "filename",
+    "pattern": "Vagrantfile",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "configuration.filename..indent.pro",
+    "kind": "filename",
+    "pattern": ".indent.pro",
+    "role": "configuration",
+    "source": "linguist"
+  },
+  {
+    "id": "tooling.filename.fabfile.py",
+    "kind": "filename",
+    "pattern": "fabfile.py",
+    "role": "tooling",
+    "source": "linguist"
+  },
+  {
+    "id": "ci.directory..teamcity",
+    "kind": "directory",
+    "pattern": ".teamcity",
+    "role": "ci",
+    "source": "linguist"
   }
 ]

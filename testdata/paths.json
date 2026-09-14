@@ -151,7 +151,9 @@
   },
   {
     "path": "Vendor/main.go",
-    "roles": []
+    "roles": [
+      "vendor"
+    ]
   },
   {
     "path": "vendor",

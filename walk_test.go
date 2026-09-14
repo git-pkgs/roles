@@ -14,6 +14,7 @@ import (
 func TestWalk(t *testing.T) {
 	tree := fstest.MapFS{
 		"packages/api/.buildkite/pipeline.yml":       {},
+		"packages/api/Form.DESIGNER.CS":              {},
 		"packages/api/.pytest_cache/v/cache/nodeids": {},
 		"packages/api/Support.markdown":              {},
 		"vendor/src/a_test.go":                       {Data: []byte("package a")},
@@ -46,7 +47,7 @@ func TestWalk(t *testing.T) {
 		}
 		return nil
 	})
-	if err != nil || count != 27 {
+	if err != nil || count != 28 {
 		t.Fatalf("count %d, error %v", count, err)
 	}
 }

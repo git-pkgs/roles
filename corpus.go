@@ -31,7 +31,7 @@ var (
 	filenameRules     = map[string][]rule{}
 	foldedStems       = map[int][]rule{}
 	foldedDirectories []rule
-	pathDirectories   []rule
+	pathDirectories   = map[string][]rule{}
 	foldedPrefixes    []rule
 	suffixRules       [256][]rule
 )
@@ -67,14 +67,22 @@ func init() {
 		case "directory-fold":
 			foldedDirectories = append(foldedDirectories, r)
 		case "directory-path":
-			pathDirectories = append(pathDirectories, r)
+			base := r.Pattern[strings.LastIndexByte(r.Pattern, '/')+1:]
+			pathDirectories[base] = append(pathDirectories[base], r)
 		case "prefix-fold":
 			foldedPrefixes = append(foldedPrefixes, r)
-		case "suffix":
-			last := r.Pattern[len(r.Pattern)-1]
+		case "suffix", "suffix-fold":
+			last := suffixBucket(r.Pattern[len(r.Pattern)-1])
 			suffixRules[last] = append(suffixRules[last], r)
 		default:
 			panic(fmt.Sprintf("unknown rule kind %q", r.Kind))
 		}
 	}
+}
+
+func suffixBucket(last byte) byte {
+	if last >= 'A' && last <= 'Z' {
+		return last + ('a' - 'A')
+	}
+	return last
 }

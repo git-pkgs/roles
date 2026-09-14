@@ -14,7 +14,7 @@ import (
 const cargoConfig = ".cargo/config.toml"
 
 func TestCorpus(t *testing.T) {
-	for _, file := range []string{"testdata/paths.json", "testdata/gitignore-paths.json"} {
+	for _, file := range []string{"testdata/paths.json", "testdata/gitignore-paths.json", "testdata/linguist-paths.json"} {
 		t.Run(file, func(t *testing.T) { testCorpusFile(t, file) })
 	}
 }
@@ -136,7 +136,7 @@ func TestMatchAllocations(t *testing.T) {
 }
 
 func FuzzClassify(f *testing.F) {
-	for _, name := range []string{"vendor/LICENSES/NOTICE", "src/a_test.go", "../x", "test/\xff"} {
+	for _, name := range []string{"vendor/LICENSES/NOTICE", "src/a_test.go", "../x", "test/\xff", "a\xff.CSS.MAP", "a.Designer.cs\xff"} {
 		f.Add(name)
 	}
 	f.Fuzz(func(t *testing.T, name string) {
@@ -157,4 +157,22 @@ func FuzzClassify(f *testing.F) {
 			}
 		}
 	})
+}
+
+func TestGeneratedSuffixBytes(t *testing.T) {
+	for name, generated := range map[string]bool{
+		"a\xff.CSS.MAP":     true,
+		"a.Designer.cs\xff": false,
+		"a.PYC":             false,
+		"a.MIN.JS":          false,
+		"a.Designer.cſ":     false,
+	} {
+		result, err := roles.Classify(name)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if got := slices.Contains(result.Roles, roles.Generated); got != generated {
+			t.Errorf("Classify(%q) generated = %v, want %v", name, got, generated)
+		}
+	}
 }
