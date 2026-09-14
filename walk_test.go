@@ -13,15 +13,16 @@ import (
 
 func TestWalk(t *testing.T) {
 	tree := fstest.MapFS{
-		"packages/api/.buildkite/pipeline.yml": {},
-		"packages/api/Support.markdown":        {},
-		"vendor/src/a_test.go":                 {Data: []byte("package a")},
-		"src/a.go":                             {Data: []byte("package a")},
-		"LICENSES/NOTICE":                      {},
-		"modules/a/testdata/package-lock.json": {},
-		"modules/b/testdata/package-lock.json": {},
-		"deps/crates/src/lib.rs":               {},
-		"link":                                 {Mode: fs.ModeSymlink, Data: []byte("../outside")},
+		"packages/api/.buildkite/pipeline.yml":       {},
+		"packages/api/.pytest_cache/v/cache/nodeids": {},
+		"packages/api/Support.markdown":              {},
+		"vendor/src/a_test.go":                       {Data: []byte("package a")},
+		"src/a.go":                                   {Data: []byte("package a")},
+		"LICENSES/NOTICE":                            {},
+		"modules/a/testdata/package-lock.json":       {},
+		"modules/b/testdata/package-lock.json":       {},
+		"deps/crates/src/lib.rs":                     {},
+		"link":                                       {Mode: fs.ModeSymlink, Data: []byte("../outside")},
 	}
 	c, err := roles.New([]roles.VendorRoot{{Path: "deps/crates", EvidencePath: cargoConfig}})
 	if err != nil {
@@ -45,7 +46,7 @@ func TestWalk(t *testing.T) {
 		}
 		return nil
 	})
-	if err != nil || count != 23 {
+	if err != nil || count != 27 {
 		t.Fatalf("count %d, error %v", count, err)
 	}
 }

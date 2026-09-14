@@ -682,7 +682,12 @@
   },
   {
     "path": "setup.pyc",
-    "roles": []
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "bytecode"
+    ]
   },
   {
     "path": "setup.cfg.bak",

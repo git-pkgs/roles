@@ -14,7 +14,14 @@ import (
 const cargoConfig = ".cargo/config.toml"
 
 func TestCorpus(t *testing.T) {
-	data, err := os.ReadFile("testdata/paths.json")
+	for _, file := range []string{"testdata/paths.json", "testdata/gitignore-paths.json"} {
+		t.Run(file, func(t *testing.T) { testCorpusFile(t, file) })
+	}
+}
+
+func testCorpusFile(t *testing.T, file string) {
+	t.Helper()
+	data, err := os.ReadFile(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -22,6 +29,7 @@ func TestCorpus(t *testing.T) {
 		Path     string
 		Roles    []roles.Role
 		Subtypes []string
+		Origins  []string
 	}
 	if err := json.Unmarshal(data, &cases); err != nil {
 		t.Fatal(err)
@@ -42,6 +50,11 @@ func TestCorpus(t *testing.T) {
 			for _, subtype := range tc.Subtypes {
 				if !slices.ContainsFunc(got.Evidence, func(e roles.Evidence) bool { return e.Subtype == subtype }) {
 					t.Errorf("missing subtype %s", subtype)
+				}
+			}
+			for _, origin := range tc.Origins {
+				if !slices.ContainsFunc(got.Evidence, func(e roles.Evidence) bool { return e.Origin == origin }) {
+					t.Errorf("missing origin %s", origin)
 				}
 			}
 			again, _ := roles.Classify(tc.Path)

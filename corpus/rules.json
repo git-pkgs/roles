@@ -1458,5 +1458,223 @@
     "pattern": ".buildkite",
     "role": "ci",
     "source": "roles"
+  },
+  {
+    "id": "generated.directory.__pycache__",
+    "kind": "directory",
+    "pattern": "__pycache__",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "bytecode",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.directory..pytest_cache",
+    "kind": "directory",
+    "pattern": ".pytest_cache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.directory..mypy_cache",
+    "kind": "directory",
+    "pattern": ".mypy_cache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.directory..ruff_cache",
+    "kind": "directory",
+    "pattern": ".ruff_cache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.directory..sass-cache",
+    "kind": "directory",
+    "pattern": ".sass-cache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache"
+  },
+  {
+    "id": "generated.directory.autom4te.cache",
+    "kind": "directory",
+    "pattern": "autom4te.cache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache"
+  },
+  {
+    "id": "generated.directory.CMakeFiles",
+    "kind": "directory",
+    "pattern": "CMakeFiles",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.filename..eslintcache",
+    "kind": "filename",
+    "pattern": ".eslintcache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename..stylelintcache",
+    "kind": "filename",
+    "pattern": ".stylelintcache",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename.CMakeCache.txt",
+    "kind": "filename",
+    "pattern": "CMakeCache.txt",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.filename.cmake_install.cmake",
+    "kind": "filename",
+    "pattern": "cmake_install.cmake",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.filename.CTestTestfile.cmake",
+    "kind": "filename",
+    "pattern": "CTestTestfile.cmake",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.filename.compile_commands.json",
+    "kind": "filename",
+    "pattern": "compile_commands.json",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.filename.next-env.d.ts",
+    "kind": "filename",
+    "pattern": "next-env.d.ts",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "declarations",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.filename..flutter-plugins",
+    "kind": "filename",
+    "pattern": ".flutter-plugins",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "pub"
+  },
+  {
+    "id": "generated.filename..flutter-plugins-dependencies",
+    "kind": "filename",
+    "pattern": ".flutter-plugins-dependencies",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "pub"
+  },
+  {
+    "id": "generated.filename.generated_plugin_registrant.dart",
+    "kind": "filename",
+    "pattern": "generated_plugin_registrant.dart",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "registrant",
+    "ecosystem": "pub"
+  },
+  {
+    "id": "generated.suffix..tsbuildinfo",
+    "kind": "suffix",
+    "pattern": ".tsbuildinfo",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.suffix..pyc",
+    "kind": "suffix",
+    "pattern": ".pyc",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "bytecode",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.suffix..pyo",
+    "kind": "suffix",
+    "pattern": ".pyo",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "bytecode",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.suffix..gcno",
+    "kind": "suffix",
+    "pattern": ".gcno",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "coverage"
+  },
+  {
+    "id": "generated.suffix..gcda",
+    "kind": "suffix",
+    "pattern": ".gcda",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "coverage"
+  },
+  {
+    "id": "generated.suffix..gcov",
+    "kind": "suffix",
+    "pattern": ".gcov",
+    "role": "generated",
+    "source": "gitignore",
+    "subtype": "coverage"
+  },
+  {
+    "id": "vendor.directory.bower_components",
+    "kind": "directory",
+    "pattern": "bower_components",
+    "role": "vendor",
+    "source": "gitignore"
+  },
+  {
+    "id": "vendor.directory.jspm_packages",
+    "kind": "directory",
+    "pattern": "jspm_packages",
+    "role": "vendor",
+    "source": "gitignore"
+  },
+  {
+    "id": "vendor.directory.vcpkg_installed",
+    "kind": "directory",
+    "pattern": "vcpkg_installed",
+    "role": "vendor",
+    "source": "gitignore"
   }
 ]

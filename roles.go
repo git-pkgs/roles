@@ -236,7 +236,7 @@ func matchFile(state *matchState, base, full string, explain bool) {
 			state.add(r, full, explain)
 		}
 	}
-	for _, r := range suffixRules {
+	for _, r := range suffixRules[base[len(base)-1]] {
 		if strings.HasSuffix(base, r.Pattern) {
 			state.add(r, full, explain)
 		}

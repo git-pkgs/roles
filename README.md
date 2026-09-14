@@ -187,6 +187,13 @@ reports such as `npm-ls.json` and `go.graph` have subtype
 `dependency-report`; NuGet assets and `.deps.json` files use
 `dependency-resolution`. There is no blanket `*.lock` rule.
 
+Other generated-file conventions include Python bytecode and tool caches,
+CMake metadata, TypeScript build information, Flutter plugin registrants
+and GCC coverage files. The `cache` subtype identifies specific tool output
+such as `.pytest_cache/`; generic names such as `.cache/` and `build/`, and
+virtual environments, receive no additional role. Bower, JSPM and vcpkg dependency
+directories receive `vendor` alongside any roles matched inside them.
+
 Named community documents include support, governance, maintainers,
 authors and roadmaps, using case-insensitive stems and selected document
 extensions, including `.markdown` and `.rdoc`. For example, `SUPPORT.md`,
@@ -195,8 +202,9 @@ do not. Rakefile matching accepts any casing with an optional `.rb` extension.
 
 Sources include legal-name matching from [licenses](https://github.com/git-pkgs/licenses),
 layout and tool conventions from [brief](https://github.com/git-pkgs/brief),
-and manifest, lockfile and dependency-output names from
-[manifests](https://github.com/git-pkgs/manifests).
+manifest, lockfile and dependency-output names from
+[manifests](https://github.com/git-pkgs/manifests), and selected generated-file
+and dependency-directory conventions from [GitHub's gitignore templates](https://github.com/github/gitignore).
 [NOTICE](NOTICE) records source revisions and attribution. `CorpusVersion`
 identifies the embedded classification semantics for caller caches.
 
@@ -266,4 +274,5 @@ claim for a complete repository scan.
 ## License
 
 Released under the [MIT License](LICENSE). See [NOTICE](NOTICE) for corpus
-source attribution and modification details.
+source attribution and modification details, including conventions adapted
+from GitHub's CC0-1.0 gitignore templates.

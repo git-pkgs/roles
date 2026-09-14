@@ -12,7 +12,11 @@ import (
 )
 
 func BenchmarkMatch(b *testing.B) {
-	for _, name := range []string{"main.go", "LICENSE", "packages/parser/vendor/src/parser_test.go"} {
+	for _, name := range []string{
+		"main.go", "LICENSE", "packages/parser/vendor/src/parser_test.go",
+		"packages/api/src/__pycache__/app.pyc", "packages/ui/project.tsbuildinfo",
+		"packages/api/.pytest_cache/v/cache/nodeids",
+	} {
 		b.Run(name, func(b *testing.B) {
 			b.ReportAllocs()
 			for b.Loop() {
