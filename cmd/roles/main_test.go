@@ -64,3 +64,45 @@ func TestRunInvalidUTF8(t *testing.T) {
 		t.Fatal("invalid path was silently replaced in JSON")
 	}
 }
+
+func TestRunLabelsOnly(t *testing.T) {
+	root := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(root, "vendor"), 0700); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "vendor", "LICENSE"), nil, 0600); err != nil {
+		t.Fatal(err)
+	}
+	for _, args := range [][]string{
+		{"-labels-only", "vendor/LICENSE"},
+		{"-labels-only", "-root", root},
+	} {
+		var out bytes.Buffer
+		if err := run(args, &out); err != nil {
+			t.Fatal(err)
+		}
+		decoder := json.NewDecoder(&out)
+		found := false
+		for decoder.More() {
+			var got struct {
+				Path string
+				roles.Result
+			}
+			if err := decoder.Decode(&got); err != nil {
+				t.Fatal(err)
+			}
+			if len(got.Evidence) != 0 {
+				t.Fatal("unexpected evidence", got)
+			}
+			if got.Path == "vendor/LICENSE" {
+				found = true
+				if !got.Has(roles.Vendor) || !got.Has(roles.Legal) || len(got.Roles) != 2 {
+					t.Fatal(got)
+				}
+			}
+		}
+		if !found {
+			t.Fatal("missing file result")
+		}
+	}
+}

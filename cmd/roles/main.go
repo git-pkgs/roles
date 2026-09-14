@@ -22,6 +22,7 @@ func main() {
 func run(args []string, output io.Writer) error {
 	flags := flag.NewFlagSet("roles", flag.ContinueOnError)
 	root := flags.String("root", "", "Walk a repository directory without reading file contents")
+	labelsOnly := flags.Bool("labels-only", false, "Emit roles without collecting evidence")
 	if err := flags.Parse(args); err != nil {
 		return err
 	}
@@ -43,11 +44,17 @@ func run(args []string, output io.Writer) error {
 		if err != nil {
 			return err
 		}
-		err = roles.Walk(tree.FS(), roles.WalkOptions{}, emit)
+		if *labelsOnly {
+			err = roles.WalkMatch(tree.FS(), roles.WalkOptions{}, func(name string, set roles.Set) error {
+				return emit(name, roles.Result{Roles: set.List()})
+			})
+		} else {
+			err = roles.Walk(tree.FS(), roles.WalkOptions{}, emit)
+		}
 		return errors.Join(err, tree.Close())
 	}
 	for _, name := range flags.Args() {
-		result, err := roles.Classify(name)
+		result, err := classify(name, *labelsOnly)
 		if err != nil {
 			return fmt.Errorf("%q: %w", name, err)
 		}
@@ -56,4 +63,12 @@ func run(args []string, output io.Writer) error {
 		}
 	}
 	return nil
+}
+
+func classify(name string, labelsOnly bool) (roles.Result, error) {
+	if labelsOnly {
+		set, err := roles.Match(name)
+		return roles.Result{Roles: set.List()}, err
+	}
+	return roles.Classify(name)
 }

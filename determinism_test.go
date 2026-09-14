@@ -34,6 +34,10 @@ func TestConcurrentDeterminism(t *testing.T) {
 					if err != nil || !reflect.DeepEqual(got, expected) {
 						t.Fatalf("non-deterministic result: %#v, %v", got, err)
 					}
+					set, err := classifier.Match(name)
+					if err != nil || !reflect.DeepEqual(set.List(), expected.Roles) {
+						t.Fatalf("non-deterministic labels: %v, %v", set, err)
+					}
 				}
 			}
 		})

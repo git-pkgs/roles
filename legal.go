@@ -27,16 +27,15 @@ func LegalFileName(name string) (license, notice bool) {
 }
 
 func prefixMatches(name, prefix string) bool {
-	if len(name) < len(prefix) || !strings.EqualFold(name[:len(prefix)], prefix) {
+	if len(name) < len(prefix) {
 		return false
 	}
-	if len(name) == len(prefix) {
-		return true
+	if len(name) > len(prefix) {
+		switch name[len(prefix)] {
+		case '.', '-', '_':
+		default:
+			return false
+		}
 	}
-	switch name[len(prefix)] {
-	case '.', '-', '_':
-		return true
-	default:
-		return false
-	}
+	return strings.EqualFold(name[:len(prefix)], prefix)
 }

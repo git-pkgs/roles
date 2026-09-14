@@ -173,7 +173,7 @@ type matchState struct {
 
 func (s matchState) result() Result { return Result{Roles: s.set.List(), Evidence: s.evidence} }
 
-func (s *matchState) add(r rule, matchedPath string, explain bool) {
+func (s *matchState) add(r *rule, matchedPath string, explain bool) {
 	s.set |= r.bit
 	if explain {
 		s.evidence = append(s.evidence, Evidence{Rule: r.ID, Role: r.Role, Path: matchedPath, Subtype: r.Subtype, Ecosystem: r.Ecosystem, Origin: r.Source})
@@ -243,7 +243,7 @@ func matchFile(state *matchState, base, full string, explain bool) {
 	}
 }
 
-func suffixMatches(base string, r rule) bool {
+func suffixMatches(base string, r *rule) bool {
 	if r.Kind == "suffix-fold" {
 		return len(base) >= len(r.Pattern) && strings.EqualFold(base[len(base)-len(r.Pattern):], r.Pattern)
 	}
