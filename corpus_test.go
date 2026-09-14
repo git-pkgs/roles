@@ -14,7 +14,10 @@ func TestEveryRuleIsReachable(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	var rules []struct{ ID, Kind, Pattern string }
+	var rules []struct {
+		ID, Kind, Pattern string
+		Extensions        []string
+	}
 	if err := json.Unmarshal(data, &rules); err != nil {
 		t.Fatal(err)
 	}
@@ -24,8 +27,10 @@ func TestEveryRuleIsReachable(t *testing.T) {
 			switch rule.Kind {
 			case "directory", "directory-fold", "directory-path":
 				name += "/arbitrary.bin"
-			case "suffix":
+			case "suffix", "suffix-fold":
 				name = "file" + name
+			case "stem-fold":
+				name += rule.Extensions[0]
 			}
 			got, err := roles.Classify(name)
 			if err != nil {

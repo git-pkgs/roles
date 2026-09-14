@@ -1,0 +1,1008 @@
+[
+  {
+    "path": "vendors/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Vendor/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "3rdparty/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "3rd_party/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "3rd-party/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "third-party/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "ThirdParty/a/file.c",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Godeps/_workspace/a/file.go",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".yarn/unplugged/a/file.js",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".yarn/releases/yarn.cjs",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Carthage/Checkouts/a/file.swift",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Pods/Alamofire/file.swift",
+    "roles": [
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "packages/ui/Pods/lib/file.swift",
+    "roles": [
+      "source",
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "ThirdParty/lib/src/file.c",
+    "roles": [
+      "source",
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "groovydoc/index.html",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Groovydoc/index.html",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "javadoc/index.html",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Javadoc/index.html",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "man/tool.1",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Man/tool.1",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Doc/guide.txt",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Docs/guide.md",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "inst/doc/guide.pdf",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "packages/lib/man/tool.1",
+    "roles": [
+      "source",
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "packages/r/inst/doc/vignette.html",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "CITATION",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "CITATION.cff",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Citation.bib",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "citation.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "CITATIONS",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Citations.bib",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "citations.md",
+    "roles": [
+      "documentation"
+    ],
+    "subtypes": [
+      "citation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "CHANGE",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "CHANGES",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "INSTALL",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Change.md",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "changes.txt",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Install.rst",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "INSTALL.markdown",
+    "roles": [
+      "documentation"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Form.Designer.cs",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "form.DESIGNER.VB",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "login.Feature.CS",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Form.designer.cs",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "bundle.js.map",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "source-map"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "style.CSS.MAP",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "source-map"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "bundle.JS.Map",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "source-map"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Interop_TLB.pas",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "type-library"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "app.min.js",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "minified"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "app-min.js",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "minified"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "app.min.css",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "minified"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "app-min.css",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "minified"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "htmlcov/index.html",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "coverage"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".secrets.baseline",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "security-baseline"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "gradlew",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "gradlew.bat",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "GRADLEW.BAT",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "mvnw",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "mvnw.cmd",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "MVNW.CMD",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".gitpod.Dockerfile",
+    "roles": [
+      "build"
+    ],
+    "subtypes": [
+      "instructions"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".gitignore",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".gitattributes",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "proguard.pro",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "proguard-rules.pro",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Vagrantfile",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".indent.pro",
+    "roles": [
+      "configuration"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "fabfile.py",
+    "roles": [
+      "tooling"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": ".teamcity/settings.kts",
+    "roles": [
+      "ci"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "test/fixtures/Form.Designer.cs",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "vendor/app.min.js",
+    "roles": [
+      "vendor",
+      "generated"
+    ],
+    "subtypes": [
+      "minified"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "src/app.JS.MAP",
+    "roles": [
+      "source",
+      "generated"
+    ],
+    "subtypes": [
+      "source-map"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "Pods/Alamofire/tests/input.json",
+    "roles": [
+      "test",
+      "vendor"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "vendor/tool/gradlew",
+    "roles": [
+      "vendor",
+      "build",
+      "tooling"
+    ],
+    "subtypes": [
+      "wrapper"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "testdata/main.go",
+    "roles": [
+      "test",
+      "fixture"
+    ]
+  },
+  {
+    "path": "debian/control",
+    "roles": [
+      "packaging"
+    ]
+  },
+  {
+    "path": "examples/main.py",
+    "roles": [
+      "example"
+    ]
+  },
+  {
+    "path": "LICENSE",
+    "roles": [
+      "legal"
+    ],
+    "subtypes": [
+      "license"
+    ]
+  },
+  {
+    "path": "node_modules/first/index.js",
+    "roles": [
+      "vendor"
+    ]
+  },
+  {
+    "path": "vendor/form.DESIGNER.VB",
+    "roles": [
+      "vendor",
+      "generated"
+    ],
+    "subtypes": [
+      "codegen"
+    ],
+    "origins": [
+      "linguist"
+    ]
+  },
+  {
+    "path": "vendors",
+    "roles": []
+  },
+  {
+    "path": "Pods",
+    "roles": []
+  },
+  {
+    "path": "man",
+    "roles": []
+  },
+  {
+    "path": ".teamcity",
+    "roles": []
+  },
+  {
+    "path": "htmlcov",
+    "roles": []
+  },
+  {
+    "path": "vendorish/a.c",
+    "roles": []
+  },
+  {
+    "path": "mythird-party/a.c",
+    "roles": []
+  },
+  {
+    "path": "ThirdPartyish/a.c",
+    "roles": []
+  },
+  {
+    "path": ".yarn/patches/fix.patch",
+    "roles": []
+  },
+  {
+    "path": ".yarn/plugins/own.js",
+    "roles": []
+  },
+  {
+    "path": ".yarn/versions/release.yml",
+    "roles": []
+  },
+  {
+    "path": "xGodeps/_workspace/a.go",
+    "roles": []
+  },
+  {
+    "path": "Carthage/Project.swift",
+    "roles": []
+  },
+  {
+    "path": "install",
+    "roles": []
+  },
+  {
+    "path": "change",
+    "roles": []
+  },
+  {
+    "path": "changes",
+    "roles": []
+  },
+  {
+    "path": "INSTALL.sh",
+    "roles": []
+  },
+  {
+    "path": "CHANGE.py",
+    "roles": []
+  },
+  {
+    "path": "CITATION.cff.bak",
+    "roles": []
+  },
+  {
+    "path": "CITATIONS.cff",
+    "roles": []
+  },
+  {
+    "path": "citation.json",
+    "roles": []
+  },
+  {
+    "path": "Form.Designer.cs.bak",
+    "roles": []
+  },
+  {
+    "path": "feature.cs",
+    "roles": []
+  },
+  {
+    "path": "Form.designer.fs",
+    "roles": []
+  },
+  {
+    "path": "style.map",
+    "roles": []
+  },
+  {
+    "path": "styles.CSS.MAP.bak",
+    "roles": []
+  },
+  {
+    "path": "app.MIN.JS",
+    "roles": []
+  },
+  {
+    "path": "app.min.jsx",
+    "roles": []
+  },
+  {
+    "path": "admin.js",
+    "roles": []
+  },
+  {
+    "path": "prototype.js",
+    "roles": []
+  },
+  {
+    "path": "Chart.js",
+    "roles": []
+  },
+  {
+    "path": "mytypes.d.ts",
+    "roles": []
+  },
+  {
+    "path": "schema.proto",
+    "roles": []
+  },
+  {
+    "path": "file.pb.go",
+    "roles": []
+  },
+  {
+    "path": "module.rbi",
+    "roles": []
+  },
+  {
+    "path": "query.json",
+    "roles": []
+  },
+  {
+    "path": ".idea/compiler.xml",
+    "roles": []
+  },
+  {
+    "path": "cache/file.py",
+    "roles": []
+  },
+  {
+    "path": "dist/app.js",
+    "roles": []
+  },
+  {
+    "path": "env/app.py",
+    "roles": []
+  },
+  {
+    "path": ".github/OWNERS",
+    "roles": []
+  },
+  {
+    "path": "inst/extdata/data.csv",
+    "roles": []
+  },
+  {
+    "path": "gradlew.bat.bak",
+    "roles": []
+  },
+  {
+    "path": "mvnw.sh",
+    "roles": []
+  },
+  {
+    "path": "form.DESIGNER.VB.bak",
+    "roles": []
+  },
+  {
+    "path": ".gitattributes.bak",
+    "roles": []
+  },
+  {
+    "path": "fabfile.pyc.old",
+    "roles": []
+  },
+  {
+    "path": ".teamcity-old/settings.kts",
+    "roles": []
+  },
+  {
+    "path": "file.PYC",
+    "roles": []
+  }
+]

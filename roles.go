@@ -205,7 +205,7 @@ func (c *Classifier) directory(state *matchState, base, full string, explain boo
 			state.add(r, full, explain)
 		}
 	}
-	for _, r := range pathDirectories {
+	for _, r := range pathDirectories[base] {
 		if full == r.Pattern || strings.HasSuffix(full, r.directorySuffix) {
 			state.add(r, full, explain)
 		}
@@ -236,11 +236,18 @@ func matchFile(state *matchState, base, full string, explain bool) {
 			state.add(r, full, explain)
 		}
 	}
-	for _, r := range suffixRules[base[len(base)-1]] {
-		if strings.HasSuffix(base, r.Pattern) {
+	for _, r := range suffixRules[suffixBucket(base[len(base)-1])] {
+		if suffixMatches(base, r) {
 			state.add(r, full, explain)
 		}
 	}
+}
+
+func suffixMatches(base string, r rule) bool {
+	if r.Kind == "suffix-fold" {
+		return len(base) >= len(r.Pattern) && strings.EqualFold(base[len(base)-len(r.Pattern):], r.Pattern)
+	}
+	return strings.HasSuffix(base, r.Pattern)
 }
 
 func extensionMatches(ext string, extensions []string) bool {

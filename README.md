@@ -56,6 +56,10 @@ independent evidence.
 | `test/fixtures/input.json` | `test`, `fixture` |
 | `testdata/package-lock.json` | `test`, `fixture`, `generated` |
 | `packages/api/uv.lock` | `generated` |
+| `src/Form.Designer.cs` | `source`, `generated` |
+| `Pods/library/main.swift` | `vendor` |
+| `gradlew` | `build` |
+| `.gitattributes` | `configuration` |
 | `examples/client/main.go` | `example` |
 | `docs/api.md` | `documentation` |
 | `.github/SECURITY.md` | `documentation` |
@@ -194,17 +198,28 @@ such as `.pytest_cache/`; generic names such as `.cache/` and `build/`, and
 virtual environments, receive no additional role. Bower, JSPM and vcpkg dependency
 directories receive `vendor` alongside any roles matched inside them.
 
+Named minified JavaScript/CSS files, source maps and .NET designer files
+also receive `generated`. Source-map and designer suffixes accept mixed
+case; minified suffixes use lowercase `.min.js`, `-min.js`, `.min.css` and
+`-min.css`. A plain `.d.ts` filename or a name such as `jquery.js` does not
+establish generated or vendored content.
+
 Named community documents include support, governance, maintainers,
 authors and roadmaps, using case-insensitive stems and selected document
 extensions, including `.markdown` and `.rdoc`. For example, `SUPPORT.md`,
 `support.md` and `Support.md` match, while `support.py` and `SUPPORT.md.bak`
 do not. Rakefile matching accepts any casing with an optional `.rb` extension.
+Citation files, API/manual directories and installation/change documents
+provide further documentation conventions. Bare `INSTALL`, `CHANGE` and
+`CHANGES` match; their lowercase command names require a document extension.
 
 Sources include legal-name matching from [licenses](https://github.com/git-pkgs/licenses),
 layout and tool conventions from [brief](https://github.com/git-pkgs/brief),
 manifest, lockfile and dependency-output names from
 [manifests](https://github.com/git-pkgs/manifests), and selected generated-file
 and dependency-directory conventions from [GitHub's gitignore templates](https://github.com/github/gitignore).
+[GitHub Linguist](https://github.com/github-linguist/linguist) supplies additional
+vendor, documentation and generated-file conventions, adapted to these roles.
 [NOTICE](NOTICE) records source revisions and attribution. `CorpusVersion`
 identifies the embedded classification semantics for caller caches.
 
