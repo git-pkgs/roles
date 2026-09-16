@@ -6,7 +6,9 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/fs"
 	"os"
+	"strings"
 	"unicode/utf8"
 
 	"github.com/git-pkgs/roles"
@@ -44,12 +46,21 @@ func run(args []string, output io.Writer) error {
 		if err != nil {
 			return err
 		}
+		emitTree := func(name string, result roles.Result) error {
+			if isGitMetadata(name) {
+				if strings.HasSuffix(name, "/") {
+					return fs.SkipDir
+				}
+				return nil
+			}
+			return emit(name, result)
+		}
 		if *labelsOnly {
 			err = roles.WalkMatch(tree.FS(), roles.WalkOptions{}, func(name string, set roles.Set) error {
-				return emit(name, roles.Result{Roles: set.List()})
+				return emitTree(name, roles.Result{Roles: set.List()})
 			})
 		} else {
-			err = roles.Walk(tree.FS(), roles.WalkOptions{}, emit)
+			err = roles.Walk(tree.FS(), roles.WalkOptions{}, emitTree)
 		}
 		return errors.Join(err, tree.Close())
 	}
@@ -63,6 +74,11 @@ func run(args []string, output io.Writer) error {
 		}
 	}
 	return nil
+}
+
+func isGitMetadata(name string) bool {
+	name = strings.TrimSuffix(name, "/")
+	return name == ".git" || strings.HasSuffix(name, "/.git")
 }
 
 func classify(name string, labelsOnly bool) (roles.Result, error) {

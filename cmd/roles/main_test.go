@@ -5,9 +5,16 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"slices"
+	"strings"
 	"testing"
 
 	"github.com/git-pkgs/roles"
+)
+
+const (
+	labelsOnlyFlag = "-labels-only"
+	rootFlag       = "-root"
 )
 
 func TestRun(t *testing.T) {
@@ -39,7 +46,7 @@ func TestRunTree(t *testing.T) {
 		t.Fatal(err)
 	}
 	var out bytes.Buffer
-	if err := run([]string{"-root", root}, &out); err != nil {
+	if err := run([]string{rootFlag, root}, &out); err != nil {
 		t.Fatal(err)
 	}
 	decoder := json.NewDecoder(&out)
@@ -58,6 +65,68 @@ func TestRunTree(t *testing.T) {
 	}
 }
 
+func TestRunTreeSkipsGitMetadata(t *testing.T) {
+	const (
+		githubWorkflow = ".github/workflows/ci.yml"
+		projectGitFile = "project.git/file"
+		sourceFile     = "src/main.go"
+	)
+	root := t.TempDir()
+	for _, name := range []string{
+		".git/objects/object",
+		"nested/.git/config",
+		"submodule/.git",
+		githubWorkflow,
+		projectGitFile,
+		sourceFile,
+	} {
+		path := filepath.Join(root, filepath.FromSlash(name))
+		if err := os.MkdirAll(filepath.Dir(path), 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(path, nil, 0600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	for _, args := range [][]string{{rootFlag, root}, {labelsOnlyFlag, rootFlag, root}} {
+		t.Run(strings.Join(args, " "), func(t *testing.T) {
+			paths := runTreePaths(t, args)
+			for _, path := range paths {
+				clean := strings.TrimSuffix(path, "/")
+				if clean == ".git" || strings.HasPrefix(clean, ".git/") || strings.Contains(clean, "/.git/") || strings.HasSuffix(clean, "/.git") {
+					t.Fatalf("emitted Git metadata path %q", path)
+				}
+			}
+			for _, name := range []string{githubWorkflow, projectGitFile, sourceFile} {
+				if !slices.Contains(paths, name) {
+					t.Errorf("missing non-metadata path %q", name)
+				}
+			}
+		})
+	}
+}
+
+func runTreePaths(t *testing.T, args []string) []string {
+	t.Helper()
+	var out bytes.Buffer
+	if err := run(args, &out); err != nil {
+		t.Fatal(err)
+	}
+	var paths []string
+	decoder := json.NewDecoder(&out)
+	for decoder.More() {
+		var got struct {
+			Path string
+			roles.Result
+		}
+		if err := decoder.Decode(&got); err != nil {
+			t.Fatal(err)
+		}
+		paths = append(paths, got.Path)
+	}
+	return paths
+}
+
 func TestRunInvalidUTF8(t *testing.T) {
 	var out bytes.Buffer
 	if err := run([]string{"src/\xff.go"}, &out); err == nil || out.Len() != 0 {
@@ -74,8 +143,8 @@ func TestRunLabelsOnly(t *testing.T) {
 		t.Fatal(err)
 	}
 	for _, args := range [][]string{
-		{"-labels-only", "vendor/LICENSE"},
-		{"-labels-only", "-root", root},
+		{labelsOnlyFlag, "vendor/LICENSE"},
+		{labelsOnlyFlag, rootFlag, root},
 	} {
 		var out bytes.Buffer
 		if err := run(args, &out); err != nil {
