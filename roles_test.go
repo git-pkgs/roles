@@ -16,11 +16,18 @@ const (
 	secondaryCargoConfig = "config/cargo.toml"
 	cargoEcosystem       = "cargo"
 	npmEcosystem         = "npm"
+	golangEcosystem      = "golang"
+	pypiEcosystem        = "pypi"
 	packageJSON          = "package.json"
+	mainGoPath           = "main.go"
 	cratesVendorRoot     = "deps/crates"
 	sharedVendorRoot     = "deps/shared"
 	contextSource        = "context"
 	contextVendorRule    = "context.vendor-root"
+	legalLicense         = "license"
+	legalNotice          = "notice"
+	legalLicences        = "licences"
+	licensesValue        = "licenses"
 )
 
 func TestCorpus(t *testing.T) {
@@ -99,8 +106,8 @@ func TestEvidence(t *testing.T) {
 	}
 	want := []roles.Evidence{
 		{Rule: "vendor.directory.vendor", Role: roles.Vendor, Path: "vendor", Source: "roles"},
-		{Rule: "legal.directory-fold.licenses", Role: roles.Legal, Path: "vendor/LICENSES", Subtype: "license", Source: "licenses"},
-		{Rule: "legal.prefix-fold.notice", Role: roles.Legal, Path: "vendor/LICENSES/NOTICE", Subtype: "notice", Source: "licenses"},
+		{Rule: "legal.directory-fold.licenses", Role: roles.Legal, Path: "vendor/LICENSES", Subtype: legalLicense, Source: licensesValue},
+		{Rule: "legal.prefix-fold.notice", Role: roles.Legal, Path: "vendor/LICENSES/NOTICE", Subtype: legalNotice, Source: licensesValue},
 	}
 	if !reflect.DeepEqual(got.Evidence, want) {
 		t.Fatalf("evidence = %#v", got.Evidence)
@@ -181,7 +188,7 @@ func TestVendorContextMultipleEvidence(t *testing.T) {
 		{Path: sharedVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: secondaryCargoConfig},
 		{Path: sharedVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: cargoConfig},
 		{Path: sharedVendorRoot, Ecosystem: npmEcosystem, EvidencePath: packageJSON},
-		{Path: sharedVendorRoot + "/nested", Ecosystem: "golang", EvidencePath: "vendor/modules.txt"},
+		{Path: sharedVendorRoot + "/nested", Ecosystem: golangEcosystem, EvidencePath: "vendor/modules.txt"},
 	}
 	first, err := roles.New(roots)
 	if err != nil {
@@ -211,7 +218,7 @@ func TestVendorContextMultipleEvidence(t *testing.T) {
 		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: cargoEcosystem, Source: contextSource, EvidencePath: cargoConfig},
 		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: cargoEcosystem, Source: contextSource, EvidencePath: secondaryCargoConfig},
 		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: npmEcosystem, Source: contextSource, EvidencePath: packageJSON},
-		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot + "/nested", Ecosystem: "golang", Source: contextSource, EvidencePath: "vendor/modules.txt"},
+		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot + "/nested", Ecosystem: golangEcosystem, Source: contextSource, EvidencePath: "vendor/modules.txt"},
 	}
 	if !reflect.DeepEqual(context, want) {
 		t.Fatalf("context evidence = %#v, want %#v", context, want)

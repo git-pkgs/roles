@@ -2,6 +2,7 @@ package roles_test
 
 import (
 	"reflect"
+	"sync"
 	"testing"
 
 	"github.com/git-pkgs/roles"
@@ -43,4 +44,54 @@ func TestConcurrentDeterminism(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestDeterministicAcrossWorkerCounts(t *testing.T) {
+	classifier, err := roles.New([]roles.VendorRoot{
+		{Path: cratesVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: cargoConfig},
+		{Path: cratesVendorRoot, Ecosystem: npmEcosystem, EvidencePath: packageJSON},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	paths := []string{
+		"deps/crates/src/parser_test.go",
+		"packages/api/.github/workflows/ci.yml",
+		"test/fixtures/project.tsbuildinfo",
+		fingerprintNoticePath,
+		mainGoPath,
+	}
+	want := classifyConcurrently(t, classifier, paths, 1)
+	for _, workers := range []int{2, 8} {
+		got := classifyConcurrently(t, classifier, paths, workers)
+		if !reflect.DeepEqual(got, want) {
+			t.Fatalf("%d workers changed results: %#v", workers, got)
+		}
+	}
+}
+
+func classifyConcurrently(t *testing.T, classifier *roles.Classifier, paths []string, workers int) []roles.Result {
+	t.Helper()
+	results := make([]roles.Result, len(paths))
+	errors := make([]error, workers)
+	var group sync.WaitGroup
+	for worker := range workers {
+		group.Go(func() {
+			for index := worker; index < len(paths); index += workers {
+				result, err := classifier.Classify(paths[index])
+				if err != nil {
+					errors[worker] = err
+					return
+				}
+				results[index] = result
+			}
+		})
+	}
+	group.Wait()
+	for _, err := range errors {
+		if err != nil {
+			t.Fatal(err)
+		}
+	}
+	return results
 }

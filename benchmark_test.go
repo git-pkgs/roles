@@ -14,7 +14,7 @@ import (
 
 func BenchmarkMatch(b *testing.B) {
 	for _, name := range []string{
-		"main.go", "LICENSE", "packages/parser/vendor/src/parser_test.go",
+		mainGoPath, "LICENSE", "packages/parser/vendor/src/parser_test.go",
 		"packages/api/src/__pycache__/app.pyc", "packages/ui/project.tsbuildinfo",
 		"packages/api/.pytest_cache/v/cache/nodeids",
 		"packages/ui/Form.DESIGNER.CS", "packages/ui/app.min.js",

@@ -75,7 +75,7 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 		"modules/a/testdata/package-lock.json",
 		"packages/api/.github/workflows/ci.yml",
 		"src/Form.Designer.cs",
-		"main.go",
+		mainGoPath,
 	} {
 		result, err := roles.Classify(path)
 		if err != nil {

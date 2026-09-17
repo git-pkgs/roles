@@ -1,6 +1,7 @@
 package roles_test
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/git-pkgs/roles"
@@ -28,7 +29,7 @@ func TestLegalNames(t *testing.T) {
 		name string
 		want bool
 	}{
-		{"LICENSES", true}, {"licences", true}, {"NOTICE", false}, {"licensed", false}, {"src/LICENSES", false},
+		{"LICENSES", true}, {legalLicences, true}, {"NOTICE", false}, {"licensed", false}, {"src/LICENSES", false},
 	} {
 		if got := roles.IsLegalDirectory(tc.name); got != tc.want {
 			t.Errorf("%q: %t", tc.name, got)
@@ -50,6 +51,48 @@ func TestLegalNames(t *testing.T) {
 		roles.LegalFileNameBytes(legalFile)
 	}); got != 0 {
 		t.Fatalf("byte predicate allocations = %v", got)
+	}
+}
+
+func TestLegalNameCompatibility(t *testing.T) {
+	assertLegalDirectories(t)
+	assertLegalFilePrefixes(t, []string{licensesValue, legalLicense, legalLicences, "licence", "copying", "mit-license", "copyright", "unlicense"}, true)
+	assertLegalFilePrefixes(t, []string{legalNotice, "notices"}, false)
+}
+
+func assertLegalDirectories(t *testing.T) {
+	t.Helper()
+	for _, directory := range []string{legalLicense, licensesValue, "licence", legalLicences} {
+		for _, name := range []string{directory, strings.ToUpper(directory)} {
+			if !roles.IsLegalDirectory(name) || !roles.IsLegalDirectoryBytes([]byte(name)) {
+				t.Errorf("legal directory %q did not match", name)
+			}
+		}
+	}
+	for _, name := range []string{"licensed", "licenses-old", legalNotice, "copying"} {
+		if roles.IsLegalDirectory(name) || roles.IsLegalDirectoryBytes([]byte(name)) {
+			t.Errorf("non-legal directory %q matched", name)
+		}
+	}
+}
+
+func assertLegalFilePrefixes(t *testing.T, prefixes []string, licenseExpected bool) {
+	t.Helper()
+	noticeExpected := !licenseExpected
+	for _, prefix := range prefixes {
+		for _, suffix := range []string{"", ".txt", "-old", "_third-party"} {
+			name := strings.ToUpper(prefix) + suffix
+			license, notice := roles.LegalFileName(name)
+			byteLicense, byteNotice := roles.LegalFileNameBytes([]byte(name))
+			if license != licenseExpected || notice != noticeExpected || byteLicense != license || byteNotice != notice {
+				t.Errorf("legal name %q = %t, %t; bytes = %t, %t", name, license, notice, byteLicense, byteNotice)
+			}
+		}
+		name := prefix + "x"
+		license, notice := roles.LegalFileName(name)
+		if license || notice {
+			t.Errorf("unbounded legal prefix %q matched", name)
+		}
 	}
 }
 

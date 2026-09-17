@@ -37,6 +37,25 @@ func TestRun(t *testing.T) {
 	}
 }
 
+func TestRunJSONSchema(t *testing.T) {
+	var out bytes.Buffer
+	if err := run([]string{"LICENSE"}, &out); err != nil {
+		t.Fatal(err)
+	}
+	want := fmt.Sprintf("{\"path\":\"LICENSE\",\"corpus_version\":%q,\"roles\":[\"legal\"],\"evidence\":[{\"rule\":\"legal.prefix-fold.license\",\"role\":\"legal\",\"path\":\"LICENSE\",\"subtype\":\"license\",\"source\":\"licenses\"}]}\n", roles.CorpusVersion)
+	if out.String() != want {
+		t.Fatalf("JSON = %s, want %s", out.String(), want)
+	}
+	out.Reset()
+	if err := run([]string{labelsOnlyFlag, "LICENSE"}, &out); err != nil {
+		t.Fatal(err)
+	}
+	want = fmt.Sprintf("{\"path\":\"LICENSE\",\"corpus_version\":%q,\"roles\":[\"legal\"]}\n", roles.CorpusVersion)
+	if out.String() != want {
+		t.Fatalf("labels JSON = %s, want %s", out.String(), want)
+	}
+}
+
 func TestRunTree(t *testing.T) {
 	root := t.TempDir()
 	if err := os.MkdirAll(filepath.Join(root, "testdata"), 0700); err != nil {
