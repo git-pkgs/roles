@@ -29,7 +29,7 @@ func testCorpusFile(t *testing.T, file string) {
 		Path     string
 		Roles    []roles.Role
 		Subtypes []string
-		Origins  []string
+		Sources  []string
 	}
 	if err := json.Unmarshal(data, &cases); err != nil {
 		t.Fatal(err)
@@ -52,9 +52,9 @@ func testCorpusFile(t *testing.T, file string) {
 					t.Errorf("missing subtype %s", subtype)
 				}
 			}
-			for _, origin := range tc.Origins {
-				if !slices.ContainsFunc(got.Evidence, func(e roles.Evidence) bool { return e.Origin == origin }) {
-					t.Errorf("missing origin %s", origin)
+			for _, source := range tc.Sources {
+				if !slices.ContainsFunc(got.Evidence, func(e roles.Evidence) bool { return e.Source == source }) {
+					t.Errorf("missing source %s", source)
 				}
 			}
 			again, _ := roles.Classify(tc.Path)
@@ -87,9 +87,9 @@ func TestEvidence(t *testing.T) {
 		t.Fatal(err)
 	}
 	want := []roles.Evidence{
-		{Rule: "vendor.directory.vendor", Role: roles.Vendor, Path: "vendor", Origin: "roles"},
-		{Rule: "legal.directory-fold.licenses", Role: roles.Legal, Path: "vendor/LICENSES", Subtype: "license", Origin: "licenses"},
-		{Rule: "legal.prefix-fold.notice", Role: roles.Legal, Path: "vendor/LICENSES/NOTICE", Subtype: "notice", Origin: "licenses"},
+		{Rule: "vendor.directory.vendor", Role: roles.Vendor, Path: "vendor", Source: "roles"},
+		{Rule: "legal.directory-fold.licenses", Role: roles.Legal, Path: "vendor/LICENSES", Subtype: "license", Source: "licenses"},
+		{Rule: "legal.prefix-fold.notice", Role: roles.Legal, Path: "vendor/LICENSES/NOTICE", Subtype: "notice", Source: "licenses"},
 	}
 	if !reflect.DeepEqual(got.Evidence, want) {
 		t.Fatalf("evidence = %#v", got.Evidence)
@@ -115,8 +115,22 @@ func TestVendorContext(t *testing.T) {
 	if !got.Has(roles.Vendor) || !got.Has(roles.Source) {
 		t.Fatal(got)
 	}
-	if got.Evidence[0].Origin != cargoConfig {
+	if got.Evidence[0].Source != "context" || got.Evidence[0].EvidencePath != cargoConfig {
 		t.Fatal(got.Evidence)
+	}
+	encoded, err := json.Marshal(got.Evidence[0])
+	if err != nil {
+		t.Fatal(err)
+	}
+	var fields map[string]any
+	if err := json.Unmarshal(encoded, &fields); err != nil {
+		t.Fatal(err)
+	}
+	if fields["source"] != "context" || fields["evidence_path"] != cargoConfig {
+		t.Fatal(fields)
+	}
+	if _, exists := fields["origin"]; exists {
+		t.Fatal(fields)
 	}
 	other, _ := c.Classify("deps/localish/src/lib.rs")
 	if other.Has(roles.Vendor) {

@@ -65,13 +65,16 @@ var roleBits = func() map[Role]Set {
 func roleBit(role Role) Set { return roleBits[role] }
 
 // Evidence identifies a matched corpus rule or caller-supplied vendor root.
+// Source names the rule provider. EvidencePath names the repository input that
+// supplied contextual evidence, when one exists.
 type Evidence struct {
-	Rule      string `json:"rule"`
-	Role      Role   `json:"role"`
-	Path      string `json:"path"`
-	Subtype   string `json:"subtype,omitempty"`
-	Ecosystem string `json:"ecosystem,omitempty"`
-	Origin    string `json:"origin"`
+	Rule         string `json:"rule"`
+	Role         Role   `json:"role"`
+	Path         string `json:"path"`
+	Subtype      string `json:"subtype,omitempty"`
+	Ecosystem    string `json:"ecosystem,omitempty"`
+	Source       string `json:"source"`
+	EvidencePath string `json:"evidence_path,omitempty"`
 }
 
 // Result contains labels and the independent matches that produced them.
@@ -176,7 +179,7 @@ func (s matchState) result() Result { return Result{Roles: s.set.List(), Evidenc
 func (s *matchState) add(r *rule, matchedPath string, explain bool) {
 	s.set |= r.bit
 	if explain {
-		s.evidence = append(s.evidence, Evidence{Rule: r.ID, Role: r.Role, Path: matchedPath, Subtype: r.Subtype, Ecosystem: r.Ecosystem, Origin: r.Source})
+		s.evidence = append(s.evidence, Evidence{Rule: r.ID, Role: r.Role, Path: matchedPath, Subtype: r.Subtype, Ecosystem: r.Ecosystem, Source: r.Source})
 	}
 }
 
@@ -213,7 +216,7 @@ func (c *Classifier) directory(state *matchState, base, full string, explain boo
 	if root, ok := c.roots[full]; ok {
 		state.set |= roleBit(Vendor)
 		if explain {
-			state.evidence = append(state.evidence, Evidence{Rule: "context.vendor-root", Role: Vendor, Path: full, Ecosystem: root.Ecosystem, Origin: root.EvidencePath})
+			state.evidence = append(state.evidence, Evidence{Rule: "context.vendor-root", Role: Vendor, Path: full, Ecosystem: root.Ecosystem, Source: "context", EvidencePath: root.EvidencePath})
 		}
 	}
 }

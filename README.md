@@ -76,11 +76,12 @@ The vocabulary is `source`, `test`, `fixture`, `example`, `benchmark`, `fuzz`,
 `tooling` and `configuration`. Coverage is based on explicit conventions,
 not a complete inventory of every ecosystem.
 
-Evidence identifies the rule, role, matched path and origin, with a subtype
-or ecosystem where applicable. Legal matches distinguish licence and notice
-files. Roles follow a fixed order; evidence follows ancestor order and then
-filename matches. A `source` role describes layout and does not establish
-compilability or authorship.
+Evidence identifies the rule, role, matched path and source, with a subtype or
+ecosystem where applicable. Caller-supplied context can also identify the
+repository path that supplied the evidence. Legal matches distinguish licence
+and notice files. Roles follow a fixed order; evidence follows ancestor order
+and then filename matches. A `source` role describes layout and does not
+establish compilability or authorship.
 
 ## Usage
 
@@ -138,7 +139,8 @@ result, err := classifier.Classify("deps/crates/example/src/lib.rs")
 ```
 
 The classifier copies this context and supports concurrent use. The
-`context.vendor-root` evidence records caller-supplied information.
+`context.vendor-root` evidence uses `context` as its source and records the
+caller-supplied path separately.
 `LegalFileName` and `IsLegalDirectory` expose the same legal-name corpus for
 consumers that already traverse paths themselves.
 

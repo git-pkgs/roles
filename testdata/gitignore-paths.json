@@ -7,7 +7,7 @@
     "subtypes": [
       "bytecode"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -19,7 +19,7 @@
     "subtypes": [
       "bytecode"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -31,7 +31,7 @@
     "subtypes": [
       "bytecode"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -43,7 +43,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -55,7 +55,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -67,7 +67,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -79,7 +79,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -91,7 +91,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -103,7 +103,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -115,7 +115,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -127,7 +127,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -139,7 +139,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -151,7 +151,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -163,7 +163,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -175,7 +175,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -187,7 +187,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -199,7 +199,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -211,7 +211,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -223,7 +223,7 @@
     "subtypes": [
       "declarations"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -235,7 +235,7 @@
     "subtypes": [
       "registrant"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -247,7 +247,7 @@
     "subtypes": [
       "coverage"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -259,7 +259,7 @@
     "subtypes": [
       "coverage"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -271,7 +271,7 @@
     "subtypes": [
       "coverage"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -280,7 +280,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -290,7 +290,7 @@
       "source",
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -299,7 +299,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -311,7 +311,7 @@
     "subtypes": [
       "cache"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -323,7 +323,7 @@
     "subtypes": [
       "declarations"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -336,7 +336,7 @@
     "subtypes": [
       "bytecode"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -350,7 +350,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -363,7 +363,7 @@
     "subtypes": [
       "build-metadata"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -374,7 +374,7 @@
       "fixture",
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -383,7 +383,7 @@
     "roles": [
       "generated"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -392,7 +392,7 @@
     "roles": [
       "generated"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },
@@ -401,7 +401,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "gitignore"
     ]
   },

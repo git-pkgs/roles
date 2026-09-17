@@ -4,7 +4,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -13,7 +13,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -22,7 +22,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -31,7 +31,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -40,7 +40,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -49,7 +49,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -58,7 +58,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -67,7 +67,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -76,7 +76,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -85,7 +85,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -94,7 +94,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -103,7 +103,7 @@
     "roles": [
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -113,7 +113,7 @@
       "source",
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -123,7 +123,7 @@
       "source",
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -132,7 +132,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -141,7 +141,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -150,7 +150,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -159,7 +159,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -168,7 +168,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -177,7 +177,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -186,7 +186,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -195,7 +195,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -204,7 +204,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -214,7 +214,7 @@
       "source",
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -223,7 +223,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -235,7 +235,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -247,7 +247,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -259,7 +259,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -271,7 +271,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -283,7 +283,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -295,7 +295,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -307,7 +307,7 @@
     "subtypes": [
       "citation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -316,7 +316,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -325,7 +325,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -334,7 +334,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -343,7 +343,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -352,7 +352,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -361,7 +361,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -370,7 +370,7 @@
     "roles": [
       "documentation"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -382,7 +382,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -394,7 +394,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -406,7 +406,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -418,7 +418,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -430,7 +430,7 @@
     "subtypes": [
       "source-map"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -442,7 +442,7 @@
     "subtypes": [
       "source-map"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -454,7 +454,7 @@
     "subtypes": [
       "source-map"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -466,7 +466,7 @@
     "subtypes": [
       "type-library"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -478,7 +478,7 @@
     "subtypes": [
       "minified"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -490,7 +490,7 @@
     "subtypes": [
       "minified"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -502,7 +502,7 @@
     "subtypes": [
       "minified"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -514,7 +514,7 @@
     "subtypes": [
       "minified"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -526,7 +526,7 @@
     "subtypes": [
       "coverage"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -538,7 +538,7 @@
     "subtypes": [
       "security-baseline"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -550,7 +550,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -562,7 +562,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -574,7 +574,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -586,7 +586,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -598,7 +598,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -610,7 +610,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -622,7 +622,7 @@
     "subtypes": [
       "instructions"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -631,7 +631,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -640,7 +640,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -649,7 +649,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -658,7 +658,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -667,7 +667,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -676,7 +676,7 @@
     "roles": [
       "configuration"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -685,7 +685,7 @@
     "roles": [
       "tooling"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -694,7 +694,7 @@
     "roles": [
       "ci"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -708,7 +708,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -721,7 +721,7 @@
     "subtypes": [
       "minified"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -734,7 +734,7 @@
     "subtypes": [
       "source-map"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -744,7 +744,7 @@
       "test",
       "vendor"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -758,7 +758,7 @@
     "subtypes": [
       "wrapper"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },
@@ -805,7 +805,7 @@
     "subtypes": [
       "codegen"
     ],
-    "origins": [
+    "sources": [
       "linguist"
     ]
   },

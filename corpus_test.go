@@ -60,7 +60,7 @@ func TestManifestProvenance(t *testing.T) {
 					t.Fatalf("Classify = %+v, %v", got, err)
 				}
 				for _, evidence := range got.Evidence {
-					if evidence.Path != path || evidence.Origin != "manifests" || evidence.Ecosystem != ecosystem {
+					if evidence.Path != path || evidence.Source != "manifests" || evidence.Ecosystem != ecosystem || evidence.EvidencePath != "" {
 						t.Errorf("unexpected evidence: %+v", evidence)
 					}
 				}

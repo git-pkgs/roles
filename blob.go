@@ -69,7 +69,7 @@ func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, err
 		if !blob.Has(Generated) {
 			blob.Roles = (setOf(blob.Roles) | roleBit(Generated)).List()
 		}
-		blob.Evidence = append(blob.Evidence, Evidence{Rule: "generated.go-header", Role: Generated, Path: name, Subtype: "header", Ecosystem: "go", Origin: "roles"})
+		blob.Evidence = append(blob.Evidence, Evidence{Rule: "generated.go-header", Role: Generated, Path: name, Subtype: "header", Ecosystem: "go", Source: "roles"})
 		return blob, nil
 	}
 }
