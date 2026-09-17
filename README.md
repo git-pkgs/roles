@@ -210,16 +210,22 @@ The caller supplies a rooted filesystem; `os.Root.FS` provides containment
 for a directory on disk. No files are read for content classification during
 `Walk`, and no directory names are automatically excluded.
 
-`ClassifyBlob(path, contents)` adds optional generated Go header detection;
-there is also a classifier method that retains vendor-root context. Supply
-the complete file contents. Inspection is limited to the first 8 KiB and
-40 lines, ending at the first non-comment token. Go tokenization prevents
-markers in strings or block comments from becoming generated evidence.
+`ClassifyReader(path, reader)` adds optional generated Go header detection and
+reads at most 8 KiB plus one byte used to detect truncation. `ClassifyBlob`
+provides the same result for callers that already hold the complete contents.
+Both have classifier methods that retain vendor-root context. Inspection is
+limited to the first 8 KiB and 40 lines, ending at the first non-comment token.
+Go tokenization prevents markers in strings or block comments from becoming
+generated evidence.
 
 The result includes `HeaderChecked`, `BytesExamined` and `HeaderLimited`.
 Other file types receive path-only classification. Missing generated
 evidence does not prove a file was handwritten, and a generated lockfile
 may still be essential dependency evidence.
+
+Content caches should include the blob ID, `ContentVersion` and whether the
+occurrence name has a `.go` suffix. The same blob can receive path-only
+classification at one occurrence and generated-header evidence at another.
 
 ## Corpus
 

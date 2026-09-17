@@ -2,14 +2,19 @@ package roles
 
 import (
 	"bytes"
+	"errors"
+	"fmt"
 	"go/scanner"
 	"go/token"
+	"io"
 	"strings"
 )
 
 const (
-	MaxHeaderBytes = 8192
-	MaxHeaderLines = 40
+	MaxHeaderBytes  = 8192
+	MaxHeaderLines  = 40
+	ContentVersion  = "1"
+	headerReadLimit = MaxHeaderBytes + 1
 )
 
 // BlobResult describes the bounded Go header inspection, where applicable.
@@ -28,16 +33,51 @@ func ClassifyBlob(name string, contents []byte) (BlobResult, error) {
 	return defaults.ClassifyBlob(name, contents)
 }
 
+// ClassifyReader adds generated Go header evidence using bounded input.
+// It reads at most MaxHeaderBytes plus one byte used to detect truncation.
+func ClassifyReader(name string, reader io.Reader) (BlobResult, error) {
+	return defaults.ClassifyReader(name, reader)
+}
+
 // ClassifyBlob preserves this classifier's vendor-root context.
 func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, error) {
-	result, err := c.Classify(name)
+	blob, inspect, err := c.blobResult(name)
+	if err != nil || !inspect {
+		return blob, err
+	}
+	return inspectGoHeader(blob, name, contents), nil
+}
+
+// ClassifyReader preserves this classifier's vendor-root context while
+// bounding content reads.
+func (c *Classifier) ClassifyReader(name string, reader io.Reader) (BlobResult, error) {
+	blob, inspect, err := c.blobResult(name)
 	if err != nil {
 		return BlobResult{}, err
 	}
-	blob := BlobResult{Result: result}
-	if !strings.HasSuffix(name, ".go") {
+	if reader == nil {
+		return BlobResult{}, errors.New("reader is required")
+	}
+	if !inspect {
 		return blob, nil
 	}
+	contents, err := io.ReadAll(io.LimitReader(reader, headerReadLimit))
+	if err != nil {
+		return BlobResult{}, fmt.Errorf("read Go header: %w", err)
+	}
+	return inspectGoHeader(blob, name, contents), nil
+}
+
+func (c *Classifier) blobResult(name string) (BlobResult, bool, error) {
+	result, err := c.Classify(name)
+	if err != nil {
+		return BlobResult{}, false, err
+	}
+	blob := BlobResult{Result: result}
+	return blob, strings.HasSuffix(name, ".go"), nil
+}
+
+func inspectGoHeader(blob BlobResult, name string, contents []byte) BlobResult {
 	blob.HeaderChecked = true
 	header := contents[:min(len(contents), MaxHeaderBytes)]
 	lines := 0
@@ -58,7 +98,7 @@ func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, err
 	for {
 		pos, kind, literal := lexer.Scan()
 		if kind != token.COMMENT {
-			return blob, nil
+			return blob
 		}
 		if !strings.HasPrefix(literal, "// Code generated ") || !strings.HasSuffix(literal, " DO NOT EDIT.") {
 			continue
@@ -70,7 +110,7 @@ func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, err
 			blob.Roles = (setOf(blob.Roles) | roleBit(Generated)).List()
 		}
 		blob.Evidence = append(blob.Evidence, Evidence{Rule: "generated.go-header", Role: Generated, Path: name, Subtype: "header", Ecosystem: "go", Source: "roles"})
-		return blob, nil
+		return blob
 	}
 }
 
