@@ -45,12 +45,12 @@ func TestEveryRuleIsReachable(t *testing.T) {
 
 func TestManifestProvenance(t *testing.T) {
 	for ecosystem, names := range map[string][]string{
-		"cargo":    {"Cargo.lock", "Cargo.toml"},
-		"npm":      {"package-lock.json", "yarn.lock", "pnpm-lock.yaml", "package.json"},
-		"composer": {"composer.lock", "composer.json"},
-		"pypi":     {"pyproject.toml", "setup.py", "setup.cfg"},
-		"gem":      {"roles.gemspec"},
-		"maven":    {"build.gradle", "build.gradle.kts", "pom.xml"},
+		cargoEcosystem: {"Cargo.lock", "Cargo.toml"},
+		npmEcosystem:   {"package-lock.json", "yarn.lock", "pnpm-lock.yaml", packageJSON},
+		"composer":     {"composer.lock", "composer.json"},
+		"pypi":         {"pyproject.toml", "setup.py", "setup.cfg"},
+		"gem":          {"roles.gemspec"},
+		"maven":        {"build.gradle", "build.gradle.kts", "pom.xml"},
 	} {
 		for _, name := range names {
 			t.Run(name, func(t *testing.T) {

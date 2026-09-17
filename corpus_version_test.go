@@ -24,9 +24,7 @@ type fingerprintRule struct {
 }
 
 const (
-	fingerprintCargo      = "cargo"
 	fingerprintNoticePath = "vendor/LICENSES/NOTICE"
-	fingerprintVendorRoot = "deps/crates"
 )
 
 func TestCorpusVersionFingerprint(t *testing.T) {
@@ -89,7 +87,10 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 		}
 	}
 
-	classifier, err := roles.New([]roles.VendorRoot{{Path: fingerprintVendorRoot, Ecosystem: fingerprintCargo, EvidencePath: ".cargo/config.toml"}})
+	classifier, err := roles.New([]roles.VendorRoot{
+		{Path: cratesVendorRoot, Ecosystem: npmEcosystem, EvidencePath: packageJSON},
+		{Path: cratesVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: cargoConfig},
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -112,6 +113,7 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 	want, ok := map[string]string{
 		"1": "3d5ee1d9281183f54b6c440d484920f1fdef90f305a01b649be7f2a961739019",
 		"2": "ed6c15b448c9a7f782c66182432fa4ab262be330913c4e0b7d1dd59df3852886",
+		"3": "4364c21af3469ad9cd44262ec5d00c03b902211f7c51d016d83df1e9cbc4c0c8",
 	}[roles.CorpusVersion]
 	if !ok || got != want {
 		t.Fatalf("classification semantics changed without a CorpusVersion bump: version=%q fingerprint=%s", roles.CorpusVersion, got)

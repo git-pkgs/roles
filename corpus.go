@@ -8,7 +8,7 @@ import (
 )
 
 // CorpusVersion identifies classification semantics and evidence ordering.
-const CorpusVersion = "2"
+const CorpusVersion = "3"
 
 //go:embed corpus/rules.json
 var corpusData []byte

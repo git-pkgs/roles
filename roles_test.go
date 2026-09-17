@@ -11,7 +11,17 @@ import (
 	"github.com/git-pkgs/roles"
 )
 
-const cargoConfig = ".cargo/config.toml"
+const (
+	cargoConfig          = ".cargo/config.toml"
+	secondaryCargoConfig = "config/cargo.toml"
+	cargoEcosystem       = "cargo"
+	npmEcosystem         = "npm"
+	packageJSON          = "package.json"
+	cratesVendorRoot     = "deps/crates"
+	sharedVendorRoot     = "deps/shared"
+	contextSource        = "context"
+	contextVendorRule    = "context.vendor-root"
+)
 
 func TestCorpus(t *testing.T) {
 	for _, file := range []string{"testdata/paths.json", "testdata/gitignore-paths.json", "testdata/linguist-paths.json"} {
@@ -102,7 +112,7 @@ func TestEvidence(t *testing.T) {
 }
 
 func TestVendorContext(t *testing.T) {
-	roots := []roles.VendorRoot{{Path: "deps/local", Ecosystem: "cargo", EvidencePath: cargoConfig}}
+	roots := []roles.VendorRoot{{Path: "deps/local", Ecosystem: cargoEcosystem, EvidencePath: cargoConfig}}
 	c, err := roles.New(roots)
 	if err != nil {
 		t.Fatal(err)
@@ -115,7 +125,7 @@ func TestVendorContext(t *testing.T) {
 	if !got.Has(roles.Vendor) || !got.Has(roles.Source) {
 		t.Fatal(got)
 	}
-	if got.Evidence[0].Source != "context" || got.Evidence[0].EvidencePath != cargoConfig {
+	if got.Evidence[0].Source != contextSource || got.Evidence[0].EvidencePath != cargoConfig {
 		t.Fatal(got.Evidence)
 	}
 	encoded, err := json.Marshal(got.Evidence[0])
@@ -126,7 +136,7 @@ func TestVendorContext(t *testing.T) {
 	if err := json.Unmarshal(encoded, &fields); err != nil {
 		t.Fatal(err)
 	}
-	if fields["source"] != "context" || fields["evidence_path"] != cargoConfig {
+	if fields["source"] != contextSource || fields["evidence_path"] != cargoConfig {
 		t.Fatal(fields)
 	}
 	if _, exists := fields["origin"]; exists {
@@ -136,10 +146,57 @@ func TestVendorContext(t *testing.T) {
 	if other.Has(roles.Vendor) {
 		t.Fatal("root boundary")
 	}
-	for _, roots := range [][]roles.VendorRoot{{{Path: "../bad"}}, {{Path: "ok", EvidencePath: "/escape"}}, {{Path: "a"}, {Path: "a/"}}} {
+	for _, roots := range [][]roles.VendorRoot{{{Path: "../bad"}}, {{Path: "ok", EvidencePath: "/escape"}}} {
 		if _, err := roles.New(roots); err == nil {
 			t.Fatal("accepted invalid roots")
 		}
+	}
+}
+
+func TestVendorContextMultipleEvidence(t *testing.T) {
+	roots := []roles.VendorRoot{
+		{Path: sharedVendorRoot + "/", Ecosystem: npmEcosystem, EvidencePath: packageJSON},
+		{Path: sharedVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: secondaryCargoConfig},
+		{Path: sharedVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: cargoConfig},
+		{Path: sharedVendorRoot, Ecosystem: npmEcosystem, EvidencePath: packageJSON},
+		{Path: sharedVendorRoot + "/nested", Ecosystem: "golang", EvidencePath: "vendor/modules.txt"},
+	}
+	first, err := roles.New(roots)
+	if err != nil {
+		t.Fatal(err)
+	}
+	slices.Reverse(roots)
+	second, err := roles.New(roots)
+	if err != nil {
+		t.Fatal(err)
+	}
+	path := sharedVendorRoot + "/nested/src/lib.go"
+	got, err := first.Classify(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	again, err := second.Classify(path)
+	if err != nil || !reflect.DeepEqual(got, again) {
+		t.Fatalf("input order changed evidence: %#v, %v", again, err)
+	}
+	var context []roles.Evidence
+	for _, evidence := range got.Evidence {
+		if evidence.Rule == contextVendorRule {
+			context = append(context, evidence)
+		}
+	}
+	want := []roles.Evidence{
+		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: cargoEcosystem, Source: contextSource, EvidencePath: cargoConfig},
+		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: cargoEcosystem, Source: contextSource, EvidencePath: secondaryCargoConfig},
+		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot, Ecosystem: npmEcosystem, Source: contextSource, EvidencePath: packageJSON},
+		{Rule: contextVendorRule, Role: roles.Vendor, Path: sharedVendorRoot + "/nested", Ecosystem: "golang", Source: contextSource, EvidencePath: "vendor/modules.txt"},
+	}
+	if !reflect.DeepEqual(context, want) {
+		t.Fatalf("context evidence = %#v, want %#v", context, want)
+	}
+	set, err := first.Match(path)
+	if err != nil || !set.Has(roles.Vendor) {
+		t.Fatalf("Match = %v, %v", set.List(), err)
 	}
 }
 

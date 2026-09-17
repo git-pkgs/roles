@@ -9,14 +9,15 @@ import (
 
 func TestConcurrentDeterminism(t *testing.T) {
 	roots := []roles.VendorRoot{
-		{Path: "deps/crates", EvidencePath: cargoConfig},
-		{Path: "other/vendor", EvidencePath: "other/.cargo/config.toml"},
+		{Path: cratesVendorRoot, Ecosystem: npmEcosystem, EvidencePath: packageJSON},
+		{Path: cratesVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: cargoConfig},
+		{Path: cratesVendorRoot, Ecosystem: cargoEcosystem, EvidencePath: secondaryCargoConfig},
 	}
 	first, err := roles.New(roots)
 	if err != nil {
 		t.Fatal(err)
 	}
-	second, err := roles.New([]roles.VendorRoot{roots[1], roots[0]})
+	second, err := roles.New([]roles.VendorRoot{roots[2], roots[0], roots[1]})
 	if err != nil {
 		t.Fatal(err)
 	}

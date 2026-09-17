@@ -26,7 +26,7 @@ func TestWalk(t *testing.T) {
 		"deps/crates/src/lib.rs":                     {},
 		symlink:                                      {Mode: fs.ModeSymlink, Data: []byte("../outside")},
 	}
-	c, err := roles.New([]roles.VendorRoot{{Path: "deps/crates", EvidencePath: cargoConfig}})
+	c, err := roles.New([]roles.VendorRoot{{Path: cratesVendorRoot, EvidencePath: cargoConfig}})
 	if err != nil {
 		t.Fatal(err)
 	}

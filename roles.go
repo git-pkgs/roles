@@ -5,8 +5,10 @@
 package roles
 
 import (
+	"cmp"
 	"errors"
 	"math/bits"
+	"slices"
 	"strings"
 )
 
@@ -114,13 +116,15 @@ type VendorRoot struct {
 
 // Classifier combines the embedded corpus with immutable vendor-root context.
 // A classifier can be shared by concurrent callers.
-type Classifier struct{ roots map[string]VendorRoot }
+type Classifier struct{ roots map[string][]VendorRoot }
 
 var defaults = &Classifier{}
 
-// New validates and copies caller-supplied vendor roots. Duplicate roots fail.
+// New validates, normalizes and copies caller-supplied vendor roots. Exact
+// duplicates are ignored, and distinct observations for one path are retained.
 func New(roots []VendorRoot) (*Classifier, error) {
-	c := &Classifier{roots: make(map[string]VendorRoot, len(roots))}
+	c := &Classifier{roots: make(map[string][]VendorRoot, len(roots))}
+	seen := make(map[VendorRoot]struct{}, len(roots))
 	for _, root := range roots {
 		if err := validPath(root.Path); err != nil {
 			return nil, err
@@ -131,10 +135,19 @@ func New(roots []VendorRoot) (*Classifier, error) {
 				return nil, err
 			}
 		}
-		if _, exists := c.roots[root.Path]; exists {
-			return nil, errors.New("duplicate vendor root")
+		if _, exists := seen[root]; exists {
+			continue
 		}
-		c.roots[root.Path] = root
+		seen[root] = struct{}{}
+		c.roots[root.Path] = append(c.roots[root.Path], root)
+	}
+	for path := range c.roots {
+		slices.SortFunc(c.roots[path], func(left, right VendorRoot) int {
+			if order := cmp.Compare(left.Ecosystem, right.Ecosystem); order != 0 {
+				return order
+			}
+			return cmp.Compare(left.EvidencePath, right.EvidencePath)
+		})
 	}
 	return c, nil
 }
@@ -213,10 +226,12 @@ func (c *Classifier) directory(state *matchState, base, full string, explain boo
 			state.add(r, full, explain)
 		}
 	}
-	if root, ok := c.roots[full]; ok {
+	if roots := c.roots[full]; len(roots) > 0 {
 		state.set |= roleBit(Vendor)
 		if explain {
-			state.evidence = append(state.evidence, Evidence{Rule: "context.vendor-root", Role: Vendor, Path: full, Ecosystem: root.Ecosystem, Source: "context", EvidencePath: root.EvidencePath})
+			for _, root := range roots {
+				state.evidence = append(state.evidence, Evidence{Rule: "context.vendor-root", Role: Vendor, Path: full, Ecosystem: root.Ecosystem, Source: "context", EvidencePath: root.EvidencePath})
+			}
 		}
 	}
 }

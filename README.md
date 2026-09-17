@@ -138,9 +138,11 @@ if err != nil {
 result, err := classifier.Classify("deps/crates/example/src/lib.rs")
 ```
 
-The classifier copies this context and supports concurrent use. The
-`context.vendor-root` evidence uses `context` as its source and records the
-caller-supplied path separately.
+The classifier copies this context and supports concurrent use. Several
+ecosystems or evidence paths can describe the same root; exact duplicates are
+ignored, and evidence order is deterministic. The `context.vendor-root`
+evidence uses `context` as its source and records the caller-supplied path
+separately.
 `LegalFileName` and `IsLegalDirectory` expose the same legal-name corpus for
 consumers that already traverse paths themselves.
 
