@@ -34,6 +34,24 @@ func BenchmarkClassify(b *testing.B) {
 	}
 }
 
+func BenchmarkStateMatch(b *testing.B) {
+	state := roles.RootState()
+	for _, component := range [][]byte{[]byte("packages"), []byte("parser"), []byte("vendor"), []byte("src")} {
+		var err error
+		state, err = state.Enter(component)
+		if err != nil {
+			b.Fatal(err)
+		}
+	}
+	name := []byte("parser_test.go")
+	b.ReportAllocs()
+	for b.Loop() {
+		if _, err := state.Match(name); err != nil {
+			b.Fatal(err)
+		}
+	}
+}
+
 func BenchmarkMillionPaths(b *testing.B) {
 	paths := make([]string, 1_000_000)
 	for i := range paths {

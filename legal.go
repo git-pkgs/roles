@@ -13,11 +13,33 @@ func IsLegalDirectory(name string) bool {
 	return false
 }
 
+// IsLegalDirectoryBytes is the raw Git-name form of IsLegalDirectory.
+func IsLegalDirectoryBytes(name []byte) bool {
+	for _, r := range foldedDirectories {
+		if r.Role == Legal && equalFoldBytesString(name, r.Pattern) {
+			return true
+		}
+	}
+	return false
+}
+
 // LegalFileName reports licence and notice matches for one filename.
 // These predicates use the same corpus as Classify and allocate no evidence.
 func LegalFileName(name string) (license, notice bool) {
 	for _, r := range foldedPrefixes {
 		if r.Role != Legal || !prefixMatches(name, r.Pattern) {
+			continue
+		}
+		license = license || r.Subtype == "license"
+		notice = notice || r.Subtype == "notice"
+	}
+	return license, notice
+}
+
+// LegalFileNameBytes is the raw Git-name form of LegalFileName.
+func LegalFileNameBytes(name []byte) (license, notice bool) {
+	for _, r := range foldedPrefixes {
+		if r.Role != Legal || !prefixMatchesBytes(name, r.Pattern) {
 			continue
 		}
 		license = license || r.Subtype == "license"

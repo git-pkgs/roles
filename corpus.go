@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+const suffixFoldKind = "suffix-fold"
+
 // CorpusVersion identifies classification semantics and evidence ordering.
 const CorpusVersion = "5"
 
@@ -70,9 +72,10 @@ func init() {
 		case "directory-path":
 			base := r.Pattern[strings.LastIndexByte(r.Pattern, '/')+1:]
 			pathDirectories[base] = append(pathDirectories[base], r)
+			registerIncrementalPath(r)
 		case "prefix-fold":
 			foldedPrefixes = append(foldedPrefixes, r)
-		case "suffix", "suffix-fold":
+		case "suffix", suffixFoldKind:
 			last := suffixBucket(r.Pattern[len(r.Pattern)-1])
 			suffixRules[last] = append(suffixRules[last], r)
 		default:

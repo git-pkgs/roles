@@ -37,6 +37,7 @@ type ancestor struct {
 	path        string
 	set         Set
 	evidenceEnd int
+	incremental State
 }
 
 // Walk reuses inherited matches and includes this classifier's vendor roots.
@@ -76,7 +77,7 @@ func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit f
 	if options.MaxDepth == 0 {
 		options.MaxDepth = DefaultMaxDepth
 	}
-	parents := []ancestor{{path: "."}}
+	parents := []ancestor{{path: ".", incremental: c.RootState()}}
 	entries := 0
 	var evidence []Evidence
 	return fs.WalkDir(tree, ".", func(name string, entry fs.DirEntry, err error) error {
@@ -108,15 +109,30 @@ func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit f
 			return nil
 		}
 		parentState := parents[len(parents)-1]
-		state := matchState{set: parentState.set, evidence: evidence[:parentState.evidenceEnd]}
-		if entry.IsDir() {
-			c.directory(&state, name[split+1:], name, explain)
-			parents = append(parents, ancestor{path: name, set: state.set, evidenceEnd: len(state.evidence)})
+		directory := entry.IsDir()
+		state, incremental := c.matchWalkEntry(directory, parentState, name[split+1:], name, evidence, explain)
+		if directory {
+			parents = append(parents, ancestor{path: name, set: state.set, evidenceEnd: len(state.evidence), incremental: incremental})
 			name += "/"
-		} else {
-			matchFile(&state, name[split+1:], name, explain)
 		}
 		evidence = state.evidence
 		return visit(name, state)
 	})
+}
+
+func (c *Classifier) matchWalkEntry(directory bool, parent ancestor, base, full string, evidence []Evidence, explain bool) (matchState, State) {
+	state := matchState{set: parent.set, evidence: evidence[:parent.evidenceEnd]}
+	incremental := parent.incremental
+	switch {
+	case directory && explain:
+		c.directory(&state, base, full, true)
+	case directory:
+		incremental = incremental.enterValid([]byte(base))
+		state.set = incremental.Roles()
+	case explain:
+		matchFile(&state, base, full, true)
+	default:
+		state.set = incremental.matchValid([]byte(base))
+	}
+	return state, incremental
 }

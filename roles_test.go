@@ -57,6 +57,7 @@ func testCorpusFile(t *testing.T, file string) {
 			if err != nil || !slices.Equal(set.List(), got.Roles) {
 				t.Fatalf("Match = %v, %v", set.List(), err)
 			}
+			assertIncrementalMatch(t, tc.Path, set)
 			for _, subtype := range tc.Subtypes {
 				if !slices.ContainsFunc(got.Evidence, func(e roles.Evidence) bool { return e.Subtype == subtype }) {
 					t.Errorf("missing subtype %s", subtype)

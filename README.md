@@ -150,7 +150,29 @@ ignored, and evidence order is deterministic. The `context.vendor-root`
 evidence uses `context` as its source and records the caller-supplied path
 separately.
 `LegalFileName` and `IsLegalDirectory` expose the same legal-name corpus for
-consumers that already traverse paths themselves.
+consumers that already traverse paths themselves. `LegalFileNameBytes` and
+`IsLegalDirectoryBytes` accept raw Git tree entry names without allocating for
+ASCII corpus names.
+
+Git tree walkers can classify components without rebuilding full paths. A
+state is a value, so one parent can produce independent child states:
+
+```go
+state := classifier.RootState()
+sourceState, err := state.Enter([]byte("src"))
+if err != nil {
+    return err
+}
+labels, err := sourceState.Match([]byte("main.go"))
+```
+
+`Enter` accepts one directory component and `Match` accepts one file
+component. Both accept raw non-NUL Git filename bytes. `Roles` returns the
+directory roles accumulated by a state. `Key` returns a comparable value that
+captures the corpus version, configured vendor paths, inherited roles and
+partial path-rule progress. A history walker can combine that key with a tree
+object ID when caching classified subtrees. Evidence for selected occurrences
+can be recovered later with `Classify` and the full repository-relative path.
 
 ## Trees and content
 

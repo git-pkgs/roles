@@ -7,6 +7,7 @@ package roles
 import (
 	"cmp"
 	"errors"
+	"maps"
 	"math/bits"
 	"slices"
 	"strings"
@@ -119,7 +120,11 @@ type VendorRoot struct {
 
 // Classifier combines the embedded corpus with immutable vendor-root context.
 // A classifier can be shared by concurrent callers.
-type Classifier struct{ roots map[string][]VendorRoot }
+type Classifier struct {
+	roots        map[string][]VendorRoot
+	vendorTrie   []vendorTrieNode
+	stateContext stateContext
+}
 
 var defaults = &Classifier{}
 
@@ -152,6 +157,9 @@ func New(roots []VendorRoot) (*Classifier, error) {
 			return cmp.Compare(left.EvidencePath, right.EvidencePath)
 		})
 	}
+	paths := slices.Sorted(maps.Keys(c.roots))
+	c.vendorTrie = buildVendorTrie(paths)
+	c.stateContext = makeStateContext(paths)
 	return c, nil
 }
 
@@ -271,7 +279,7 @@ func matchFile(state *matchState, base, full string, explain bool) {
 }
 
 func suffixMatches(base string, r *rule) bool {
-	if r.Kind == "suffix-fold" {
+	if r.Kind == suffixFoldKind {
 		return len(base) >= len(r.Pattern) && strings.EqualFold(base[len(base)-len(r.Pattern):], r.Pattern)
 	}
 	return strings.HasSuffix(base, r.Pattern)
