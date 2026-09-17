@@ -45,7 +45,7 @@ func (s Set) Has(role Role) bool { return s&roleBit(role) != 0 }
 // List returns the roles in deterministic order.
 func (s Set) List() []Role {
 	if s == 0 {
-		return nil
+		return []Role{}
 	}
 	result := make([]Role, 0, bits.OnesCount32(uint32(s)))
 	for i, role := range roleOrder {
@@ -80,6 +80,7 @@ type Evidence struct {
 }
 
 // Result contains labels and the independent matches that produced them.
+// Classification functions return non-nil Roles and Evidence slices.
 type Result struct {
 	Roles    []Role     `json:"roles"`
 	Evidence []Evidence `json:"evidence"`
@@ -187,7 +188,13 @@ type matchState struct {
 	evidence []Evidence
 }
 
-func (s matchState) result() Result { return Result{Roles: s.set.List(), Evidence: s.evidence} }
+func (s matchState) result() Result {
+	evidence := s.evidence
+	if evidence == nil {
+		evidence = []Evidence{}
+	}
+	return Result{Roles: s.set.List(), Evidence: evidence}
+}
 
 func (s *matchState) add(r *rule, matchedPath string, explain bool) {
 	s.set |= r.bit

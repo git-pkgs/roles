@@ -114,6 +114,7 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 		"1": "3d5ee1d9281183f54b6c440d484920f1fdef90f305a01b649be7f2a961739019",
 		"2": "ed6c15b448c9a7f782c66182432fa4ab262be330913c4e0b7d1dd59df3852886",
 		"3": "4364c21af3469ad9cd44262ec5d00c03b902211f7c51d016d83df1e9cbc4c0c8",
+		"4": "63ed99b7d7119058e151d8261c5d10babe89e42d617079e2aaa453e72fe9c003",
 	}[roles.CorpusVersion]
 	if !ok || got != want {
 		t.Fatalf("classification semantics changed without a CorpusVersion bump: version=%q fingerprint=%s", roles.CorpusVersion, got)

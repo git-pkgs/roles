@@ -111,6 +111,27 @@ func TestEvidence(t *testing.T) {
 	}
 }
 
+func TestEmptyResultJSON(t *testing.T) {
+	got, err := roles.Classify("main.go")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.Roles == nil || got.Evidence == nil {
+		t.Fatalf("nil result slices: %#v", got)
+	}
+	encoded, err := json.Marshal(got)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(encoded) != `{"roles":[],"evidence":[]}` {
+		t.Fatalf("JSON = %s", encoded)
+	}
+	set, err := roles.Match("main.go")
+	if err != nil || set.List() == nil {
+		t.Fatalf("Match = %#v, %v", set.List(), err)
+	}
+}
+
 func TestVendorContext(t *testing.T) {
 	roots := []roles.VendorRoot{{Path: "deps/local", Ecosystem: cargoEcosystem, EvidencePath: cargoConfig}}
 	c, err := roles.New(roots)

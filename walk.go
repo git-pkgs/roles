@@ -46,7 +46,9 @@ func (c *Classifier) Walk(tree fs.FS, options WalkOptions, visit func(string, Re
 	}
 	return c.walk(tree, options, true, func(name string, state matchState) error {
 		result := state.result()
-		result.Evidence = append([]Evidence(nil), state.evidence...)
+		if len(state.evidence) > 0 {
+			result.Evidence = append([]Evidence(nil), state.evidence...)
+		}
 		return visit(name, result)
 	})
 }

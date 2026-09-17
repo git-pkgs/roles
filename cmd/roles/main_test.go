@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"slices"
@@ -15,6 +16,7 @@ import (
 const (
 	labelsOnlyFlag = "-labels-only"
 	rootFlag       = "-root"
+	versionFlag    = "-version"
 )
 
 func TestRun(t *testing.T) {
@@ -23,13 +25,14 @@ func TestRun(t *testing.T) {
 		t.Fatal(err)
 	}
 	var got struct {
-		Path string
+		Path          string
+		CorpusVersion string `json:"corpus_version"`
 		roles.Result
 	}
 	if err := json.Unmarshal(out.Bytes(), &got); err != nil {
 		t.Fatal(err)
 	}
-	if got.Path != "vendor/sqlite/LICENSE" || !got.Has(roles.Vendor) || !got.Has(roles.Legal) {
+	if got.Path != "vendor/sqlite/LICENSE" || got.CorpusVersion != roles.CorpusVersion || !got.Has(roles.Vendor) || !got.Has(roles.Legal) {
 		t.Fatal(got)
 	}
 }
@@ -51,7 +54,8 @@ func TestRunTree(t *testing.T) {
 	}
 	decoder := json.NewDecoder(&out)
 	var dir, file struct {
-		Path string
+		Path          string
+		CorpusVersion string `json:"corpus_version"`
 		roles.Result
 	}
 	if err := decoder.Decode(&dir); err != nil {
@@ -60,7 +64,7 @@ func TestRunTree(t *testing.T) {
 	if err := decoder.Decode(&file); err != nil {
 		t.Fatal(err)
 	}
-	if dir.Path != "testdata/" || file.Path != "testdata/package-lock.json" || !file.Has(roles.Generated) || !file.Has(roles.Fixture) {
+	if dir.Path != "testdata/" || file.Path != "testdata/package-lock.json" || dir.CorpusVersion != roles.CorpusVersion || file.CorpusVersion != roles.CorpusVersion || !file.Has(roles.Generated) || !file.Has(roles.Fixture) {
 		t.Fatal(dir, file)
 	}
 }
@@ -116,11 +120,15 @@ func runTreePaths(t *testing.T, args []string) []string {
 	decoder := json.NewDecoder(&out)
 	for decoder.More() {
 		var got struct {
-			Path string
+			Path          string
+			CorpusVersion string `json:"corpus_version"`
 			roles.Result
 		}
 		if err := decoder.Decode(&got); err != nil {
 			t.Fatal(err)
+		}
+		if got.CorpusVersion != roles.CorpusVersion {
+			t.Fatalf("corpus version = %q", got.CorpusVersion)
 		}
 		paths = append(paths, got.Path)
 	}
@@ -154,24 +162,61 @@ func TestRunLabelsOnly(t *testing.T) {
 		found := false
 		for decoder.More() {
 			var got struct {
-				Path string
-				roles.Result
+				Path          string
+				CorpusVersion string          `json:"corpus_version"`
+				Roles         []roles.Role    `json:"roles"`
+				Evidence      json.RawMessage `json:"evidence"`
 			}
 			if err := decoder.Decode(&got); err != nil {
 				t.Fatal(err)
 			}
-			if len(got.Evidence) != 0 {
+			if got.CorpusVersion != roles.CorpusVersion || got.Roles == nil || got.Evidence != nil {
 				t.Fatal("unexpected evidence", got)
 			}
 			if got.Path == "vendor/LICENSE" {
 				found = true
-				if !got.Has(roles.Vendor) || !got.Has(roles.Legal) || len(got.Roles) != 2 {
+				if !slices.Contains(got.Roles, roles.Vendor) || !slices.Contains(got.Roles, roles.Legal) || len(got.Roles) != 2 {
 					t.Fatal(got)
 				}
 			}
 		}
 		if !found {
 			t.Fatal("missing file result")
+		}
+	}
+}
+
+func TestRunEmptyResultJSON(t *testing.T) {
+	var out bytes.Buffer
+	if err := run([]string{"main.go"}, &out); err != nil {
+		t.Fatal(err)
+	}
+	var got map[string]json.RawMessage
+	if err := json.Unmarshal(out.Bytes(), &got); err != nil {
+		t.Fatal(err)
+	}
+	if string(got["roles"]) != "[]" || string(got["evidence"]) != "[]" {
+		t.Fatalf("empty result = %s", out.Bytes())
+	}
+	var version string
+	if err := json.Unmarshal(got["corpus_version"], &version); err != nil || version != roles.CorpusVersion {
+		t.Fatalf("corpus version = %q, %v", version, err)
+	}
+}
+
+func TestRunVersion(t *testing.T) {
+	var out bytes.Buffer
+	if err := run([]string{versionFlag}, &out); err != nil {
+		t.Fatal(err)
+	}
+	want := fmt.Sprintf("roles %s corpus %s\n", moduleVersion(), roles.CorpusVersion)
+	if out.String() != want {
+		t.Fatalf("version = %q, want %q", out.String(), want)
+	}
+	for _, args := range [][]string{{versionFlag, "main.go"}, {versionFlag, labelsOnlyFlag}} {
+		out.Reset()
+		if err := run(args, &out); err == nil || out.Len() != 0 {
+			t.Fatalf("accepted version arguments %v", args)
 		}
 	}
 }

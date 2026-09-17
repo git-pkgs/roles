@@ -8,6 +8,7 @@ import (
 	"io"
 	"io/fs"
 	"os"
+	"runtime/debug"
 	"strings"
 	"unicode/utf8"
 
@@ -25,53 +26,109 @@ func run(args []string, output io.Writer) error {
 	flags := flag.NewFlagSet("roles", flag.ContinueOnError)
 	root := flags.String("root", "", "Walk a repository directory without reading file contents")
 	labelsOnly := flags.Bool("labels-only", false, "Emit roles without collecting evidence")
+	showVersion := flags.Bool("version", false, "Print module and corpus versions")
 	if err := flags.Parse(args); err != nil {
 		return err
+	}
+	if *showVersion {
+		return printVersion(output, *root, *labelsOnly, flags.NArg())
 	}
 	if (*root == "") == (flags.NArg() == 0) {
 		return fmt.Errorf("provide paths or -root directory")
 	}
-	encoder := json.NewEncoder(output)
-	emit := func(name string, result roles.Result) error {
-		if !utf8.ValidString(name) {
-			return fmt.Errorf("JSON output requires UTF-8 paths: %q", name)
-		}
-		return encoder.Encode(struct {
-			Path string `json:"path"`
-			roles.Result
-		}{name, result})
-	}
+	records := recordEncoder{encoder: json.NewEncoder(output)}
 	if *root != "" {
-		tree, err := os.OpenRoot(*root)
-		if err != nil {
-			return err
-		}
-		emitTree := func(name string, result roles.Result) error {
-			if isGitMetadata(name) {
-				if strings.HasSuffix(name, "/") {
-					return fs.SkipDir
-				}
-				return nil
-			}
-			return emit(name, result)
-		}
-		if *labelsOnly {
-			err = roles.WalkMatch(tree.FS(), roles.WalkOptions{}, func(name string, set roles.Set) error {
-				return emitTree(name, roles.Result{Roles: set.List()})
-			})
-		} else {
-			err = roles.Walk(tree.FS(), roles.WalkOptions{}, emitTree)
-		}
-		return errors.Join(err, tree.Close())
+		return runTree(*root, *labelsOnly, records)
 	}
-	for _, name := range flags.Args() {
-		result, err := classify(name, *labelsOnly)
-		if err != nil {
+	return runPaths(flags.Args(), *labelsOnly, records)
+}
+
+type recordEncoder struct{ encoder *json.Encoder }
+
+func (e recordEncoder) result(name string, result roles.Result) error {
+	if err := validateJSONPath(name); err != nil {
+		return err
+	}
+	return e.encoder.Encode(struct {
+		Path          string `json:"path"`
+		CorpusVersion string `json:"corpus_version"`
+		roles.Result
+	}{name, roles.CorpusVersion, result})
+}
+
+func (e recordEncoder) labels(name string, labels roles.Set) error {
+	if err := validateJSONPath(name); err != nil {
+		return err
+	}
+	return e.encoder.Encode(struct {
+		Path          string       `json:"path"`
+		CorpusVersion string       `json:"corpus_version"`
+		Roles         []roles.Role `json:"roles"`
+	}{name, roles.CorpusVersion, labels.List()})
+}
+
+func validateJSONPath(name string) error {
+	if !utf8.ValidString(name) {
+		return fmt.Errorf("JSON output requires UTF-8 paths: %q", name)
+	}
+	return nil
+}
+
+func printVersion(output io.Writer, root string, labelsOnly bool, paths int) error {
+	if root != "" || labelsOnly || paths != 0 {
+		return errors.New("-version cannot be combined with paths or other options")
+	}
+	_, err := fmt.Fprintf(output, "roles %s corpus %s\n", moduleVersion(), roles.CorpusVersion)
+	return err
+}
+
+func runPaths(paths []string, labelsOnly bool, records recordEncoder) error {
+	for _, name := range paths {
+		if err := runPath(name, labelsOnly, records); err != nil {
 			return fmt.Errorf("%q: %w", name, err)
 		}
-		if err := emit(name, result); err != nil {
+	}
+	return nil
+}
+
+func runPath(name string, labelsOnly bool, records recordEncoder) error {
+	if labelsOnly {
+		labels, err := roles.Match(name)
+		if err != nil {
 			return err
 		}
+		return records.labels(name, labels)
+	}
+	result, err := roles.Classify(name)
+	if err != nil {
+		return err
+	}
+	return records.result(name, result)
+}
+
+func runTree(root string, labelsOnly bool, records recordEncoder) error {
+	tree, err := os.OpenRoot(root)
+	if err != nil {
+		return err
+	}
+	if labelsOnly {
+		err = roles.WalkMatch(tree.FS(), roles.WalkOptions{}, func(name string, labels roles.Set) error {
+			return emitTreeEntry(name, func() error { return records.labels(name, labels) })
+		})
+	} else {
+		err = roles.Walk(tree.FS(), roles.WalkOptions{}, func(name string, result roles.Result) error {
+			return emitTreeEntry(name, func() error { return records.result(name, result) })
+		})
+	}
+	return errors.Join(err, tree.Close())
+}
+
+func emitTreeEntry(name string, emit func() error) error {
+	if !isGitMetadata(name) {
+		return emit()
+	}
+	if strings.HasSuffix(name, "/") {
+		return fs.SkipDir
 	}
 	return nil
 }
@@ -81,10 +138,10 @@ func isGitMetadata(name string) bool {
 	return name == ".git" || strings.HasSuffix(name, "/.git")
 }
 
-func classify(name string, labelsOnly bool) (roles.Result, error) {
-	if labelsOnly {
-		set, err := roles.Match(name)
-		return roles.Result{Roles: set.List()}, err
+func moduleVersion() string {
+	info, ok := debug.ReadBuildInfo()
+	if !ok || info.Main.Version == "" {
+		return "(devel)"
 	}
-	return roles.Classify(name)
+	return info.Main.Version
 }

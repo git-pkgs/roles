@@ -44,7 +44,8 @@ criteria; a role does not establish ownership or whether a file is safe to skip.
 
 A path can have several roles, or none when it carries no recognized
 convention. Directory matches apply to descendants; filename rules add
-independent evidence.
+independent evidence. Classification results use empty role and evidence
+slices rather than nil slices.
 
 | Path | Roles |
 | --- | --- |
@@ -282,12 +283,15 @@ non-UTF-8 paths rather than replacing their bytes in JSON:
 go run ./cmd/roles vendor/sqlite/LICENSE testdata/package-lock.json
 go run ./cmd/roles -root .
 go run ./cmd/roles -labels-only -root .
+go run ./cmd/roles -version
 ```
 
-`-labels-only` uses `Match` or `WalkMatch` and emits `null` evidence. JSON
-encoding still allocates output records; library callers can use `Set` directly.
-Tree mode prunes Git metadata directories and `.git` files. Library traversal
-applies no automatic directory exclusions.
+Each JSONL record includes `corpus_version`. Full records contain `roles` and
+`evidence` arrays, including empty arrays for unmatched paths. `-labels-only`
+uses `Match` or `WalkMatch` and omits the evidence field. JSON encoding still
+allocates output records; library callers can use `Set` directly. Tree mode
+prunes Git metadata directories and `.git` files. Library traversal applies no
+automatic directory exclusions.
 
 ## Testing
 
