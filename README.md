@@ -58,6 +58,8 @@ slices rather than nil slices.
 | `testdata/package-lock.json` | `test`, `fixture`, `generated` |
 | `packages/api/uv.lock` | `generated` |
 | `src/Form.Designer.cs` | `source`, `generated` |
+| `.pytest_cache/v/cache/nodeids` | `generated`, `cache` |
+| `CMakeFiles/app.dir/main.o` | `generated`, `build-output` |
 | `Pods/library/main.swift` | `vendor` |
 | `gradlew` | `build` |
 | `.gitattributes` | `configuration` |
@@ -73,9 +75,12 @@ slices rather than nil slices.
 | `main.go` | None |
 
 The vocabulary is `source`, `test`, `fixture`, `example`, `benchmark`, `fuzz`,
-`vendor`, `generated`, `documentation`, `legal`, `build`, `ci`, `packaging`,
-`tooling` and `configuration`. Coverage is based on explicit conventions,
-not a complete inventory of every ecosystem.
+`vendor`, `generated`, `build-output`, `cache`, `documentation`, `legal`,
+`build`, `ci`, `packaging`, `tooling` and `configuration`. `build` identifies
+build instructions and wrappers. `build-output` identifies specific emitted
+build-system files and directories. These labels describe path conventions;
+they do not establish that a tracked file is safe to delete. Coverage is based
+on explicit conventions, not a complete inventory of every ecosystem.
 
 Evidence identifies the rule, role, matched path and source, with a subtype or
 ecosystem where applicable. Caller-supplied context can also identify the
@@ -218,10 +223,13 @@ reports such as `npm-ls.json` and `go.graph` have subtype
 
 Other generated-file conventions include Python bytecode and tool caches,
 CMake metadata, TypeScript build information, Flutter plugin registrants
-and GCC coverage files. The `cache` subtype identifies specific tool output
-such as `.pytest_cache/`; generic names such as `.cache/` and `build/`, and
-virtual environments, receive no additional role. Bower, JSPM and vcpkg dependency
-directories receive `vendor` alongside any roles matched inside them.
+and GCC coverage files. Specific caches such as `.pytest_cache/`,
+`.parcel-cache/` and `.turbo/` receive `cache`. Specific output such as
+`CMakeFiles/`, `.next/`, `.nuxt/` and `.svelte-kit/` receives `build-output`.
+These roles are additive with `generated`. Generic names such as `.cache/`,
+`build/`, `dist/` and `out/`, and virtual environments, receive no additional
+role. Bower, JSPM and vcpkg dependency directories receive `vendor` alongside
+any roles matched inside them.
 
 Named minified JavaScript/CSS files, source maps and .NET designer files
 also receive `generated`. Source-map and designer suffixes accept mixed
@@ -243,6 +251,8 @@ layout and tool conventions from [brief](https://github.com/git-pkgs/brief),
 manifest, lockfile and dependency-output names from
 [manifests](https://github.com/git-pkgs/manifests), and selected generated-file
 and dependency-directory conventions from [GitHub's gitignore templates](https://github.com/github/gitignore).
+Tool-specific output directories also come from
+[outline](https://github.com/git-pkgs/outline).
 [GitHub Linguist](https://github.com/github-linguist/linguist) supplies additional
 vendor, documentation and generated-file conventions, adapted to these roles.
 [NOTICE](NOTICE) records source revisions and attribution. `CorpusVersion`
@@ -251,8 +261,8 @@ Tests bind each version to a fingerprint of the canonical rules and their
 classification output, so semantic changes require a new version entry.
 
 Coverage differs from [GitHub Linguist](https://github.com/github-linguist/linguist):
-roles treats `testdata` as test/fixture rather than vendor. Build-output and cache directories such as `dist` and `cache`
-currently receive no directory role.
+roles treats `testdata` as test/fixture rather than vendor. Generic output and
+cache names such as `dist` and `cache` receive no directory role.
 
 ## Related tools
 

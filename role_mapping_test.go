@@ -4,12 +4,17 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"slices"
 	"strconv"
 	"testing"
 )
 
 func TestRoleConstants(t *testing.T) {
 	declared := declaredRoles(t)
+	wantOrder := []Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration}
+	if !slices.Equal(roleOrder[:], wantOrder) {
+		t.Fatalf("role order = %v, want %v", roleOrder, wantOrder)
+	}
 	if len(declared) != len(roleOrder) || len(declared) > 32 {
 		t.Fatalf("role declarations=%d, ordered roles=%d", len(declared), len(roleOrder))
 	}

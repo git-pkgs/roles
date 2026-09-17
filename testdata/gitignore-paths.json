@@ -2,7 +2,8 @@
   {
     "path": "__pycache__/app.cpython-313.pyc",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "bytecode"
@@ -38,7 +39,8 @@
   {
     "path": ".pytest_cache/v/cache/nodeids",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -50,7 +52,8 @@
   {
     "path": ".mypy_cache/3.13/app.meta.json",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -62,7 +65,8 @@
   {
     "path": ".ruff_cache/0/check",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -74,7 +78,8 @@
   {
     "path": ".sass-cache/compiled",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -86,7 +91,8 @@
   {
     "path": "autom4te.cache/requests",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -98,7 +104,8 @@
   {
     "path": ".eslintcache",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -110,7 +117,8 @@
   {
     "path": ".stylelintcache",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -122,7 +130,8 @@
   {
     "path": "CMakeFiles/compiler.dir/depend.make",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -134,7 +143,8 @@
   {
     "path": "CMakeCache.txt",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -146,7 +156,8 @@
   {
     "path": "cmake_install.cmake",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -158,7 +169,8 @@
   {
     "path": "CTestTestfile.cmake",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -170,7 +182,8 @@
   {
     "path": "compile_commands.json",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -182,7 +195,8 @@
   {
     "path": "project.tsbuildinfo",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -194,7 +208,8 @@
   {
     "path": ".flutter-plugins",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -206,7 +221,8 @@
   {
     "path": ".flutter-plugins-dependencies",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -306,7 +322,8 @@
   {
     "path": "packages/api/.pytest_cache/v/cache/nodeids",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "cache"
@@ -331,7 +348,8 @@
     "path": "src/__pycache__/app.pyc",
     "roles": [
       "source",
-      "generated"
+      "generated",
+      "cache"
     ],
     "subtypes": [
       "bytecode"
@@ -345,7 +363,8 @@
     "roles": [
       "test",
       "fixture",
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -358,7 +377,8 @@
     "path": "vendor/project/CMakeCache.txt",
     "roles": [
       "vendor",
-      "generated"
+      "generated",
+      "build-output"
     ],
     "subtypes": [
       "build-metadata"
@@ -381,7 +401,8 @@
   {
     "path": ".pytest_cache/",
     "roles": [
-      "generated"
+      "generated",
+      "cache"
     ],
     "sources": [
       "gitignore"
@@ -390,10 +411,76 @@
   {
     "path": "CMakeFiles/",
     "roles": [
-      "generated"
+      "generated",
+      "build-output"
     ],
     "sources": [
       "gitignore"
+    ]
+  },
+  {
+    "path": ".parcel-cache/data.mdb",
+    "roles": [
+      "generated",
+      "cache"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "sources": [
+      "outline"
+    ]
+  },
+  {
+    "path": ".turbo/cache/key.tar.zst",
+    "roles": [
+      "generated",
+      "cache"
+    ],
+    "subtypes": [
+      "cache"
+    ],
+    "sources": [
+      "outline"
+    ]
+  },
+  {
+    "path": ".next/server/app.js",
+    "roles": [
+      "generated",
+      "build-output"
+    ],
+    "subtypes": [
+      "build-output"
+    ],
+    "sources": [
+      "outline"
+    ]
+  },
+  {
+    "path": ".nuxt/dist/server/server.mjs",
+    "roles": [
+      "generated",
+      "build-output"
+    ],
+    "subtypes": [
+      "build-output"
+    ],
+    "sources": [
+      "outline"
+    ]
+  },
+  {
+    "path": ".svelte-kit/output/server/index.js",
+    "roles": [
+      "generated",
+      "build-output"
+    ],
+    "subtypes": [
+      "build-output"
+    ],
+    "sources": [
+      "outline"
     ]
   },
   {

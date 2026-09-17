@@ -25,6 +25,8 @@ const (
 	Fuzz          Role = "fuzz"
 	Vendor        Role = "vendor"
 	Generated     Role = "generated"
+	BuildOutput   Role = "build-output"
+	Cache         Role = "cache"
 	Documentation Role = "documentation"
 	Legal         Role = "legal"
 	Build         Role = "build"
@@ -34,7 +36,7 @@ const (
 	Configuration Role = "configuration"
 )
 
-var roleOrder = [...]Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration}
+var roleOrder = [...]Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration}
 
 // Set is a compact collection of roles in corpus-defined order.
 type Set uint32

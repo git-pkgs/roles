@@ -1469,10 +1469,28 @@
     "ecosystem": "pypi"
   },
   {
+    "id": "cache.directory.__pycache__",
+    "kind": "directory",
+    "pattern": "__pycache__",
+    "role": "cache",
+    "source": "gitignore",
+    "subtype": "bytecode",
+    "ecosystem": "pypi"
+  },
+  {
     "id": "generated.directory..pytest_cache",
     "kind": "directory",
     "pattern": ".pytest_cache",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "cache.directory..pytest_cache",
+    "kind": "directory",
+    "pattern": ".pytest_cache",
+    "role": "cache",
     "source": "gitignore",
     "subtype": "cache",
     "ecosystem": "pypi"
@@ -1487,10 +1505,28 @@
     "ecosystem": "pypi"
   },
   {
+    "id": "cache.directory..mypy_cache",
+    "kind": "directory",
+    "pattern": ".mypy_cache",
+    "role": "cache",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
     "id": "generated.directory..ruff_cache",
     "kind": "directory",
     "pattern": ".ruff_cache",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "cache.directory..ruff_cache",
+    "kind": "directory",
+    "pattern": ".ruff_cache",
+    "role": "cache",
     "source": "gitignore",
     "subtype": "cache",
     "ecosystem": "pypi"
@@ -1504,12 +1540,64 @@
     "subtype": "cache"
   },
   {
+    "id": "cache.directory..sass-cache",
+    "kind": "directory",
+    "pattern": ".sass-cache",
+    "role": "cache",
+    "source": "gitignore",
+    "subtype": "cache"
+  },
+  {
     "id": "generated.directory.autom4te.cache",
     "kind": "directory",
     "pattern": "autom4te.cache",
     "role": "generated",
     "source": "gitignore",
     "subtype": "cache"
+  },
+  {
+    "id": "cache.directory.autom4te.cache",
+    "kind": "directory",
+    "pattern": "autom4te.cache",
+    "role": "cache",
+    "source": "gitignore",
+    "subtype": "cache"
+  },
+  {
+    "id": "generated.directory..parcel-cache",
+    "kind": "directory",
+    "pattern": ".parcel-cache",
+    "role": "generated",
+    "source": "outline",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "cache.directory..parcel-cache",
+    "kind": "directory",
+    "pattern": ".parcel-cache",
+    "role": "cache",
+    "source": "outline",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.directory..turbo",
+    "kind": "directory",
+    "pattern": ".turbo",
+    "role": "generated",
+    "source": "outline",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "cache.directory..turbo",
+    "kind": "directory",
+    "pattern": ".turbo",
+    "role": "cache",
+    "source": "outline",
+    "subtype": "cache",
+    "ecosystem": "npm"
   },
   {
     "id": "generated.directory.CMakeFiles",
@@ -1520,10 +1608,81 @@
     "subtype": "build-metadata"
   },
   {
+    "id": "build-output.directory.CMakeFiles",
+    "kind": "directory",
+    "pattern": "CMakeFiles",
+    "role": "build-output",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "generated.directory..next",
+    "kind": "directory",
+    "pattern": ".next",
+    "role": "generated",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "build-output.directory..next",
+    "kind": "directory",
+    "pattern": ".next",
+    "role": "build-output",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.directory..nuxt",
+    "kind": "directory",
+    "pattern": ".nuxt",
+    "role": "generated",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "build-output.directory..nuxt",
+    "kind": "directory",
+    "pattern": ".nuxt",
+    "role": "build-output",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "generated.directory..svelte-kit",
+    "kind": "directory",
+    "pattern": ".svelte-kit",
+    "role": "generated",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "build-output.directory..svelte-kit",
+    "kind": "directory",
+    "pattern": ".svelte-kit",
+    "role": "build-output",
+    "source": "outline",
+    "subtype": "build-output",
+    "ecosystem": "npm"
+  },
+  {
     "id": "generated.filename..eslintcache",
     "kind": "filename",
     "pattern": ".eslintcache",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "cache.filename..eslintcache",
+    "kind": "filename",
+    "pattern": ".eslintcache",
+    "role": "cache",
     "source": "gitignore",
     "subtype": "cache",
     "ecosystem": "npm"
@@ -1538,10 +1697,27 @@
     "ecosystem": "npm"
   },
   {
+    "id": "cache.filename..stylelintcache",
+    "kind": "filename",
+    "pattern": ".stylelintcache",
+    "role": "cache",
+    "source": "gitignore",
+    "subtype": "cache",
+    "ecosystem": "npm"
+  },
+  {
     "id": "generated.filename.CMakeCache.txt",
     "kind": "filename",
     "pattern": "CMakeCache.txt",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "build-output.filename.CMakeCache.txt",
+    "kind": "filename",
+    "pattern": "CMakeCache.txt",
+    "role": "build-output",
     "source": "gitignore",
     "subtype": "build-metadata"
   },
@@ -1554,6 +1730,14 @@
     "subtype": "build-metadata"
   },
   {
+    "id": "build-output.filename.cmake_install.cmake",
+    "kind": "filename",
+    "pattern": "cmake_install.cmake",
+    "role": "build-output",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
     "id": "generated.filename.CTestTestfile.cmake",
     "kind": "filename",
     "pattern": "CTestTestfile.cmake",
@@ -1562,10 +1746,26 @@
     "subtype": "build-metadata"
   },
   {
+    "id": "build-output.filename.CTestTestfile.cmake",
+    "kind": "filename",
+    "pattern": "CTestTestfile.cmake",
+    "role": "build-output",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
     "id": "generated.filename.compile_commands.json",
     "kind": "filename",
     "pattern": "compile_commands.json",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata"
+  },
+  {
+    "id": "build-output.filename.compile_commands.json",
+    "kind": "filename",
+    "pattern": "compile_commands.json",
+    "role": "build-output",
     "source": "gitignore",
     "subtype": "build-metadata"
   },
@@ -1588,10 +1788,28 @@
     "ecosystem": "pub"
   },
   {
+    "id": "build-output.filename..flutter-plugins",
+    "kind": "filename",
+    "pattern": ".flutter-plugins",
+    "role": "build-output",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "pub"
+  },
+  {
     "id": "generated.filename..flutter-plugins-dependencies",
     "kind": "filename",
     "pattern": ".flutter-plugins-dependencies",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "pub"
+  },
+  {
+    "id": "build-output.filename..flutter-plugins-dependencies",
+    "kind": "filename",
+    "pattern": ".flutter-plugins-dependencies",
+    "role": "build-output",
     "source": "gitignore",
     "subtype": "build-metadata",
     "ecosystem": "pub"
@@ -1610,6 +1828,15 @@
     "kind": "suffix",
     "pattern": ".tsbuildinfo",
     "role": "generated",
+    "source": "gitignore",
+    "subtype": "build-metadata",
+    "ecosystem": "npm"
+  },
+  {
+    "id": "build-output.suffix..tsbuildinfo",
+    "kind": "suffix",
+    "pattern": ".tsbuildinfo",
+    "role": "build-output",
     "source": "gitignore",
     "subtype": "build-metadata",
     "ecosystem": "npm"
