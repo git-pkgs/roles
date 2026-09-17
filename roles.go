@@ -6,7 +6,9 @@ package roles
 
 import (
 	"cmp"
+	"encoding/json"
 	"errors"
+	"fmt"
 	"maps"
 	"math/bits"
 	"slices"
@@ -41,6 +43,30 @@ var roleOrder = [...]Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendo
 
 // Set is a compact collection of roles in corpus-defined order.
 type Set uint32
+
+// MarshalJSON encodes the set as role names in corpus order.
+func (s Set) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.List())
+}
+
+// UnmarshalJSON decodes role names into a set.
+func (s *Set) UnmarshalJSON(data []byte) error {
+	var names []Role
+	if err := json.Unmarshal(data, &names); err != nil {
+		return err
+	}
+
+	var decoded Set
+	for _, role := range names {
+		bit, ok := roleBits[role]
+		if !ok {
+			return fmt.Errorf("unknown role %q", role)
+		}
+		decoded |= bit
+	}
+	*s = decoded
+	return nil
+}
 
 // Has reports whether the set contains role. Unknown role names return false.
 func (s Set) Has(role Role) bool { return s&roleBit(role) != 0 }

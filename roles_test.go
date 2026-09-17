@@ -140,6 +140,41 @@ func TestEmptyResultJSON(t *testing.T) {
 	}
 }
 
+func TestSetJSON(t *testing.T) {
+	set, err := roles.Match("vendor/LICENSES/NOTICE")
+	if err != nil {
+		t.Fatal(err)
+	}
+	encoded, err := json.Marshal(set)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(encoded) != `["vendor","legal"]` {
+		t.Fatalf("JSON = %s", encoded)
+	}
+
+	var decoded roles.Set
+	if err := json.Unmarshal(encoded, &decoded); err != nil {
+		t.Fatal(err)
+	}
+	if decoded != set {
+		t.Fatalf("decoded set = %v, want %v", decoded.List(), set.List())
+	}
+	if err := json.Unmarshal([]byte(`["missing"]`), &decoded); err == nil {
+		t.Fatal("accepted unknown role")
+	}
+
+	payload, err := json.Marshal(struct {
+		Roles roles.Set `json:"roles,omitempty"`
+	}{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(payload) != `{}` {
+		t.Fatalf("empty set JSON = %s", payload)
+	}
+}
+
 func TestVendorContext(t *testing.T) {
 	roots := []roles.VendorRoot{{Path: "deps/local", Ecosystem: cargoEcosystem, EvidencePath: cargoConfig}}
 	c, err := roles.New(roots)
