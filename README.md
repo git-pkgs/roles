@@ -242,6 +242,8 @@ and dependency-directory conventions from [GitHub's gitignore templates](https:/
 vendor, documentation and generated-file conventions, adapted to these roles.
 [NOTICE](NOTICE) records source revisions and attribution. `CorpusVersion`
 identifies the embedded classification semantics for caller caches.
+Tests bind each version to a fingerprint of the canonical rules and their
+classification output, so semantic changes require a new version entry.
 
 Coverage differs from [GitHub Linguist](https://github.com/github-linguist/linguist):
 roles treats `testdata` as test/fixture rather than vendor. Build-output and cache directories such as `dist` and `cache`
@@ -280,6 +282,8 @@ go run ./cmd/roles -labels-only -root .
 
 `-labels-only` uses `Match` or `WalkMatch` and emits `null` evidence. JSON
 encoding still allocates output records; library callers can use `Set` directly.
+Tree mode prunes Git metadata directories and `.git` files. Library traversal
+applies no automatic directory exclusions.
 
 ## Testing
 
