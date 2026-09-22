@@ -473,49 +473,57 @@
   {
     "path": "app.min.js",
     "roles": [
-      "generated"
+      "generated",
+      "minified"
     ],
     "subtypes": [
       "minified"
     ],
     "sources": [
-      "linguist"
+      "linguist",
+      "roles"
     ]
   },
   {
     "path": "app-min.js",
     "roles": [
-      "generated"
+      "generated",
+      "minified"
     ],
     "subtypes": [
       "minified"
     ],
     "sources": [
-      "linguist"
+      "linguist",
+      "roles"
     ]
   },
   {
     "path": "app.min.css",
     "roles": [
-      "generated"
+      "generated",
+      "minified"
     ],
     "subtypes": [
       "minified"
     ],
     "sources": [
-      "linguist"
+      "linguist",
+      "roles"
     ]
   },
   {
     "path": "app-min.css",
     "roles": [
-      "generated"
+      "generated",
+      "minified"
     ],
     "subtypes": [
       "minified"
     ],
     "sources": [
-      "linguist"
+      "linguist",
+      "roles"
     ]
   },
   {
@@ -716,13 +724,15 @@
     "path": "vendor/app.min.js",
     "roles": [
       "vendor",
-      "generated"
+      "generated",
+      "minified"
     ],
     "subtypes": [
       "minified"
     ],
     "sources": [
-      "linguist"
+      "linguist",
+      "roles"
     ]
   },
   {
@@ -943,7 +953,15 @@
   },
   {
     "path": "file.pb.go",
-    "roles": []
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ],
+    "sources": [
+      "roles"
+    ]
   },
   {
     "path": "module.rbi",
