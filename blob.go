@@ -13,11 +13,11 @@ import (
 const (
 	MaxHeaderBytes  = 8192
 	MaxHeaderLines  = 40
-	ContentVersion  = "1"
+	ContentVersion  = "2"
 	headerReadLimit = MaxHeaderBytes + 1
 )
 
-// BlobResult describes the bounded Go header inspection, where applicable.
+// BlobResult describes bounded content inspection, where applicable.
 // Absence of Generated is not proof that a file was handwritten.
 type BlobResult struct {
 	Result
@@ -26,14 +26,14 @@ type BlobResult struct {
 	HeaderLimited bool `json:"header_limited"`
 }
 
-// ClassifyBlob adds generated Go header evidence to path classification.
+// ClassifyBlob adds generated and minified content evidence to path classification.
 // Contents must be the complete file. At most MaxHeaderBytes and MaxHeaderLines
-// are inspected. Other languages receive path-only classification.
+// are inspected. Unsupported file types receive path-only classification.
 func ClassifyBlob(name string, contents []byte) (BlobResult, error) {
 	return defaults.ClassifyBlob(name, contents)
 }
 
-// ClassifyReader adds generated Go header evidence using bounded input.
+// ClassifyReader adds content evidence using bounded input.
 // It reads at most MaxHeaderBytes plus one byte used to detect truncation.
 func ClassifyReader(name string, reader io.Reader) (BlobResult, error) {
 	return defaults.ClassifyReader(name, reader)
@@ -45,7 +45,7 @@ func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, err
 	if err != nil || !inspect {
 		return blob, err
 	}
-	return inspectGoHeader(blob, name, contents), nil
+	return inspectContent(blob, name, contents), nil
 }
 
 // ClassifyReader preserves this classifier's vendor-root context while
@@ -63,9 +63,9 @@ func (c *Classifier) ClassifyReader(name string, reader io.Reader) (BlobResult, 
 	}
 	contents, err := io.ReadAll(io.LimitReader(reader, headerReadLimit))
 	if err != nil {
-		return BlobResult{}, fmt.Errorf("read Go header: %w", err)
+		return BlobResult{}, fmt.Errorf("read content header: %w", err)
 	}
-	return inspectGoHeader(blob, name, contents), nil
+	return inspectContent(blob, name, contents), nil
 }
 
 func (c *Classifier) blobResult(name string) (BlobResult, bool, error) {
@@ -74,10 +74,10 @@ func (c *Classifier) blobResult(name string) (BlobResult, bool, error) {
 		return BlobResult{}, false, err
 	}
 	blob := BlobResult{Result: result}
-	return blob, strings.HasSuffix(name, ".go"), nil
+	return blob, contentType(name) != "", nil
 }
 
-func inspectGoHeader(blob BlobResult, name string, contents []byte) BlobResult {
+func inspectContent(blob BlobResult, name string, contents []byte) BlobResult {
 	blob.HeaderChecked = true
 	header := contents[:min(len(contents), MaxHeaderBytes)]
 	lines := 0
@@ -92,6 +92,13 @@ func inspectGoHeader(blob BlobResult, name string, contents []byte) BlobResult {
 	}
 	blob.HeaderLimited = len(header) < len(contents)
 	blob.BytesExamined = len(header)
+	if contentType(name) == "go" {
+		return inspectGoHeader(blob, name, header)
+	}
+	return inspectSourceHeader(blob, name, header)
+}
+
+func inspectGoHeader(blob BlobResult, name string, header []byte) BlobResult {
 	file := token.NewFileSet().AddFile(name, -1, len(header))
 	var lexer scanner.Scanner
 	lexer.Init(file, header, nil, scanner.ScanComments)

@@ -11,7 +11,7 @@ import (
 
 func TestRoleConstants(t *testing.T) {
 	declared := declaredRoles(t)
-	wantOrder := []Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration}
+	wantOrder := []Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration, Minified}
 	if !slices.Equal(roleOrder[:], wantOrder) {
 		t.Fatalf("role order = %v, want %v", roleOrder, wantOrder)
 	}

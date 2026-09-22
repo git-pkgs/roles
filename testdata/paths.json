@@ -2606,5 +2606,86 @@
   {
     "path": "pipeline.yml",
     "roles": []
+  },
+  {
+    "path": "src/service_pb2.py",
+    "roles": [
+      "source",
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ],
+    "sources": [
+      "roles"
+    ]
+  },
+  {
+    "path": "vendor/src/service.pb.go",
+    "roles": [
+      "source",
+      "vendor",
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ]
+  },
+  {
+    "path": "src/service_pb2_grpc.py",
+    "roles": [
+      "source",
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ],
+    "sources": [
+      "roles"
+    ]
+  },
+  {
+    "path": "service_pb2.pyi",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ],
+    "sources": [
+      "roles"
+    ]
+  },
+  {
+    "path": "service_pb2_grpc.pyi",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "protobuf"
+    ],
+    "sources": [
+      "roles"
+    ]
+  },
+  {
+    "path": "service_pb2.py.bak",
+    "roles": []
+  },
+  {
+    "path": "service.pb.go.bak",
+    "roles": []
+  },
+  {
+    "path": "service.proto",
+    "roles": []
+  },
+  {
+    "path": "service.pb.go/",
+    "roles": []
+  },
+  {
+    "path": "app.min.js/",
+    "roles": []
   }
 ]

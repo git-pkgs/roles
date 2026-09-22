@@ -37,9 +37,10 @@ const (
 	Packaging     Role = "packaging"
 	Tooling       Role = "tooling"
 	Configuration Role = "configuration"
+	Minified      Role = "minified"
 )
 
-var roleOrder = [...]Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration}
+var roleOrder = [...]Role{Source, Test, Fixture, Example, Benchmark, Fuzz, Vendor, Generated, BuildOutput, Cache, Documentation, Legal, Build, CI, Packaging, Tooling, Configuration, Minified}
 
 // Set is a compact collection of roles in corpus-defined order.
 type Set uint32

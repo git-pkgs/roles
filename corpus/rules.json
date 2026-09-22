@@ -2327,5 +2327,82 @@
     "pattern": ".teamcity",
     "role": "ci",
     "source": "linguist"
+  },
+  {
+    "id": "minified.suffix..min.js",
+    "kind": "suffix",
+    "pattern": ".min.js",
+    "role": "minified",
+    "source": "roles",
+    "subtype": "minified"
+  },
+  {
+    "id": "minified.suffix.-min.js",
+    "kind": "suffix",
+    "pattern": "-min.js",
+    "role": "minified",
+    "source": "roles",
+    "subtype": "minified"
+  },
+  {
+    "id": "minified.suffix..min.css",
+    "kind": "suffix",
+    "pattern": ".min.css",
+    "role": "minified",
+    "source": "roles",
+    "subtype": "minified"
+  },
+  {
+    "id": "minified.suffix.-min.css",
+    "kind": "suffix",
+    "pattern": "-min.css",
+    "role": "minified",
+    "source": "roles",
+    "subtype": "minified"
+  },
+  {
+    "id": "generated.suffix..pb.go",
+    "kind": "suffix",
+    "pattern": ".pb.go",
+    "role": "generated",
+    "source": "roles",
+    "subtype": "protobuf",
+    "ecosystem": "go"
+  },
+  {
+    "id": "generated.suffix._pb2.py",
+    "kind": "suffix",
+    "pattern": "_pb2.py",
+    "role": "generated",
+    "source": "roles",
+    "subtype": "protobuf",
+    "ecosystem": "python"
+  },
+  {
+    "id": "generated.suffix._pb2_grpc.py",
+    "kind": "suffix",
+    "pattern": "_pb2_grpc.py",
+    "role": "generated",
+    "source": "roles",
+    "subtype": "protobuf",
+    "ecosystem": "python"
+  },
+  {
+    "id": "generated.suffix._pb2.pyi",
+    "kind": "suffix",
+    "pattern": "_pb2.pyi",
+    "role": "generated",
+    "source": "roles",
+    "subtype": "protobuf",
+    "ecosystem": "python"
+  },
+  {
+    "id": "generated.suffix._pb2_grpc.pyi",
+    "kind": "suffix",
+    "pattern": "_pb2_grpc.pyi",
+    "role": "generated",
+    "source": "roles",
+    "subtype": "protobuf",
+    "ecosystem": "python"
   }
 ]

@@ -37,6 +37,32 @@ func TestRun(t *testing.T) {
 	}
 }
 
+func TestRunGeneratedAndMinifiedPaths(t *testing.T) {
+	for _, name := range []string{"src/app.min.js", "src/app-min.css", "src/service.pb.go", "src/service_pb2.py"} {
+		for _, labelsOnly := range []bool{false, true} {
+			args := []string{name}
+			if labelsOnly {
+				args = append([]string{labelsOnlyFlag}, args...)
+			}
+			var out bytes.Buffer
+			if err := run(args, &out); err != nil {
+				t.Fatal(err)
+			}
+			var got roles.Result
+			if err := json.Unmarshal(out.Bytes(), &got); err != nil {
+				t.Fatal(err)
+			}
+			want := []roles.Role{roles.Source, roles.Generated}
+			if strings.Contains(name, "app") {
+				want = append(want, roles.Minified)
+			}
+			if !slices.Equal(got.Roles, want) {
+				t.Fatalf("run(%v) = %v, want %v", args, got.Roles, want)
+			}
+		}
+	}
+}
+
 func TestRunJSONSchema(t *testing.T) {
 	var out bytes.Buffer
 	if err := run([]string{"LICENSE"}, &out); err != nil {
