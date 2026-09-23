@@ -18,8 +18,16 @@ calls, without asking a model to infer roles on every run.
 
 ## Installation
 
+Add the library to your Go module:
+
 ```sh
 go get github.com/git-pkgs/roles
+```
+
+Install the CLI:
+
+```sh
+go install github.com/git-pkgs/roles/cmd/roles@latest
 ```
 
 ## Use cases
@@ -382,6 +390,6 @@ claim for a complete repository scan.
 
 ## License
 
-Released under the [MIT License](LICENSE). See [NOTICE](NOTICE) for corpus
+[MIT](LICENSE). See [NOTICE](NOTICE) for corpus
 source attribution and modification details, including conventions adapted
 from GitHub's CC0-1.0 gitignore templates.
