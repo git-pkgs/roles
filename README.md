@@ -99,6 +99,11 @@ and notice files. Roles follow a fixed order; evidence follows ancestor order
 and then filename matches. A `source` role describes layout and does not
 establish compilability or authorship.
 
+A role set cannot establish whether a file is first-party code. `main.go`
+has no roles, and `scripts/deploy.py` has `tooling` without `source`.
+Requiring `source` would drop both from analysis, even when they were written
+for the project.
+
 ## Usage
 
 ```go
@@ -135,6 +140,14 @@ each accepted repository-relative path during their existing scan. This adds
 no file reads or evidence allocations and does not require a second traversal.
 `Match` supports concurrent calls; content analysis and directory exclusion
 policies remain with the caller.
+
+`Set.BundledOrDerived()` reports whether any of `vendor`, `fixture`, `cache`
+or `build-output` is present. Callers can use this grouping when filtering
+project evidence. `generated` alone does not qualify, so generated lockfiles
+remain eligible as dependency evidence. Test and tooling paths also remain
+eligible unless they carry one of those four roles. A false result does not
+establish first-party ownership, and callers scanning licences or security
+issues may still need files for which it returns true.
 
 Paths use `/` separators. A trailing slash denotes a directory, so `vendor/`
 is a vendor directory while `vendor` alone is a filename. Empty paths,
