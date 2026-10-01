@@ -63,6 +63,30 @@ func TestRunGeneratedAndMinifiedPaths(t *testing.T) {
 	}
 }
 
+func TestRunSourcePathRoles(t *testing.T) {
+	for name, want := range map[string][]roles.Role{
+		"app/src/main/java/org/example/App.java":          {roles.Source},
+		"examples/app/src/main/java/org/example/App.java": {roles.Source, roles.Example},
+		"src/test_app.py":           {roles.Source, roles.Test},
+		"src/zz_generated_types.go": {roles.Source, roles.Generated},
+		"features/steps.py":         {roles.Test},
+	} {
+		t.Run(name, func(t *testing.T) {
+			var out bytes.Buffer
+			if err := run([]string{labelsOnlyFlag, name}, &out); err != nil {
+				t.Fatal(err)
+			}
+			var got roles.Result
+			if err := json.Unmarshal(out.Bytes(), &got); err != nil {
+				t.Fatal(err)
+			}
+			if !slices.Equal(got.Roles, want) {
+				t.Fatalf("roles = %v, want %v", got.Roles, want)
+			}
+		})
+	}
+}
+
 func TestRunJSONSchema(t *testing.T) {
 	var out bytes.Buffer
 	if err := run([]string{"LICENSE"}, &out); err != nil {

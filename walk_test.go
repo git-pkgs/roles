@@ -107,6 +107,35 @@ func TestWalkMatchControl(t *testing.T) {
 	}
 }
 
+func TestWalkPackagePaths(t *testing.T) {
+	tree := fstest.MapFS{
+		"src/main/java/org/example/App.java":              {},
+		"src/test/java/org/example/AppTest.java":          {},
+		"examples/app/src/main/java/org/example/App.java": {},
+		"src/main/resources/examples/input.txt":           {},
+		"src/test_app.py":                                 {},
+		"src/zz_generated_types.go":                       {},
+	}
+	if err := roles.Walk(tree, roles.WalkOptions{}, func(name string, got roles.Result) error {
+		want, err := roles.Classify(name)
+		if err != nil || !reflect.DeepEqual(got, want) {
+			t.Fatalf("Walk(%q) = %+v, want %+v, error %v", name, got, want, err)
+		}
+		return nil
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := roles.WalkMatch(tree, roles.WalkOptions{}, func(name string, got roles.Set) error {
+		want, err := roles.Match(name)
+		if err != nil || got != want {
+			t.Fatalf("WalkMatch(%q) = %v, want %v, error %v", name, got.List(), want.List(), err)
+		}
+		return nil
+	}); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestWalkLimitsAndErrors(t *testing.T) {
 	tree := fstest.MapFS{"a/b/c.go": {}, "other.go": {}}
 	for _, opts := range []roles.WalkOptions{{MaxEntries: 1}, {MaxDepth: 1}} {

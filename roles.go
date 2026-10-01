@@ -221,8 +221,9 @@ func (c *Classifier) Classify(name string) (Result, error) {
 }
 
 type matchState struct {
-	set      Set
-	evidence []Evidence
+	set         Set
+	packagePath packagePathState
+	evidence    []Evidence
 }
 
 func (s matchState) result() Result {
@@ -257,7 +258,11 @@ func (c *Classifier) scan(name string, explain bool) matchState {
 }
 
 func (c *Classifier) directory(state *matchState, base, full string, explain bool) {
+	state.packagePath = state.packagePath.enter(base)
 	for _, r := range directoryRules[base] {
+		if state.packagePath == packageNamespace && r.Role == Example {
+			continue
+		}
 		state.add(r, full, explain)
 	}
 	for _, r := range foldedDirectories {
@@ -294,7 +299,7 @@ func matchFile(state *matchState, base, full string, explain bool) {
 		}
 	}
 	for _, r := range foldedPrefixes {
-		if prefixMatches(base, r.Pattern) {
+		if prefixMatches(base, r.Pattern) && prefixExtensionMatches(base, r.Extensions) {
 			state.add(r, full, explain)
 		}
 	}
@@ -317,6 +322,16 @@ func extensionMatches(ext string, extensions []string) bool {
 		if strings.EqualFold(ext, candidate) {
 			return true
 		}
+	}
+	return false
+}
+
+func prefixExtensionMatches(base string, extensions []string) bool {
+	if len(extensions) == 0 {
+		return true
+	}
+	if i := strings.LastIndexByte(base, '.'); i >= 0 {
+		return extensionMatches(base[i:], extensions)
 	}
 	return false
 }

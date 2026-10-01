@@ -31,6 +31,10 @@ func TestEveryRuleIsReachable(t *testing.T) {
 				name = "file" + name
 			case "stem-fold":
 				name += rule.Extensions[0]
+			case "prefix-fold":
+				if len(rule.Extensions) > 0 {
+					name += rule.Extensions[0]
+				}
 			}
 			got, err := roles.Classify(name)
 			if err != nil {

@@ -36,6 +36,7 @@ func WalkMatch(tree fs.FS, options WalkOptions, visit func(string, Set) error) e
 type ancestor struct {
 	path        string
 	set         Set
+	packagePath packagePathState
 	evidenceEnd int
 	incremental State
 }
@@ -112,7 +113,7 @@ func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit f
 		directory := entry.IsDir()
 		state, incremental := c.matchWalkEntry(directory, parentState, name[split+1:], name, evidence, explain)
 		if directory {
-			parents = append(parents, ancestor{path: name, set: state.set, evidenceEnd: len(state.evidence), incremental: incremental})
+			parents = append(parents, ancestor{path: name, set: state.set, packagePath: state.packagePath, evidenceEnd: len(state.evidence), incremental: incremental})
 			name += "/"
 		}
 		evidence = state.evidence
@@ -121,7 +122,7 @@ func (c *Classifier) walk(tree fs.FS, options WalkOptions, explain bool, visit f
 }
 
 func (c *Classifier) matchWalkEntry(directory bool, parent ancestor, base, full string, evidence []Evidence, explain bool) (matchState, State) {
-	state := matchState{set: parent.set, evidence: evidence[:parent.evidenceEnd]}
+	state := matchState{set: parent.set, packagePath: parent.packagePath, evidence: evidence[:parent.evidenceEnd]}
 	incremental := parent.incremental
 	switch {
 	case directory && explain:

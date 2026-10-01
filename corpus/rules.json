@@ -1,5 +1,38 @@
 [
   {
+    "id": "test.directory.features",
+    "kind": "directory",
+    "pattern": "features",
+    "role": "test",
+    "source": "roles"
+  },
+  {
+    "id": "test.prefix-fold.test_",
+    "kind": "prefix-fold",
+    "pattern": "test_",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "pypi",
+    "extensions": [".py"]
+  },
+  {
+    "id": "test.suffix._test.py",
+    "kind": "suffix",
+    "pattern": "_test.py",
+    "role": "test",
+    "source": "roles",
+    "ecosystem": "pypi"
+  },
+  {
+    "id": "generated.prefix-fold.zz_generated",
+    "kind": "prefix-fold",
+    "pattern": "zz_generated",
+    "role": "generated",
+    "source": "roles",
+    "ecosystem": "golang",
+    "extensions": [".go"]
+  },
+  {
     "id": "source.directory.src",
     "kind": "directory",
     "pattern": "src",

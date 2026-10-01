@@ -104,6 +104,33 @@ func TestStateRawNamesAndValidation(t *testing.T) {
 	}
 }
 
+func TestStatePackagePathKeys(t *testing.T) {
+	src, err := roles.RootState().Enter([]byte("src"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	java, err := src.Enter([]byte("java"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	other, err := src.Enter([]byte("other"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if java.Roles() != other.Roles() || java.Key() == other.Key() {
+		t.Fatal("package path context missing from state key")
+	}
+	for _, tc := range []struct {
+		state       roles.State
+		wantExample bool
+	}{{java, false}, {other, true}} {
+		next, err := tc.state.Enter([]byte("example"))
+		if err != nil || next.Roles().Has(roles.Example) != tc.wantExample {
+			t.Fatalf("example roles = %v, error %v", next.Roles().List(), err)
+		}
+	}
+}
+
 func TestStateAllocations(t *testing.T) {
 	src := []byte("src")
 	license := []byte("LICENSE")

@@ -15,6 +15,7 @@ type State struct {
 	set            Set
 	pathProgress   uint64
 	vendorProgress uint32
+	packagePath    packagePathState
 }
 
 // StateKey is a stable, comparable summary of the context that can affect
@@ -25,6 +26,7 @@ type StateKey struct {
 	set            Set
 	pathProgress   uint64
 	vendorProgress uint32
+	packagePath    packagePathState
 }
 
 type incrementalPath struct {
@@ -98,6 +100,7 @@ func (s State) Key() StateKey {
 		set:            s.set,
 		pathProgress:   s.pathProgress,
 		vendorProgress: s.vendorProgress,
+		packagePath:    s.packagePath,
 	}
 }
 
@@ -128,7 +131,11 @@ func validComponent(name []byte) error {
 }
 
 func matchDirectoryBytes(state *State, name []byte) {
+	state.packagePath = state.packagePath.enter(string(name))
 	for _, r := range directoryRules[string(name)] {
+		if state.packagePath == packageNamespace && r.Role == Example {
+			continue
+		}
 		state.set |= r.bit
 	}
 	for _, r := range foldedDirectories {
@@ -201,7 +208,7 @@ func matchFileBytes(state *matchState, base []byte) {
 		}
 	}
 	for _, r := range foldedPrefixes {
-		if prefixMatchesBytes(base, r.Pattern) {
+		if prefixMatchesBytes(base, r.Pattern) && prefixExtensionMatchesBytes(base, r.Extensions) {
 			state.set |= r.bit
 		}
 	}
@@ -309,7 +316,7 @@ func prefixMatchesBytes(name []byte, prefix string) bool {
 	if len(name) < len(prefix) {
 		return false
 	}
-	if len(name) > len(prefix) {
+	if len(name) > len(prefix) && !strings.HasSuffix(prefix, "_") {
 		switch name[len(prefix)] {
 		case '.', '-', '_':
 		default:
@@ -317,6 +324,18 @@ func prefixMatchesBytes(name []byte, prefix string) bool {
 		}
 	}
 	return equalFoldBytesString(name[:len(prefix)], prefix)
+}
+
+func prefixExtensionMatchesBytes(base []byte, extensions []string) bool {
+	if len(extensions) == 0 {
+		return true
+	}
+	for i := len(base) - 1; i >= 0; i-- {
+		if base[i] == '.' {
+			return extensionMatchesBytes(base[i:], extensions)
+		}
+	}
+	return false
 }
 
 func suffixMatchesBytes(base []byte, r *rule) bool {

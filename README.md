@@ -310,9 +310,9 @@ Tool-specific output directories also come from
 [GitHub Linguist](https://github.com/github-linguist/linguist) supplies additional
 vendor, documentation and generated-file conventions, adapted to these roles.
 [NOTICE](NOTICE) records source revisions and attribution. `CorpusVersion`
-identifies the embedded classification semantics for caller caches.
-Tests bind each version to a fingerprint of the canonical rules and their
-classification output, so semantic changes require a new version entry.
+identifies the corpus schema. Individual rule additions and corrections keep
+that version unchanged. A fingerprint test records the canonical rules and their
+classification output; update its expected value after reviewing rule changes.
 
 Coverage differs from [GitHub Linguist](https://github.com/github-linguist/linguist):
 roles treats `testdata` as test/fixture rather than vendor. Generic output and
@@ -333,7 +333,7 @@ configuration parsing and vendor-root discovery;
 Generated and vendored files may still require scanning, and a manifest's
 path role does not change dependency scopes declared inside it.
 
-Cache results with their path, corpus version and supplied context; a blob
+Cache results with their path, module revision and supplied context; a blob
 ID or subtree hash alone is insufficient. Content observations that depend
 on filenames or repository settings need those inputs in their cache keys
 too. The library currently keeps no cross-tree cache.

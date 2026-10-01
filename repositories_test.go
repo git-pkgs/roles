@@ -65,7 +65,7 @@ func TestRepositoryRoleSummaries(t *testing.T) {
 		"scrutineer": "5ad2901b03d706859df7130217e73634c5a2508e",
 	}
 	wantCounts := map[string]string{
-		"brief":      `{"build":5,"ci":3,"configuration":23,"documentation":3,"example":4,"fixture":106,"generated":3,"legal":2,"packaging":23,"source":29,"test":128}`,
+		"brief":      `{"build":5,"ci":3,"configuration":23,"documentation":3,"example":2,"fixture":106,"generated":3,"legal":2,"packaging":23,"source":29,"test":128}`,
 		"git-pkgs":   `{"ci":2,"configuration":3,"documentation":14,"fixture":9,"legal":7,"source":155,"test":79,"tooling":3}`,
 		"scrutineer": `{"ci":5,"configuration":4,"documentation":44,"fixture":21,"generated":8,"legal":2,"minified":8,"source":421,"test":193,"tooling":18,"vendor":9}`,
 	}

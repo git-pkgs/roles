@@ -52,7 +52,7 @@ func prefixMatches(name, prefix string) bool {
 	if len(name) < len(prefix) {
 		return false
 	}
-	if len(name) > len(prefix) {
+	if len(name) > len(prefix) && !strings.HasSuffix(prefix, "_") {
 		switch name[len(prefix)] {
 		case '.', '-', '_':
 		default:

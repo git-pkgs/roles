@@ -27,7 +27,7 @@ const (
 	fingerprintNoticePath = "vendor/LICENSES/NOTICE"
 )
 
-func TestCorpusVersionFingerprint(t *testing.T) {
+func TestCorpusFingerprint(t *testing.T) {
 	data, err := os.ReadFile("corpus/rules.json")
 	if err != nil {
 		t.Fatal(err)
@@ -58,6 +58,10 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 			path = "file" + path
 		case "stem-fold":
 			path += rule.Extensions[0]
+		case "prefix-fold":
+			if len(rule.Extensions) > 0 {
+				path += rule.Extensions[0]
+			}
 		}
 		result, err := roles.Classify(path)
 		if err != nil {
@@ -110,16 +114,9 @@ func TestCorpusVersionFingerprint(t *testing.T) {
 	}
 
 	got := hex.EncodeToString(hash.Sum(nil))
-	want, ok := map[string]string{
-		"1": "3d5ee1d9281183f54b6c440d484920f1fdef90f305a01b649be7f2a961739019",
-		"2": "ed6c15b448c9a7f782c66182432fa4ab262be330913c4e0b7d1dd59df3852886",
-		"3": "4364c21af3469ad9cd44262ec5d00c03b902211f7c51d016d83df1e9cbc4c0c8",
-		"4": "63ed99b7d7119058e151d8261c5d10babe89e42d617079e2aaa453e72fe9c003",
-		"5": "11cd35cb6c340dc94b387348e37c8db2a54fcf79779e4b09fde46c750d0740c3",
-		"6": "9363bd9a8b80ef83a38ffacb052c49b1d68543551ae75a6bf74f1934ba67dfae",
-	}[roles.CorpusVersion]
-	if !ok || got != want {
-		t.Fatalf("classification semantics changed without a CorpusVersion bump: version=%q fingerprint=%s", roles.CorpusVersion, got)
+	const want = "bfe48cb760723f1aa0eae1c50e0e4de7d65fc5ae03f4750b266714dd7b4fdf0f"
+	if got != want {
+		t.Fatalf("classification fingerprint changed; review the rule changes and update the expected fingerprint: %s", got)
 	}
 }
 

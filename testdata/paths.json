@@ -1,4 +1,23 @@
 [
+  {"path": "app/src/main/java/org/example/App.java", "roles": ["source"]},
+  {"path": "src/test/java/org/example/AppTest.java", "roles": ["source", "test"]},
+  {"path": "src/java/org/example/App.java", "roles": ["source"]},
+  {"path": "src/main/kotlin/org/example/App.kt", "roles": ["source"]},
+  {"path": "examples/app/src/main/java/org/example/App.java", "roles": ["source", "example"]},
+  {"path": "example/app/main.go", "roles": ["source", "example"]},
+  {"path": "src/example/main.go", "roles": ["source", "example"]},
+  {"path": "src/main/resources/examples/input.txt", "roles": ["source", "example"]},
+  {"path": "features/steps.py", "roles": ["test"]},
+  {"path": "src/test_app.py", "roles": ["source", "test"]},
+  {"path": "src/app_test.py", "roles": ["source", "test"]},
+  {"path": "src/test_app.py.bak", "roles": ["source"]},
+  {"path": "src/test_app.go", "roles": ["source"]},
+  {"path": "src/testing.py", "roles": ["source"]},
+  {"path": "src/zz_generated_types.go", "roles": ["source", "generated"]},
+  {"path": "src/zz_generated.go", "roles": ["source", "generated"]},
+  {"path": "src/zz_generated_types.go.bak", "roles": ["source"]},
+  {"path": "src/zz_generated_types.py", "roles": ["source"]},
+  {"path": "src/zz_generatedness.go", "roles": ["source"]},
   {
     "path": "LICENSE",
     "roles": [

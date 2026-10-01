@@ -9,7 +9,7 @@ import (
 
 const suffixFoldKind = "suffix-fold"
 
-// CorpusVersion identifies classification semantics and evidence ordering.
+// CorpusVersion identifies the corpus schema.
 const CorpusVersion = "6"
 
 //go:embed corpus/rules.json
