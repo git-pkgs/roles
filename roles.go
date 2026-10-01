@@ -133,6 +133,10 @@ func (r Result) Has(role Role) bool {
 	return false
 }
 
+// Set returns the labels as a bit set, for callers that cache them or combine
+// them with path-based Set results.
+func (r Result) Set() Set { return setOf(r.Roles) }
+
 // ErrInvalidPath indicates an absolute, unclean, empty, or NUL-containing path.
 var ErrInvalidPath = errors.New("expected a clean repository-relative path")
 
