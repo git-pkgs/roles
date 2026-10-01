@@ -72,6 +72,13 @@ func (s *Set) UnmarshalJSON(data []byte) error {
 // Has reports whether the set contains role. Unknown role names return false.
 func (s Set) Has(role Role) bool { return s&roleBit(role) != 0 }
 
+// BundledOrDerived reports whether the set contains Vendor, Fixture, Cache or
+// BuildOutput. Generated alone does not qualify. The result does not establish
+// ownership or whether a file is safe to skip.
+func (s Set) BundledOrDerived() bool {
+	return s.Has(Vendor) || s.Has(Fixture) || s.Has(Cache) || s.Has(BuildOutput)
+}
+
 // List returns the roles in deterministic order.
 func (s Set) List() []Role {
 	if s == 0 {

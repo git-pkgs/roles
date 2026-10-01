@@ -140,6 +140,56 @@ func TestEmptyResultJSON(t *testing.T) {
 	}
 }
 
+func TestBundledOrDerived(t *testing.T) {
+	for _, tc := range []struct {
+		path string
+		want bool
+	}{
+		{"vendor/sqlite/LICENSE", true},
+		{"vendor/lib/main.go", true},
+		{"fixtures/input.json", true},
+		{"testdata/package-lock.json", true},
+		{".pytest_cache/v/cache/nodeids", true},
+		{"CMakeFiles/app.dir/main.o", true},
+		{"main.go", false},
+		{"src/parser.go", false},
+		{"alembic.ini", false},
+		{"scripts/deploy.py", false},
+		{"tests/test_app.py", false},
+		{"internal/parser_test.go", false},
+		{"examples/client/main.go", false},
+		{"service.pb.go", false},
+		{"package-lock.json", false},
+		{"src/app.min.js", false},
+	} {
+		t.Run(tc.path, func(t *testing.T) {
+			set, err := roles.Match(tc.path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if got := set.BundledOrDerived(); got != tc.want {
+				t.Errorf("BundledOrDerived() = %v for roles %v, want %v", got, set.List(), tc.want)
+			}
+		})
+	}
+}
+
+func TestBundledOrDerivedVendorContext(t *testing.T) {
+	classifier, err := roles.New([]roles.VendorRoot{{Path: "deps/local"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, path := range []string{"deps/local/", "deps/local/src/lib.rs"} {
+		set, err := classifier.Match(path)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !set.BundledOrDerived() {
+			t.Errorf("configured vendor path %q did not qualify: %v", path, set.List())
+		}
+	}
+}
+
 func TestSetJSON(t *testing.T) {
 	set, err := roles.Match("vendor/LICENSES/NOTICE")
 	if err != nil {
