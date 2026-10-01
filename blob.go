@@ -33,6 +33,14 @@ func ClassifyBlob(name string, contents []byte) (BlobResult, error) {
 	return defaults.ClassifyBlob(name, contents)
 }
 
+// ClassifyPrefix adds content evidence from a prefix starting at file offset zero.
+// EOF is unknown, so an inspected prefix always has HeaderLimited set, even if
+// empty. At most MaxHeaderBytes and MaxHeaderLines are inspected.
+// Use ClassifyBlob when the contents are known to be complete.
+func ClassifyPrefix(name string, prefix []byte) (BlobResult, error) {
+	return defaults.ClassifyPrefix(name, prefix)
+}
+
 // ClassifyReader adds content evidence using bounded input.
 // It reads at most MaxHeaderBytes plus one byte used to detect truncation.
 func ClassifyReader(name string, reader io.Reader) (BlobResult, error) {
@@ -45,7 +53,16 @@ func (c *Classifier) ClassifyBlob(name string, contents []byte) (BlobResult, err
 	if err != nil || !inspect {
 		return blob, err
 	}
-	return inspectContent(blob, name, contents), nil
+	return inspectContent(blob, name, contents, false), nil
+}
+
+// ClassifyPrefix preserves this classifier's vendor-root context.
+func (c *Classifier) ClassifyPrefix(name string, prefix []byte) (BlobResult, error) {
+	blob, inspect, err := c.blobResult(name)
+	if err != nil || !inspect {
+		return blob, err
+	}
+	return inspectContent(blob, name, prefix, true), nil
 }
 
 // ClassifyReader preserves this classifier's vendor-root context while
@@ -65,7 +82,7 @@ func (c *Classifier) ClassifyReader(name string, reader io.Reader) (BlobResult, 
 	if err != nil {
 		return BlobResult{}, fmt.Errorf("read content header: %w", err)
 	}
-	return inspectContent(blob, name, contents), nil
+	return inspectContent(blob, name, contents, false), nil
 }
 
 func (c *Classifier) blobResult(name string) (BlobResult, bool, error) {
@@ -77,7 +94,7 @@ func (c *Classifier) blobResult(name string) (BlobResult, bool, error) {
 	return blob, contentType(name) != "", nil
 }
 
-func inspectContent(blob BlobResult, name string, contents []byte) BlobResult {
+func inspectContent(blob BlobResult, name string, contents []byte, truncated bool) BlobResult {
 	blob.HeaderChecked = true
 	header := contents[:min(len(contents), MaxHeaderBytes)]
 	lines := 0
@@ -90,7 +107,7 @@ func inspectContent(blob BlobResult, name string, contents []byte) BlobResult {
 			break
 		}
 	}
-	blob.HeaderLimited = len(header) < len(contents)
+	blob.HeaderLimited = truncated || len(header) < len(contents)
 	blob.BytesExamined = len(header)
 	if contentType(name) == "go" {
 		return inspectGoHeader(blob, name, header)
