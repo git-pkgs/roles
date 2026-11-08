@@ -5,6 +5,9 @@ Layout, CI, build and packaging conventions: git-pkgs/brief, revision e635e97536
 Named community documents adapt brief knowledge/_shared/_resources.toml:
 case-insensitive stems, selected extensions, matched at any depth.
 Manifest, lockfile and dependency-output names: git-pkgs/manifests, revision 498e486ae7355a910b15458f049a778a69398a89.
+APM manifest, lockfile and install-directory names: microsoft/apm, revision 2920043258932f0f67e6f01df7b9047eb42f358c.
+Sources: docs/src/content/docs/reference/manifest-schema.md and lockfile-spec.md.
+These rules use the roles source until git-pkgs/manifests records the names.
 Generated-file and dependency-directory conventions: github/gitignore,
 revision 356fd7baab4c05e092194a41f64dbd5afc8817e4, licensed CC0-1.0.
 Templates used: Python, Node, Sass, Autotools, CMake, Nextjs, Flutter, Gcov and C++.

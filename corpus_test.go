@@ -52,7 +52,6 @@ func TestManifestProvenance(t *testing.T) {
 		cargoEcosystem: {"Cargo.lock", "Cargo.toml"},
 		npmEcosystem:   {"package-lock.json", "yarn.lock", "pnpm-lock.yaml", packageJSON},
 		"composer":     {"composer.lock", "composer.json"},
-		"apm":          {"apm.lock.yaml", "apm.lock", "apm.yml"},
 		pypiEcosystem:  {"pyproject.toml", "setup.py", "setup.cfg"},
 		"gem":          {"roles.gemspec"},
 		"maven":        {"build.gradle", "build.gradle.kts", "pom.xml"},
@@ -70,6 +69,18 @@ func TestManifestProvenance(t *testing.T) {
 					}
 				}
 			})
+		}
+	}
+}
+
+func TestAPMProvenance(t *testing.T) {
+	for _, path := range []string{"apm.yml", "apm.lock.yaml", "apm.lock", "apm_modules/"} {
+		got, err := roles.Classify(path)
+		if err != nil || len(got.Evidence) != 1 {
+			t.Fatalf("Classify(%q) = %+v, %v", path, got, err)
+		}
+		if e := got.Evidence[0]; e.Source != "roles" || e.Ecosystem != "apm" {
+			t.Errorf("%s evidence = %+v, want roles source with apm ecosystem", path, e)
 		}
 	}
 }
