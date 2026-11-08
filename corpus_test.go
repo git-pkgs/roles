@@ -52,6 +52,7 @@ func TestManifestProvenance(t *testing.T) {
 		cargoEcosystem: {"Cargo.lock", "Cargo.toml"},
 		npmEcosystem:   {"package-lock.json", "yarn.lock", "pnpm-lock.yaml", packageJSON},
 		"composer":     {"composer.lock", "composer.json"},
+		"apm":          {"apm.lock.yaml", "apm.lock", "apm.yml"},
 		pypiEcosystem:  {"pyproject.toml", "setup.py", "setup.cfg"},
 		"gem":          {"roles.gemspec"},
 		"maven":        {"build.gradle", "build.gradle.kts", "pom.xml"},

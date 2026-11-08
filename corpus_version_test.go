@@ -114,7 +114,7 @@ func TestCorpusFingerprint(t *testing.T) {
 	}
 
 	got := hex.EncodeToString(hash.Sum(nil))
-	const want = "bfe48cb760723f1aa0eae1c50e0e4de7d65fc5ae03f4750b266714dd7b4fdf0f"
+	const want = "ae2ccb1d0a2f4a0089f9d21b0810ac4132a42453779a4449d8010c72b9840970"
 	if got != want {
 		t.Fatalf("classification fingerprint changed; review the rule changes and update the expected fingerprint: %s", got)
 	}

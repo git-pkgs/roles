@@ -286,9 +286,9 @@ including package directories in monorepos.
 CI filenames cover GitLab CI, Buildkite, Jenkins, Azure Pipelines, Drone
 and Travis CI alongside the GitHub Actions, CircleCI and `.buildkite` directories.
 Build conventions include Make, CMake, Meson, Autotools, Rake, Gradle and
-Maven. Packaging matches include Python setup files, Composer manifests
-and Ruby gemspecs. These are filename conventions; file contents can use
-those names for other purposes.
+Maven. Packaging matches include Python setup files, Composer manifests,
+APM manifests and Ruby gemspecs. These are filename conventions; file
+contents can use those names for other purposes.
 
 Generated dependency files include lockfiles for Bundler, Python tools,
 Swift, Gradle, NuGet and other package managers. Selected dependency
@@ -303,8 +303,8 @@ and GCC coverage files. Specific caches such as `.pytest_cache/`,
 `CMakeFiles/`, `.next/`, `.nuxt/` and `.svelte-kit/` receives `build-output`.
 These roles are additive with `generated`. Generic names such as `.cache/`,
 `build/`, `dist/` and `out/`, and virtual environments, receive no additional
-role. Bower, JSPM and vcpkg dependency directories receive `vendor` alongside
-any roles matched inside them.
+role. Bower, JSPM, vcpkg and APM (`apm_modules/`) dependency directories
+receive `vendor` alongside any roles matched inside them.
 
 Named minified JavaScript/CSS files, source maps and .NET designer files
 also receive `generated`. Source-map and designer suffixes accept mixed
