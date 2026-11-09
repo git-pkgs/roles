@@ -161,6 +161,9 @@ func TestBundledOrDerived(t *testing.T) {
 		{"service.pb.go", false},
 		{"package-lock.json", false},
 		{"src/app.min.js", false},
+		{"apm_modules/owner/repo/apm.yml", true},
+		{"apm.lock.yaml", false},
+		{"apm.yml", false},
 	} {
 		t.Run(tc.path, func(t *testing.T) {
 			set, err := roles.Match(tc.path)

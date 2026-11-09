@@ -55,6 +55,7 @@ func TestManifestProvenance(t *testing.T) {
 		pypiEcosystem:  {"pyproject.toml", "setup.py", "setup.cfg"},
 		"gem":          {"roles.gemspec"},
 		"maven":        {"build.gradle", "build.gradle.kts", "pom.xml"},
+		"apm":          {"apm.yml", "apm.lock.yaml", "apm.lock"},
 	} {
 		for _, name := range names {
 			t.Run(name, func(t *testing.T) {

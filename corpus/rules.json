@@ -885,6 +885,14 @@
     "ecosystem": "pypi"
   },
   {
+    "id": "packaging.filename.apm.yml",
+    "kind": "filename",
+    "pattern": "apm.yml",
+    "role": "packaging",
+    "source": "manifests",
+    "ecosystem": "apm"
+  },
+  {
     "id": "packaging.filename.composer.json",
     "kind": "filename",
     "pattern": "composer.json",
@@ -970,6 +978,24 @@
     "source": "manifests",
     "subtype": "lockfile",
     "ecosystem": "cran"
+  },
+  {
+    "id": "generated.filename.apm.lock.yaml",
+    "kind": "filename",
+    "pattern": "apm.lock.yaml",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "apm"
+  },
+  {
+    "id": "generated.filename.apm.lock",
+    "kind": "filename",
+    "pattern": "apm.lock",
+    "role": "generated",
+    "source": "manifests",
+    "subtype": "lockfile",
+    "ecosystem": "apm"
   },
   {
     "id": "generated.filename.shard.lock",
@@ -1929,6 +1955,14 @@
     "pattern": "jspm_packages",
     "role": "vendor",
     "source": "gitignore"
+  },
+  {
+    "id": "vendor.directory.apm_modules",
+    "kind": "directory",
+    "pattern": "apm_modules",
+    "role": "vendor",
+    "source": "roles",
+    "ecosystem": "apm"
   },
   {
     "id": "vendor.directory.vcpkg_installed",

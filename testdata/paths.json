@@ -1003,6 +1003,130 @@
     "roles": []
   },
   {
+    "path": "apm.yml",
+    "roles": [
+      "packaging"
+    ],
+    "sources": [
+      "manifests"
+    ]
+  },
+  {
+    "path": "packages/agents/apm.yml",
+    "roles": [
+      "packaging"
+    ]
+  },
+  {
+    "path": "examples/agent/apm.yml",
+    "roles": [
+      "example",
+      "packaging"
+    ]
+  },
+  {
+    "path": "apm.lock.yaml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ],
+    "sources": [
+      "manifests"
+    ]
+  },
+  {
+    "path": "packages/agents/apm.lock.yaml",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "apm.lock",
+    "roles": [
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "test/fixtures/apm.lock.yaml",
+    "roles": [
+      "test",
+      "fixture",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "apm_modules/",
+    "roles": [
+      "vendor"
+    ],
+    "sources": [
+      "roles"
+    ]
+  },
+  {
+    "path": "apm_modules/microsoft/apm-sample-package/apm.yml",
+    "roles": [
+      "vendor",
+      "packaging"
+    ]
+  },
+  {
+    "path": "apm_modules/microsoft/apm-sample-package/apm.lock.yaml",
+    "roles": [
+      "vendor",
+      "generated"
+    ],
+    "subtypes": [
+      "lockfile"
+    ]
+  },
+  {
+    "path": "apm_modules/owner/skills/.apm/skills/review/SKILL.md",
+    "roles": [
+      "vendor"
+    ]
+  },
+  {
+    "path": "packages/agents/apm_modules/owner/repo/apm.yml",
+    "roles": [
+      "vendor",
+      "packaging"
+    ]
+  },
+  {
+    "path": "apm.yml.bak",
+    "roles": []
+  },
+  {
+    "path": "apm.lock.yml",
+    "roles": []
+  },
+  {
+    "path": "apm_modules",
+    "roles": []
+  },
+  {
+    "path": "my_apm_modules/owner/repo/apm.yml",
+    "roles": [
+      "packaging"
+    ]
+  },
+  {
+    "path": "apm_modules.bak/notes.txt",
+    "roles": []
+  },
+  {
     "path": "Gemfile.lock",
     "roles": [
       "generated"
