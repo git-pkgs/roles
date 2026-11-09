@@ -55,6 +55,7 @@ func TestManifestProvenance(t *testing.T) {
 		pypiEcosystem:  {"pyproject.toml", "setup.py", "setup.cfg"},
 		"gem":          {"roles.gemspec"},
 		"maven":        {"build.gradle", "build.gradle.kts", "pom.xml"},
+		"apm":          {"apm.yml", "apm.lock.yaml", "apm.lock"},
 	} {
 		for _, name := range names {
 			t.Run(name, func(t *testing.T) {
@@ -69,23 +70,6 @@ func TestManifestProvenance(t *testing.T) {
 					}
 				}
 			})
-		}
-	}
-}
-
-func TestAPMProvenance(t *testing.T) {
-	for path, source := range map[string]string{
-		"apm.yml":       "manifests",
-		"apm.lock.yaml": "manifests",
-		"apm.lock":      "manifests",
-		"apm_modules/":  "roles",
-	} {
-		got, err := roles.Classify(path)
-		if err != nil || len(got.Evidence) != 1 {
-			t.Fatalf("Classify(%q) = %+v, %v", path, got, err)
-		}
-		if e := got.Evidence[0]; e.Source != source || e.Ecosystem != "apm" {
-			t.Errorf("%s evidence = %+v, want %s source with apm ecosystem", path, e, source)
 		}
 	}
 }
