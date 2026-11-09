@@ -889,7 +889,7 @@
     "kind": "filename",
     "pattern": "apm.yml",
     "role": "packaging",
-    "source": "roles",
+    "source": "manifests",
     "ecosystem": "apm"
   },
   {
@@ -984,7 +984,7 @@
     "kind": "filename",
     "pattern": "apm.lock.yaml",
     "role": "generated",
-    "source": "roles",
+    "source": "manifests",
     "subtype": "lockfile",
     "ecosystem": "apm"
   },
@@ -993,7 +993,7 @@
     "kind": "filename",
     "pattern": "apm.lock",
     "role": "generated",
-    "source": "roles",
+    "source": "manifests",
     "subtype": "lockfile",
     "ecosystem": "apm"
   },
